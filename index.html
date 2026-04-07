@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Excelia - Gano Excel Dashboard&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Inter', sans-serif; background-color: #0d1a32; color: #cbd5e1; margin: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar { width: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-border-cyan { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-border-blue { box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-border-red { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.neon-text-cyan { color: #22d3ee; text-shadow: 0 0 10px rgba(34, 211, 238, 0.8); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.active-link { background-color: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; color: white !important; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>aside a { transition: all 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="antialiased flex h-screen overflow-hidden"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;aside class="w-64 bg-[#111827] flex flex-col h-full border-r border-slate-800 flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="py-8 px-4 border-b border-slate-800 flex items-center justify-center min-h-[100px]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logwhite.png" alt="Logo" class="h-16 lg:h-20 w-auto object-contain"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="flex-1 p-4 space-y-2 overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="index.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3"&gt;🏠 Inicio&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="equipo.html" class="block p-3 text-slate-400 hover:bg-slate-800 rounded-lg flex items-center gap-3"&gt;👥 Mi Equipo&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="tienda.html" class="block p-3 text-slate-400 hover:bg-slate-800 rounded-lg flex items-center gap-3"&gt;🛒 Tienda&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="finanzas.html" class="block p-3 text-slate-400 hover:bg-slate-800 rounded-lg flex items-center gap-3"&gt;📊 Mis Finanzas&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="compensaciones.html" class="block p-3 text-slate-400 hover:bg-slate-800 rounded-lg flex items-center gap-3"&gt;💎 Compensaciones&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="herramientas.html" class="block p-3 text-slate-400 hover:bg-slate-800 rounded-lg flex items-center gap-3"&gt;🚀 Herramientas&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-4 border-t border-slate-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="block p-3 text-slate-500 hover:text-red-400 rounded-lg flex items-center gap-3"&gt;🚪 Salir&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/aside&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-[url('https://elimposhop.com/wp-content/uploads/2026/04/bg-grain-dark.jpg')] bg-cover"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="bg-[#0d1a32]/90 backdrop-blur-md border-b border-slate-700/50 p-4 flex justify-between items-center sticky top-0 z-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-2xl font-bold text-white"&gt;Dashboard&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="themeToggleBtn" class="p-2 bg-slate-800 rounded-full border border-slate-700 text-slate-400 hover:text-cyan-400 transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="themeIcon"&gt;🌙&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="hidden md:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[11px] text-emerald-400 font-bold uppercase whitespace-nowrap"&gt;Estado: Activo&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-[13px] text-slate-300 hidden lg:block tracking-wide whitespace-nowrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Buen día, &lt;span class="font-bold text-white"&gt;Ángela&lt;/span&gt;, ¡Tienes &lt;span class="font-bold neon-text-cyan"&gt;14 nuevos clics&lt;/span&gt; hoy! 🚀</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-cyan-400 border border-slate-600"&gt;AM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 lg:grid-cols-3 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 p-6 rounded-2xl shadow-xl neon-border-cyan"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs font-bold text-slate-400 uppercase mb-2"&gt;💰 Comisiones Ciclo&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-4xl font-bold text-white mb-4"&gt;$1,450.00 &lt;span class="text-lg text-slate-500 font-normal"&gt;USD&lt;/span&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;canvas id="chartComisiones" height="70"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 p-6 rounded-2xl shadow-xl neon-border-blue relative flex flex-col pt-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-center items-end gap-10 h-32 relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="w-12 bg-slate-800 rounded-lg h-28 flex items-end overflow-hidden border border-slate-700 shadow-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-full bg-cyan-500/80 shadow-[0_0_15px_rgba(6,182,212,0.4)] h-[90%]"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative w-12 bg-slate-800 rounded-lg h-28 flex items-end overflow-hidden border border-slate-700 shadow-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[9px] font-bold px-2 py-1 rounded shadow-lg whitespace-nowrap"&gt;Rama de cobro&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-full bg-cyan-500/80 shadow-[0_0_15px_rgba(6,182,212,0.4)] h-[80%]"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between mt-4 px-2 text-[10px] text-slate-400 font-bold uppercase tracking-widest"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;Izq: &lt;b class="text-white"&gt;900&lt;/b&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;Der: &lt;b class="text-white"&gt;850&lt;/b&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-right mt-4"&gt;&lt;a href="#" class="text-[10px] text-slate-500 hover:text-cyan-400 transition"&gt;Ver histórico &amp;rarr;&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 p-6 rounded-2xl shadow-xl neon-border-red flex flex-col items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-xs font-bold text-slate-400 uppercase self-start mb-4"&gt;🎯 Próximo Rango&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative w-28 h-28 flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;canvas id="chartRango"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="absolute text-2xl font-bold text-white"&gt;85%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm font-bold text-white mt-4"&gt;✨ Aprendiz Élite&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[10px] text-slate-500 uppercase"&gt;Faltan 150 CV&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-extrabold py-4 rounded-xl transition shadow-lg text-xs uppercase tracking-wider"&gt;🔗 Mi Link&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-xl border border-slate-700 text-xs uppercase"&gt;🛒 Pedido&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="bg-red-600 hover:bg-red-500 text-white font-extrabold py-4 rounded-xl shadow-lg text-xs uppercase"&gt;➕ Inscribir&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-xl border border-slate-700 text-xs uppercase"&gt;💳 Billetera&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Gráfico 1</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('chartComisiones'), { type: 'line', data: { labels: [1,2,3,4,5], datasets: [{ data: [1300, 1350, 1400, 1380, 1450], borderColor: '#06b6d4', borderWidth: 2, fill: false, tension: 0.4, pointRadius: 0 }] }, options: { plugins: { legend: { display: false } }, scales: { x: { display: false }, y: { display: false } }, maintainAspectRatio: false } });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Gráfico 2</p>
+<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('chartRango'), { type: 'doughnut', data: { datasets: [{ data: [85, 15], backgroundColor: ['#ef4444', '#1e293b'], borderWidth: 0 }] }, options: { cutout: '80%', plugins: { legend: { display: false } }, maintainAspectRatio: false } });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Lógica tema</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('themeToggleBtn').addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const icon = document.getElementById('themeIcon');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>icon.innerText = icon.innerText === '🌙' ? '☀️' : '🌙';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
