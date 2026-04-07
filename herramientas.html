@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Herramientas Corporativas - Excelia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0d1a32; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        
+        /* Efectos de brillo neón */
+        .neon-border-cyan { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+        .neon-border-emerald { box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+        .neon-border-purple { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+        
+        .neon-text-cyan { color: #22d3ee; text-shadow: 0 0 10px rgba(34, 211, 238, 0.8), 0 0 20px rgba(34, 211, 238, 0.4); }
+        .active-link { background-color: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; }
+
+        /* Ticker de Noticias */
+        @keyframes ticker-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-content { display: flex; width: fit-content; animation: ticker-marquee 40s linear infinite; }
+        .ticker-container:hover .ticker-content { animation-play-state: paused; }
+
+        /* Menú Móvil Deslizable */
+        .mobile-nav-scroll {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+    </style>
+</head>
+<body class="text-slate-300 antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-[#111827] text-slate-300 flex-col hidden md:flex h-full shadow-2xl z-10 border-r border-slate-800 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-800 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logwhite.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index.html" class="block p-3 hover:bg-slate-800 text-slate-400 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo.html" class="block p-3 hover:bg-slate-800 text-slate-400 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda.html" class="block p-3 hover:bg-slate-800 text-slate-400 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas.html" class="block p-3 hover:bg-slate-800 text-slate-400 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones.html" class="block p-3 hover:bg-slate-800 text-slate-400 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas.html" class="block p-3 active-link text-white rounded-r-lg font-semibold flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <a href="#" class="block p-3 hover:bg-slate-800 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-[url('https://elimposhop.com/wp-content/uploads/2026/04/bg-grain-dark.jpg')] bg-cover">
+        
+        <header class="bg-[#0d1a32]/90 backdrop-blur-md border-b border-slate-700/50 p-4 flex justify-between items-center sticky top-0 z-20">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logwhite.png" alt="Gano Excel" class="h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-white">Herramientas Corporativas</h1>
+            </div>
+
+            <div class="flex-1 flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="hidden md:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-400 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-emerald-500/70 font-normal normal-case">(semana de recompra 4)</span></span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button id="themeToggleBtn" class="hidden sm:flex w-10 h-10 flex-shrink-0 rounded-full bg-slate-800/80 items-center justify-center text-slate-400 hover:text-cyan-400 hover:bg-slate-700 transition border border-slate-600 shadow-[0_0_10px_rgba(6,182,212,0.1)] group" title="Cambiar tema">
+                    <svg id="iconSun" class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="iconMoon" class="w-5 h-5 hidden transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-10 h-10 flex-shrink-0 rounded-full border border-slate-600 shadow-[0_0_10px_rgba(6,182,212,0.2)] object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8 pb-36 md:pb-16">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 rounded-3xl p-8 shadow-2xl neon-border-cyan relative overflow-hidden group transition hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-cyan-900/10 blur-3xl opacity-50 group-hover:bg-cyan-900/30 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-cyan-500/10 rounded-full flex items-center justify-center mb-6 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                            <span class="text-4xl">📢</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white mb-3 uppercase tracking-wide">Información Importante</h2>
+                        <p class="text-slate-400 mb-8 text-sm">Mantente al día con los últimos comunicados, noticias y actualizaciones oficiales de la compañía.</p>
+                        <button class="mt-auto w-full bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-400 text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_15px_rgba(6,182,212,0.4)] transition uppercase tracking-wider text-sm">
+                            Ver Novedades
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 rounded-3xl p-8 shadow-2xl neon-border-emerald relative overflow-hidden group transition hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-emerald-900/10 blur-3xl opacity-50 group-hover:bg-emerald-900/30 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-6 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                            <span class="text-4xl">📁</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white mb-3 uppercase tracking-wide">Preguntas y Documentos</h2>
+                        <p class="text-slate-400 mb-8 text-sm">Accede al centro de ayuda y descarga los formatos, manuales y políticas de Gano Excel.</p>
+                        <button class="mt-auto w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 font-bold py-4 px-6 rounded-xl shadow-lg transition uppercase tracking-wider text-sm">
+                            Ver Documentos
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a1128]/80 backdrop-blur-sm border border-slate-700/60 rounded-3xl p-8 shadow-2xl neon-border-purple relative overflow-hidden group transition hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-purple-900/10 blur-3xl opacity-50 group-hover:bg-purple-900/30 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-purple-500/10 rounded-full flex items-center justify-center mb-6 border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <span class="text-4xl">🎯</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white mb-3 uppercase tracking-wide">Herramientas de Marketing</h2>
+                        <p class="text-slate-400 mb-8 text-sm">Descarga presentaciones oficiales (Servilletas) y material gráfico para impulsar tu negocio.</p>
+                        <button class="mt-auto w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 font-bold py-4 px-6 rounded-xl shadow-lg transition uppercase tracking-wider text-sm">
+                            Ver Presentaciones
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-[#0a1128]/95 backdrop-blur-md border-t border-slate-800 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index.html" class="mobile-nav-item flex flex-col items-center text-slate-500">
+                <span class="text-xl">🏠</span>
+                <span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo.html" class="mobile-nav-item flex flex-col items-center text-slate-500">
+                <span class="text-xl">👥</span>
+                <span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda.html" class="mobile-nav-item flex flex-col items-center text-slate-500">
+                <span class="text-xl">🛒</span>
+                <span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas.html" class="mobile-nav-item flex flex-col items-center text-slate-500">
+                <span class="text-xl">📊</span>
+                <span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+            <a href="compensaciones.html" class="mobile-nav-item flex flex-col items-center text-slate-500">
+                <span class="text-xl">💎</span>
+                <span class="text-[10px] font-semibold mt-1">Compensaciones</span>
+            </a>
+            <a href="herramientas.html" class="mobile-nav-item flex flex-col items-center text-cyan-400">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]">🚀</span>
+                <span class="text-[10px] font-semibold mt-1">Herram.</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="fixed bottom-[68px] md:bottom-0 left-0 md:left-64 w-full md:w-[calc(100%-16rem)] bg-[#111827] border-t border-slate-800 z-40 h-10 flex items-center overflow-hidden ticker-container shadow-[0_-5px_15px_rgba(0,0,0,0.3)]">
+        <div class="bg-red-600 text-white font-bold px-3 sm:px-4 py-2 h-full flex items-center z-10 shrink-0 text-[10px] sm:text-xs tracking-wider shadow-[5px_0_10px_rgba(0,0,0,0.5)]">
+            ÚLTIMAS NOTICIAS
+        </div>
+        <div class="flex-1 overflow-hidden h-full flex items-center relative">
+            <div class="ticker-content flex items-center text-xs text-slate-300 whitespace-nowrap">
+                <span class="mx-6"><b class="text-cyan-400">[Nuevas herramientas web]</b> Descubre las nuevas funcionalidades que tenemos para ti, ingresa a www.ganoexcel.com.co (13 de Marzo)</span>
+                <span class="text-slate-600">•</span>
+                <span class="mx-6"><b class="text-cyan-400">[¡Gano Excel Transforma tu vida!]</b> Haz clic aquí y conoce la historia de nuestro... (10 de Marzo)</span>
+                <span class="text-slate-600">•</span>
+                <span class="mx-6"><b class="text-cyan-400">[Convención Nacional 2026]</b> Prepárate para el evento más importante del año, boletas ya disponibles en www.ganoexcel.com.co (28 de Febrero)</span>
+                <span class="text-slate-600">•</span>
+                
+                <span class="mx-6"><b class="text-cyan-400">[Nuevas herramientas web]</b> Descubre las nuevas funcionalidades que tenemos para ti, ingresa a www.ganoexcel.com.co (13 de Marzo)</span>
+                <span class="text-slate-600">•</span>
+                <span class="mx-6"><b class="text-cyan-400">[¡Gano Excel Transforma tu vida!]</b> Haz clic aquí y conoce la historia de nuestro... (10 de Marzo)</span>
+                <span class="text-slate-600">•</span>
+                <span class="mx-6"><b class="text-cyan-400">[Convención Nacional 2026]</b> Prepárate para el evento más importante del año, boletas ya disponibles en www.ganoexcel.com.co (28 de Febrero)</span>
+                <span class="text-slate-600 pr-6"> </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const iconSun = document.getElementById('iconSun');
+        const iconMoon = document.getElementById('iconMoon');
+
+        themeBtn.addEventListener('click', () => {
+            iconSun.classList.toggle('hidden');
+            iconMoon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
