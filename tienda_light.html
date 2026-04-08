@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tienda - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        
+        /* Sombras estándar sobrias corporativas */
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .brand-card-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.03); }
+
+        .active-link { 
+            background-color: #eff6ff; 
+            border-left: 4px solid #1d4ed8; 
+            color: #1d4ed8 !important; 
+        }
+
+        /* Ticker de Noticias */
+        @keyframes ticker-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-content { display: flex; width: fit-content; animation: ticker-marquee 40s linear infinite; }
+        .ticker-container:hover .ticker-content { animation-play-state: paused; }
+
+        /* Menú Móvil Deslizable */
+        .mobile-nav-scroll {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Tienda Gano Excel</h1>
+            </div>
+
+            <div class="flex-1 flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="hidden md:flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(semana de recompra 4)</span></span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="tienda.html" class="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full bg-slate-50 items-center justify-center text-slate-500 hover:text-blue-700 hover:bg-slate-200 transition border border-slate-200 shadow-sm group" title="Cambiar a Modo Oscuro">
+                    <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </a>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8 pb-48 md:pb-16">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-blue-50 opacity-30 group-hover:opacity-50 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 border border-blue-100 shadow-sm">
+                            <span class="text-4xl">🛒</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Pedido en Línea</h2>
+                        <p class="text-slate-500 mb-8 text-sm">Realiza tus compras de productos Gano Excel de forma rápida y segura a través de nuestra plataforma virtual.</p>
+                        <button class="mt-auto w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded-xl shadow-md transition uppercase tracking-wider text-sm">
+                            Iniciar Pedido
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-slate-50 opacity-50 group-hover:opacity-100 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-6 border border-slate-200 shadow-sm">
+                            <span class="text-4xl">📋</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Historial de Pedidos</h2>
+                        <p class="text-slate-500 mb-8 text-sm">Consulta el estado, los detalles y las guías de seguimiento de todas tus compras y órdenes anteriores.</p>
+                        <button class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
+                            Ver Historial
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-emerald-50 opacity-30 group-hover:opacity-50 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-6 border border-emerald-100 shadow-sm">
+                            <span class="text-4xl">💳</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Transacciones PSE</h2>
+                        <p class="text-slate-500 mb-8 text-sm">Revisa el comprobante y verifica el estado de tus pagos realizados a través de la pasarela segura PSE.</p>
+                        <button class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
+                            Ver Transacciones
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-yellow-50 opacity-30 group-hover:opacity-50 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full items-center text-center">
+                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mb-6 border border-yellow-100 shadow-sm">
+                            <span class="text-4xl">💵</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Órdenes en Efectivo</h2>
+                        <p class="text-slate-500 mb-8 text-sm">Gestiona y verifica los pines y órdenes generadas para realizar tu pago en puntos en efectivo autorizados.</p>
+                        <button class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
+                            Lista de Órdenes
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🏠</span>
+                <span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">👥</span>
+                <span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(6,182,212,0.3)]">🛒</span>
+                <span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">📊</span>
+                <span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+            <a href="compensaciones_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">💎</span>
+                <span class="text-[10px] font-semibold mt-1">Compensaciones</span>
+            </a>
+            <a href="herramientas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🚀</span>
+                <span class="text-[10px] font-semibold mt-1">Herram.</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="fixed bottom-[68px] md:bottom-0 left-0 md:left-64 w-full md:w-[calc(100%-16rem)] bg-white border-t border-slate-100 z-40 h-10 flex items-center overflow-hidden ticker-container shadow-[0_-5px_15px_rgba(0,0,0,0.03)]">
+        <div class="bg-red-700 text-white font-bold px-3 sm:px-4 py-2 h-full flex items-center z-10 shrink-0 text-[10px] sm:text-xs tracking-wider uppercase">
+            ÚLTIMAS NOTICIAS
+        </div>
+        <div class="flex-1 overflow-hidden h-full flex items-center relative">
+            <div class="ticker-content flex items-center text-xs text-slate-600 whitespace-nowrap">
+                <span class="mx-6"><b class="text-blue-700">[Nuevas herramientas web]</b> Descubre las nuevas funcionalidades que tenemos para ti, ingresa a www.ganoexcel.com.co (13 de Marzo)</span>
+                <span class="text-slate-300">•</span>
+                <span class="mx-6"><b class="text-blue-700">[¡Gano Excel Transforma tu vida!]</b> Haz clic aquí y conoce la historia de nuestro... (10 de Marzo)</span>
+                <span class="text-slate-300">•</span>
+                <span class="mx-6"><b class="text-blue-700">[Convención Nacional 2026]</b> Prepárate para el evento más importante del año, boletas ya disponibles en www.ganoexcel.com.co (28 de Febrero)</span>
+                <span class="text-slate-300">•</span>
+                
+                <span class="mx-6"><b class="text-blue-700">[Nuevas herramientas web]</b> Descubre las nuevas funcionalidades que tenemos para ti, ingresa a www.ganoexcel.com.co (13 de Marzo)</span>
+                <span class="text-slate-300">•</span>
+                <span class="mx-6"><b class="text-blue-700">[¡Gano Excel Transforma tu vida!]</b> Haz clic aquí y conoce la historia de nuestro... (10 de Marzo)</span>
+                <span class="text-slate-300">•</span>
+                <span class="mx-6"><b class="text-blue-700">[Convención Nacional 2026]</b> Prepárate para el evento más importante del año, boletas ya disponibles en www.ganoexcel.com.co (28 de Febrero)</span>
+                <span class="text-slate-300 pr-6"> </span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
