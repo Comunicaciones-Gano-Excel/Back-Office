@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Árbol de Patrocinio - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+
+        /* Líneas del diagrama del árbol más suaves */
+        .tree-line-v { width: 2px; height: 24px; background-color: #e2e8f0; margin: 0 auto; }
+        .tree-line-h { position: absolute; top: 0; height: 2px; background-color: #e2e8f0; }
+        
+        /* Ajuste de nodos modernos */
+        .node-box {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border-radius: 16px; padding: 12px 8px; text-align: center;
+            position: relative; z-index: 10; transition: all 0.2s ease-in-out;
+        }
+        
+        /* Colores estilo White Mode */
+        .bg-node-root { background-color: #1d4ed8; color: white; border: 2px solid #eff6ff; box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2); }
+        .bg-node-occupied { background-color: #ffffff; color: #334155; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+        .bg-node-empty { background-color: #f8fafc; color: #64748b; border: 1px dashed #cbd5e1; }
+        .bg-node-sponsor { background-color: #ecfdf5; color: #047857; border: 2px dashed #34d399; cursor: pointer; }
+        .bg-node-sponsor:hover { background-color: #d1fae5; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1); }
+        .bg-node-na { background-color: #fef2f2; color: #ef4444; border: 1px solid #fee2e2; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:flex items-center gap-2 text-slate-800">
+                    <span class="text-blue-600">🌳</span> Árbol Binario
+                </h1>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+                <button class="hidden sm:flex items-center gap-2 bg-blue-50 text-blue-700 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-bold transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Mostrar Tutorial
+                </button>
+                <div class="hidden sm:flex text-right flex-col mr-2 border-l border-slate-200 pl-4">
+                    <span class="text-xs font-bold text-slate-800">ANGELA M. RICAURTE</span>
+                    <span class="text-[10px] text-slate-500">ID: 7341463</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 w-full space-y-6">
+            
+            <div class="bg-white p-5 rounded-2xl border border-slate-100 brand-card-shadow flex flex-col md:flex-row justify-between items-center gap-4">
+                
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Ajuste del Informe</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-semibold text-slate-700">Navegador de Ruta:</span>
+                            <select class="border border-slate-200 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-blue-500 bg-slate-50 text-slate-700 shadow-sm">
+                                <option>Seleccionar</option>
+                                <option>Extrema Izquierda</option>
+                                <option>Extrema Derecha</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <div class="flex w-full md:w-64 bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition">
+                        <input type="text" class="flex-1 bg-transparent px-3 py-2 outline-none text-sm text-slate-700" placeholder="Buscar ID o Nombre...">
+                        <button class="bg-slate-100 px-3 text-slate-500 hover:text-blue-600 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </div>
+                    <button class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 text-sm font-bold py-2 px-4 rounded-lg transition shadow-sm whitespace-nowrap">
+                        Volver al inicio
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow p-6 sm:p-10 overflow-x-auto relative">
+                
+                <div class="text-center mb-8">
+                    <p class="text-blue-600 text-xs font-semibold bg-blue-50 inline-block px-3 py-1 rounded-full border border-blue-100">
+                        💡 Haz clic en los nodos vacíos para patrocinar un nuevo afiliado
+                    </p>
+                </div>
+
+                <div class="min-w-[1200px] flex flex-col items-center select-none">
+                    
+                    <div class="flex justify-between w-[900px] mb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                            Extrema Izquierda
+                        </div>
+                        <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
+                            Extrema Derecha
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center w-full">
+                        <div class="node-box bg-node-root w-[450px]">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl mb-2 backdrop-blur-sm">👤</div>
+                            <p class="text-sm font-bold uppercase tracking-wide">ANGELA MARIA RICAURTE RAMIREZ</p>
+                            <p class="text-xs font-medium opacity-80 mt-1">ID: 7341463</p>
+                        </div>
+                        <div class="tree-line-v h-[30px]"></div>
+                    </div>
+
+                    <div class="flex relative w-[900px] justify-between">
+                        <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                        
+                        <div class="flex flex-col items-center w-1/2 px-2">
+                            <div class="tree-line-v h-[15px]"></div>
+                            <div class="node-box bg-node-occupied w-full h-[70px]">
+                                <div class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1">👤</div>
+                                <p class="text-[11px] font-bold text-slate-700 uppercase truncate w-full">JARIANA MARIA GOMEZ SANCHEZ</p>
+                                <p class="text-[10px] text-slate-500 mt-0.5">7344442</p>
+                            </div>
+                            <div class="flex justify-center mt-2">
+                                <span class="bg-slate-50 border border-slate-200 text-slate-500 text-[9px] px-2 py-1 rounded-full flex items-center gap-1 font-semibold">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg> Bajar (1) nivel
+                                </span>
+                            </div>
+                            <div class="tree-line-v h-[15px]"></div>
+                        </div>
+
+                        <div class="flex flex-col items-center w-1/2 px-2">
+                            <div class="tree-line-v h-[15px]"></div>
+                            <button onclick="openSponsorModal()" class="node-box bg-node-sponsor w-full h-[70px]">
+                                <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mb-1 text-emerald-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                                </div>
+                                <p class="text-[11px] font-bold">Patrocinar Aquí</p>
+                            </button>
+                            <div class="tree-line-v h-[30px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex relative w-[900px] justify-between">
+                        <div class="flex w-1/2 relative justify-between px-2">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            
+                            <div class="flex flex-col items-center w-1/2 px-1">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-occupied w-full h-[60px]">
+                                    <div class="w-5 h-5 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1 text-[10px]">👤</div>
+                                    <p class="text-[9px] font-bold text-slate-700 uppercase leading-tight truncate w-full">JOSE GABRIEL RICAURTE</p>
+                                    <p class="text-[9px] text-slate-500 mt-0.5">7353192</p>
+                                </div>
+                                <div class="tree-line-v"></div>
+                            </div>
+
+                            <div class="flex flex-col items-center w-1/2 px-1">
+                                <div class="tree-line-v"></div>
+                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor w-full h-[60px]">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mb-1 text-emerald-600">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                    </div>
+                                    <p class="text-[9px] font-bold">Patrocinar Aquí</p>
+                                </button>
+                                <div class="tree-line-v"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/2 relative justify-between px-2">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            
+                            <div class="flex flex-col items-center w-1/2 px-1">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-na w-full h-[60px]">
+                                    <svg class="w-5 h-5 text-red-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    <p class="text-[10px] font-bold">N/A</p>
+                                </div>
+                                <div class="tree-line-v"></div>
+                            </div>
+
+                            <div class="flex flex-col items-center w-1/2 px-1">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-na w-full h-[60px]">
+                                    <svg class="w-5 h-5 text-red-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    <p class="text-[10px] font-bold">N/A</p>
+                                </div>
+                                <div class="tree-line-v"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex relative w-[900px] justify-between">
+                        
+                        <div class="flex w-1/4 relative justify-between px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-occupied h-[50px]">
+                                    <div class="w-4 h-4 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1 text-[8px]">👤</div>
+                                    <p class="text-[7px] font-bold text-slate-700 truncate w-16">DIANA OSORIO</p>
+                                    <p class="text-[7px] text-slate-500">7366158</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[50px]">
+                                    <svg class="w-4 h-4 text-emerald-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                    <p class="text-[7px] font-bold">Patrocinar</p>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/4 relative justify-between px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/4 relative justify-between px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/4 relative justify-between px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-10">
+                    <button class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase px-6 py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition">
+                        Mostrar Todos Los Niveles
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="fixed bottom-0 left-0 md:left-64 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200 h-[60px] flex items-center justify-center gap-4 sm:gap-8 px-4 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest hidden md:block mr-4">Leyenda:</span>
+        
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+            <div class="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-sm">👤</div>
+            <span class="hidden sm:block">Nodo Actual</span>
+        </div>
+        
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+            <div class="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 text-slate-400 flex items-center justify-center shadow-sm">👤</div>
+            <span class="hidden sm:block">Ocupado</span>
+        </div>
+        
+        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-700">
+            <div class="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </div>
+            <span class="hidden sm:block">Disponible (Patrocinar)</span>
+        </div>
+        
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <div class="w-6 h-6 rounded-full bg-slate-50 border border-dashed border-slate-300 flex items-center justify-center">
+                <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+            </div>
+            <span class="hidden sm:block">No Disponible (N/A)</span>
+        </div>
+    </div>
+
+
+    <div id="sponsorModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col" id="sponsorModalContent">
+            
+            <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50 shrink-0">
+                <h2 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                    <span class="bg-emerald-100 text-emerald-600 w-8 h-8 rounded-full flex items-center justify-center">➕</span> Nuevo Patrocinio
+                </h2>
+                <button onclick="closeSponsorModal()" class="text-slate-400 hover:text-red-500 transition p-1 bg-white rounded-lg border border-slate-200 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5 bg-white">
+                <div class="text-center mb-6">
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Posición Seleccionada</p>
+                    <p class="text-2xl font-black text-blue-700">4785112-R</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">Acción a realizar</label>
+                    <select class="w-full border border-emerald-300 bg-emerald-50 text-emerald-800 rounded-xl px-4 py-3 text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm cursor-pointer">
+                        <option>Patrocinar a alguien en esta posición (Recomendado)</option>
+                    </select>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden text-sm shadow-sm">
+                    <div class="flex flex-col sm:flex-row border-b border-slate-100">
+                        <div class="sm:w-1/2 bg-slate-50 p-3 font-semibold text-slate-500 text-xs flex items-center">Cód. Patrocinador Registro</div>
+                        <div class="sm:w-1/2 p-3 font-bold text-slate-800">4785109</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row border-b border-slate-100">
+                        <div class="sm:w-1/2 bg-slate-50 p-3 font-semibold text-slate-500 text-xs flex items-center">Patrocinador Registro</div>
+                        <div class="sm:w-1/2 p-3 font-bold text-slate-800">ANDRES ALBARRAN SAS</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row border-b border-slate-100">
+                        <div class="sm:w-1/2 bg-slate-50 p-3 font-semibold text-slate-500 text-xs flex items-center">Cód. Patrocinador Colocación</div>
+                        <div class="sm:w-1/2 p-3 font-bold text-slate-800">4785112</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row">
+                        <div class="sm:w-1/2 bg-slate-50 p-3 font-semibold text-slate-500 text-xs flex items-center">Lado de Posición</div>
+                        <div class="sm:w-1/2 p-3 font-black text-blue-600 text-lg">DERECHA (R)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-5 border-t border-slate-100 bg-slate-50 flex justify-end gap-3">
+                <button onclick="closeSponsorModal()" class="w-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 px-6 py-3 rounded-xl font-bold shadow-sm transition text-sm">
+                    CANCELAR
+                </button>
+                <button onclick="goToCountryModal()" class="w-full bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-bold shadow-md transition uppercase tracking-widest text-sm">
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="countryModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col" id="countryModalContent">
+            
+            <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-slate-50 shrink-0">
+                <h2 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                    <span class="text-2xl">🌍</span> País de Residencia
+                </h2>
+                <button onclick="closeCountryModal()" class="text-slate-400 hover:text-red-500 transition p-1 bg-white rounded-lg border border-slate-200 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-4 bg-white text-sm text-slate-600 text-justify">
+                <p>
+                    Seleccione el país de residencia del Nuevo Vendedor Independiente. La vinculación y las políticas legales estarán basadas en el país que elija a continuación.
+                </p>
+                <div class="bg-yellow-50 text-yellow-800 p-4 rounded-xl border border-yellow-200 text-xs leading-relaxed flex gap-3">
+                    <span class="text-xl">⚠️</span>
+                    <p><span class="font-bold">Importante:</span> Nuestro sistema lo direccionará al portal del país seleccionado. Los envíos de productos y pagos de compensaciones se realizarán bajo la normativa de dicho país.</p>
+                </div>
+
+                <div class="pt-4">
+                    <label class="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">Seleccione el País *</label>
+                    <select id="countrySelect" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 bg-white shadow-sm cursor-pointer">
+                        <option value="" disabled selected>Elegir...</option>
+                        <option value="CO">🇨🇴 Colombia</option>
+                        <option value="US">🇺🇸 Estados Unidos</option>
+                        <option value="MX">🇲🇽 Mexico</option>
+                        <option value="PR">🇵🇷 Puerto Rico</option>
+                        <option value="CA">🇨🇦 Canada</option>
+                        <option value="DO">🇩🇴 Dominican Republic</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="p-5 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row gap-3">
+                <button onclick="window.location.href='nuevas_afiliaciones_light.html'" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold shadow-md transition uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+                    COMENZAR AFILIACIÓN <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sModal = document.getElementById('sponsorModal');
+        const sModalContent = document.getElementById('sponsorModalContent');
+        const cModal = document.getElementById('countryModal');
+        const cModalContent = document.getElementById('countryModalContent');
+
+        function openSponsorModal() {
+            sModal.classList.remove('hidden');
+            setTimeout(() => {
+                sModal.classList.remove('opacity-0');
+                sModalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeSponsorModal() {
+            sModal.classList.add('opacity-0');
+            sModalContent.classList.add('scale-95');
+            setTimeout(() => { sModal.classList.add('hidden'); }, 300);
+        }
+
+        function goToCountryModal() {
+            closeSponsorModal();
+            setTimeout(() => {
+                cModal.classList.remove('hidden');
+                setTimeout(() => {
+                    cModal.classList.remove('opacity-0');
+                    cModalContent.classList.remove('scale-95');
+                }, 10);
+            }, 300);
+        }
+
+        function closeCountryModal() {
+            cModal.classList.add('opacity-0');
+            cModalContent.classList.add('scale-95');
+            setTimeout(() => { cModal.classList.add('hidden'); }, 300);
+        }
+    </script>
+</body>
+</html>
