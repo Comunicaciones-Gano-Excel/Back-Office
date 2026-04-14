@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pago Afiliación - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        
+        .input-field {
+            width: 100%; border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.625rem 1rem;
+            font-size: 0.875rem; outline: none; transition: all 0.2s; background-color: #ffffff; color: #334155;
+        }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .input-readonly { background-color: #f1f5f9; color: #64748b; cursor: not-allowed; border-color: #e2e8f0; font-weight: 600;}
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <h1 class="text-xl font-bold text-slate-800 hidden sm:flex items-center gap-2">
+                    <span class="text-red-600">👤+</span> Nuevas Afiliaciones
+                </h1>
+            </div>
+
+            <button onclick="window.location.href='index_light.html'" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red-600 transition bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+                Cancelar / Cerrar <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full space-y-6 pb-24">
+            
+            <div class="flex bg-white rounded-2xl border border-slate-100 brand-card-shadow overflow-hidden divide-x divide-slate-100">
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Iniciar</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                </div>
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Suscripción</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                </div>
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center hidden sm:block">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Afiliación</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                </div>
+                <div class="flex-1 bg-red-600 text-white p-4 text-center hidden md:block relative overflow-hidden">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Pago</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-red-600 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs shadow-inner">4</div>
+                </div>
+                <div class="flex-1 bg-slate-50 text-slate-400 p-4 text-center hidden lg:block">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Confirmar</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-slate-200 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs text-slate-400">5</div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow overflow-hidden">
+                
+                <div class="border-b border-slate-100">
+                    <div class="bg-slate-600 text-white px-6 py-3">
+                        <h2 class="font-bold text-sm tracking-wide uppercase">Seleccionar Pago y Envío</h2>
+                    </div>
+                    <div class="p-4 sm:p-6 bg-slate-50 text-slate-600 text-xs sm:text-sm">
+                        Revise la información de su pedido que aparece a continuación y seleccione el método de envío que desea utilizar para recibir su pedido (s). Adicionalmente, deberá proporcionar su información de pago para continuar con el siguiente paso.
+                    </div>
+                </div>
+
+                <div class="border-b border-slate-100">
+                    <div class="bg-slate-600 text-white px-6 py-3 border-t-4 border-white">
+                        <h2 class="font-bold text-sm tracking-wide uppercase">Información de la Compra</h2>
+                    </div>
+                    <div class="p-6 sm:p-8 space-y-6 bg-white">
+                        <p class="text-slate-500 text-xs">
+                            A continuación se muestra el resumen de las opciones de producto seleccionado por usted en el paso 2, para el pedido que se encuentra en proceso. Por favor, seleccione el método de envío que desea utilizar para el pedido en proceso.
+                        </p>
+
+                        <div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs whitespace-nowrap">
+                                    <thead class="bg-slate-100 text-slate-600 font-bold border-b border-slate-200 uppercase tracking-wider">
+                                        <tr>
+                                            <th class="p-4 text-center">Código</th>
+                                            <th class="p-4">Descripción</th>
+                                            <th class="p-4 text-right">Precio unitario (antes imp)</th>
+                                            <th class="p-4 text-center">PV</th>
+                                            <th class="p-4 text-center">CV</th>
+                                            <th class="p-4 text-center">Cantidad</th>
+                                            <th class="p-4 text-center">PV / CV</th>
+                                            <th class="p-4 text-right">Precio Total (antes imp)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr class="hover:bg-slate-50 transition">
+                                            <td class="p-4 text-center text-slate-500">898</td>
+                                            <td class="p-4 font-bold text-slate-800">ESP 2</td>
+                                            <td class="p-4 text-right text-slate-600">$1,890,756.30</td>
+                                            <td class="p-4 text-center"><span class="bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-bold">250.0</span></td>
+                                            <td class="p-4 text-center"><span class="bg-blue-50 text-blue-700 px-2 py-1 rounded font-bold">250.0</span></td>
+                                            <td class="p-4 text-center font-bold">1</td>
+                                            <td class="p-4 text-center text-slate-500">250.00/250.00</td>
+                                            <td class="p-4 text-right font-bold text-slate-800">$1,890,756.30</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition">
+                                            <td class="p-4 text-center text-slate-500">80200</td>
+                                            <td class="p-4 font-medium text-slate-600">Business Kit (Gratis para Nueva Afiliación)</td>
+                                            <td class="p-4 text-right text-slate-600">$0.01</td>
+                                            <td class="p-4 text-center"><span class="bg-slate-100 text-slate-500 px-2 py-1 rounded font-semibold">0.0</span></td>
+                                            <td class="p-4 text-center"><span class="bg-slate-100 text-slate-500 px-2 py-1 rounded font-semibold">0.0</span></td>
+                                            <td class="p-4 text-center font-bold">1</td>
+                                            <td class="p-4 text-center text-slate-500">0.00/0.00</td>
+                                            <td class="p-4 text-right font-bold text-slate-800">$0.01</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-slate-50 border-t border-slate-200">
+                                <div class="flex justify-between items-center p-3 border-b border-slate-100 px-6">
+                                    <span class="font-bold text-slate-700 text-sm">Total PV</span>
+                                    <span class="font-bold text-slate-800">250</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 border-b border-slate-100 px-6">
+                                    <span class="font-bold text-slate-700 text-sm">Total CV</span>
+                                    <span class="font-bold text-slate-800">250</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-blue-50/50 px-6">
+                                    <span class="font-black text-slate-800 text-sm uppercase tracking-wider">Subtotal (antes de impuesto)</span>
+                                    <span class="font-black text-blue-700 text-lg">$ 1,890,756.31</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16 pt-4">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center">
+                                    <div class="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <input type="radio" name="shipping" class="hidden" checked>
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-blue-700 transition">📦 Envío a Domicilio</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <div class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center group-hover:border-blue-400 transition">
+                                </div>
+                                <input type="radio" name="shipping" class="hidden">
+                                <span class="text-sm font-semibold text-slate-600 group-hover:text-blue-700 transition">🏢 Reclamar en Oficina</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-slate-600 text-white px-6 py-3 border-t-4 border-white">
+                        <h2 class="font-bold text-sm tracking-wide uppercase">Información para el Pago</h2>
+                    </div>
+                    
+                    <div class="p-6 sm:p-8 space-y-6 bg-slate-50/30">
+                        <p class="text-slate-500 text-xs">
+                            A continuación deberá diligenciar y seleccionar la información asociada a la tarjeta de crédito que será utilizada para el pago de la presente orden y la cual fue reportada por el tarjetahabiente ante su entidad financiera.
+                        </p>
+
+                        <label class="flex items-center gap-3 cursor-pointer hover:bg-slate-100 p-2 rounded-lg transition inline-flex">
+                            <input type="checkbox" id="useHomeAddress" class="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                            <span class="text-sm font-semibold text-slate-700">Usar mi dirección de domicilio</span>
+                        </label>
+
+                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 space-y-3 shadow-inner">
+                            <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
+                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
+                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
+                                <div class="bg-slate-300 text-slate-600 font-bold px-4 py-2 rounded-lg">#</div>
+                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
+                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
+                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
+                            </div>
+                            <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
+                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
+                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
+                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
+                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
+                            </div>
+                            <div>
+                                <input type="text" class="input-field" placeholder="Dirección de Domicilio">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                                <select class="input-field"><option>Departamento</option></select>
+                                <select class="input-field"><option>Ciudad/Municipio</option></select>
+                            </div>
+                            <div>
+                                <input type="text" class="input-field" placeholder="País">
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl border border-blue-100 shadow-sm space-y-4 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-blue-50 text-blue-600 font-black px-4 py-1 rounded-bl-xl text-xs uppercase tracking-wider">
+                                Datos de la Tarjeta
+                            </div>
+                            
+                            <div class="pt-4">
+                                <input type="text" class="input-field" placeholder="Nombre del tarjetahabiente">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                                <div class="md:col-span-6">
+                                    <input type="text" class="input-field font-mono" placeholder="Número de la tarjeta de crédito">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <input type="password" class="input-field text-center tracking-widest" placeholder="CVV" maxlength="4">
+                                </div>
+                                <div class="md:col-span-4 flex items-center gap-3">
+                                    <label class="text-sm font-bold text-slate-700 whitespace-nowrap">Número de Cuotas:</label>
+                                    <select class="input-field flex-1"><option>1</option><option>2</option><option>3</option><option>6</option><option>12</option></select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <select class="input-field"><option>Seleccione Mes de Vencimiento</option><option>01 - Enero</option><option>02 - Febrero</option></select>
+                                <select class="input-field"><option>Seleccione año de vencimiento</option><option>2026</option><option>2027</option></select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                <button onclick="window.location.href='formulario_afiliacion_light.html'" class="w-full sm:w-auto bg-white border border-slate-300 text-slate-600 hover:bg-slate-50 font-bold px-10 py-3 rounded-xl transition uppercase tracking-wider text-sm shadow-sm">
+                    Anterior
+                </button>
+                <button onclick="window.location.href='confirmacion_afiliacion_light.html'" class="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-bold px-12 py-3 rounded-xl shadow-md transition uppercase tracking-widest text-sm transform hover:-translate-y-0.5">
+                    Siguiente
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
