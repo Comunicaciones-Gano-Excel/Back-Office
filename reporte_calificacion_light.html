@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Resumen de Calificación - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        .table-sticky-header th { position: sticky; top: 0; z-index: 10; background-color: #f8fafc; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .input-field { border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; outline: none; transition: all 0.2s; background-color: #ffffff; color: #334155; }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Reportes</h1>
+            </div>
+
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex text-right flex-col mr-2">
+                    <span class="text-xs font-bold text-slate-800">ANDRES ALBARRAN SAS</span>
+                    <span class="text-[10px] text-slate-500">ID: 4785109</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 brand-card-shadow flex flex-col space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <div class="flex items-center gap-3">
+                        <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 hover:bg-blue-50 transition shadow-sm flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                                <span class="text-blue-600">⭐</span> Resumen de Calificación
+                            </h2>
+                            <p class="text-xs text-slate-500 hidden sm:block">Historial de calificaciones estructurales por ciclo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                    <label class="text-sm font-bold text-slate-600 whitespace-nowrap">Selecciones Mes o Ciclo:</label>
+                    <select class="input-field cursor-pointer font-semibold w-full sm:w-64 bg-slate-50">
+                        <option value="2026" selected>Seleccione el año</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden flex flex-col">
+                <div class="overflow-x-auto w-full max-h-[600px] overflow-y-auto relative flex-1">
+                    <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap table-sticky-header">
+                        <thead class="text-slate-600 font-bold border-b border-slate-200 shadow-sm uppercase tracking-wider text-[10px] sm:text-xs">
+                            <tr>
+                                <th class="p-4 pl-6 text-center w-24"># Ciclo</th>
+                                <th class="p-4 text-center">Fecha Ciclo</th>
+                                <th class="p-4 text-center">Calif. Rango</th>
+                                <th class="p-4 text-center">PV</th>
+                                <th class="p-4 text-center" title="Inscritos Activos (Izda. / Dcha.)">Inscritos Activos <span class="font-normal normal-case">(I/D)</span></th>
+                                <th class="p-4 text-right">GCV Intl.</th>
+                                <th class="p-4 text-center">Rama de Pago</th>
+                                <th class="p-4 text-center">% Binario</th>
+                                <th class="p-4 text-center">AEs</th>
+                                <th class="p-4 text-center">Oros</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 bg-white">
+                            
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-4 pl-6 text-center">
+                                    <button onclick="openCalificacionModal()" class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">904</button>
+                                </td>
+                                <td class="p-4 text-center text-slate-600 font-medium">03/30/2026 - 04/05/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">605</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">163,095.65</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">903</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">03/23/2026 - 03/29/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">210</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">4/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">173,674.95</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">902</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">03/16/2026 - 03/22/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">210</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">4/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">115,241.55</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">901</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">03/09/2026 - 03/15/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">210</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">4/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">119,574.50</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">900</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">03/02/2026 - 03/08/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">105</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">4/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">128,918.60</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">899</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">02/23/2026 - 03/01/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">105</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">143,883.55</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">898</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">02/16/2026 - 02/22/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">240</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">129,087.15</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">897</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">02/09/2026 - 02/15/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">135</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">136,660.60</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">896</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">02/02/2026 - 02/08/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">135</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">129,409.20</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">895</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">01/26/2026 - 02/01/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">135</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">150,779.50</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">894</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">01/19/2026 - 01/25/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">240</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/10</td>
+                                <td class="p-4 text-right font-black text-slate-800">126,061.80</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">893</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">01/12/2026 - 01/18/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">240</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">116,502.95</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">9</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">892</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">01/05/2026 - 01/11/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">105</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/11</td>
+                                <td class="p-4 text-right font-black text-slate-800">120,185.05</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">8</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6 text-center"><button class="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-md shadow-sm hover:bg-blue-600 hover:text-white transition-all w-full">891</button></td>
+                                <td class="p-4 text-center text-slate-600 font-medium">12/29/2025 - 01/04/2026</td>
+                                <td class="p-4 text-center font-bold text-slate-800">Diamante Royal</td>
+                                <td class="p-4 text-center font-bold text-emerald-600">207</td>
+                                <td class="p-4 text-center font-semibold text-slate-700">3/12</td>
+                                <td class="p-4 text-right font-black text-slate-800">92,395.75</td>
+                                <td class="p-4 text-center font-bold text-slate-600">I</td>
+                                <td class="p-4 text-center font-bold text-blue-600">18%</td>
+                                <td class="p-4 text-center font-bold text-slate-700">10</td>
+                                <td class="p-4 text-center font-bold text-yellow-600">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-center shrink-0">
+                    <nav class="flex items-center gap-1.5 shadow-sm bg-white border border-slate-200 rounded-lg p-1">
+                        <button class="px-3 py-1.5 text-slate-400 hover:text-blue-600 font-bold transition rounded-md">&laquo;</button>
+                        <button class="px-3.5 py-1.5 bg-blue-600 text-white rounded-md font-bold shadow-sm text-sm">1</button>
+                        <button class="px-3.5 py-1.5 text-slate-600 hover:bg-slate-100 rounded-md font-bold transition text-sm">2</button>
+                        <button class="px-3 py-1.5 text-slate-400 hover:text-blue-600 font-bold transition rounded-md">&raquo;</button>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span></a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span></a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span></a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700"><span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">💎</span><span class="text-[10px] font-semibold mt-1">Compensaciones</span></a>
+        </div>
+    </nav>
+
+
+    <div id="calificacionModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        
+        <div class="bg-slate-50 rounded-2xl w-full max-w-6xl h-[90vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300 overflow-hidden" id="calificacionModalContent">
+            
+            <div class="flex justify-between items-center p-5 border-b border-slate-200 bg-white shrink-0">
+                <div>
+                    <h2 class="font-black text-slate-800 text-lg uppercase tracking-wide flex items-center gap-2">
+                        <span class="text-blue-600">📊</span> DETALLE DE CALIFICACIÓN
+                    </h2>
+                    <p class="text-xs font-bold text-slate-500 mt-1">Período: 03/30/2026 - 04/05/2026 (Ciclo #904)</p>
+                </div>
+                <button onclick="closeCalificacionModal()" class="flex items-center gap-1 bg-slate-100 text-slate-500 hover:text-red-500 hover:bg-red-50 font-bold text-sm px-4 py-2 rounded-lg border border-slate-200 transition shadow-sm">
+                    Cerrar <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-8">
+                
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-800 text-white px-5 py-2.5 font-bold text-xs tracking-widest uppercase">Resumen General</div>
+                    <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">Afiliado:</span> <span class="font-bold text-slate-800">ANDRES ALBARRAN SAS (4785109)</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">Rango/Título:</span> <span class="font-bold text-slate-800">Diamante Royal</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">País de origen:</span> <span class="font-bold text-slate-800">Colombia</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">Rango Pagado (904):</span> <span class="font-bold text-emerald-600">Diamante Royal</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">Porcentaje Binario (%):</span> <span class="font-bold text-blue-700 bg-blue-50 px-2 rounded">18</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="font-semibold text-slate-500">Rama de Pago Binario Intl. :</span> <span class="font-bold text-slate-800">I</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2 md:col-span-2"><span class="font-semibold text-slate-500">ESP Calificado:</span> <span class="font-bold text-slate-800">ESP-3</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex justify-between items-center">
+                        <span>Volumen Personal</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">605 PV</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs whitespace-nowrap">
+                            <thead class="bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
+                                <tr><th class="p-3"># Orden</th><th class="p-3">País</th><th class="p-3">Vendedor Independiente</th><th class="p-3 text-center">Fecha Act.</th><th class="p-3 text-center">Total PV</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-mono text-slate-500">6293610</td><td class="p-3 font-semibold">Colombia</td><td class="p-3">ANDRES ALBARRAN SAS (4785109)</td><td class="p-3 text-center">03/30/2026</td><td class="p-3 text-center font-bold text-emerald-600">500</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-mono text-slate-500">6273272</td><td class="p-3 font-semibold">Colombia</td><td class="p-3">ANDRES ALBARRAN SAS (4785109)</td><td class="p-3 text-center">03/09/2026</td><td class="p-3 text-center font-bold text-emerald-600">105</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                        <span>Afiliaciones Personales (Activas)</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs w-fit">3 (Izquierda) / 10 (Derecha)</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                        <div>
+                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Izquierda</div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs whitespace-nowrap">
+                                    <thead class="text-slate-400 font-bold border-b border-slate-100"><tr><th class="p-2">ID</th><th class="p-2">Nombre</th><th class="p-2 text-right pr-4">PV</th></tr></thead>
+                                    <tbody class="divide-y divide-slate-50">
+                                        <tr><td class="p-2 font-mono">4785132</td><td class="p-2 font-semibold">GRUPO EMPRESARIAL H & D SAS</td><td class="p-2 text-right font-bold text-blue-600 pr-4">614</td></tr>
+                                        <tr><td class="p-2 font-mono">4852282</td><td class="p-2 font-semibold">HENRY PATIÑO RINCON</td><td class="p-2 text-right font-bold text-blue-600 pr-4">551</td></tr>
+                                        <tr><td class="p-2 font-mono">6520382</td><td class="p-2 font-semibold">ERICKSON GIOVANNY GARCIA LEANDRO</td><td class="p-2 text-right font-bold text-blue-600 pr-4">130</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Derecha</div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs whitespace-nowrap">
+                                    <thead class="text-slate-400 font-bold border-b border-slate-100"><tr><th class="p-2 pl-4">ID</th><th class="p-2">Nombre</th><th class="p-2 text-right pr-4">PV</th></tr></thead>
+                                    <tbody class="divide-y divide-slate-50">
+                                        <tr><td class="p-2 pl-4 font-mono">4814289</td><td class="p-2 font-semibold">JOHN JAIRO GAVIRIA VALLECILLA</td><td class="p-2 text-right font-bold text-blue-600 pr-4">60</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">4815024</td><td class="p-2 font-semibold">RENE GARCIA SAS</td><td class="p-2 text-right font-bold text-blue-600 pr-4">622</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">4831392</td><td class="p-2 font-semibold">DENISSE MICHELLY CASTILLA SILVA</td><td class="p-2 text-right font-bold text-blue-600 pr-4">64</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">7139385</td><td class="p-2 font-semibold">MARIA NEUBELLY VALLECILLA DE GAVIRIA</td><td class="p-2 text-right font-bold text-blue-600 pr-4">128</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">7239306</td><td class="p-2 font-semibold">CP & R ASOCIADOS SAS</td><td class="p-2 text-right font-bold text-blue-600 pr-4">111</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">7382043</td><td class="p-2 font-semibold">AMALIA ROSA REYES ALVAREZ</td><td class="p-2 text-right font-bold text-blue-600 pr-4">51</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">7425855</td><td class="p-2 font-semibold">CARLOS ANDRES CICERY GIRALDO</td><td class="p-2 text-right font-bold text-blue-600 pr-4">105</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">7508939</td><td class="p-2 font-semibold">RICARDO GARZON FORERO</td><td class="p-2 text-right font-bold text-blue-600 pr-4">53</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">8435013</td><td class="p-2 font-semibold">James Mosquera</td><td class="p-2 text-right font-bold text-blue-600 pr-4">145</td></tr>
+                                        <tr><td class="p-2 pl-4 font-mono">8465416</td><td class="p-2 font-semibold">EFREN SANCHEZ</td><td class="p-2 text-right font-bold text-blue-600 pr-4">153</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                        <span>Volumen Comisional Grupal (GCV)</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs w-fit">163,095.57 (Izquierdo)</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                        <div>
+                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Izquierda</div>
+                            <div class="overflow-x-auto max-h-64 overflow-y-auto">
+                                <table class="w-full text-left text-xs whitespace-nowrap">
+                                    <thead class="text-slate-400 font-bold border-b border-slate-100 sticky top-0 bg-white"><tr><th class="p-2 pl-4">Origen</th><th class="p-2 text-right pr-4">Total CV</th></tr></thead>
+                                    <tbody class="divide-y divide-slate-50">
+                                        <tr><td class="p-2 pl-4 font-semibold">Bolivia</td><td class="p-2 text-right font-bold text-slate-700 pr-4">103.20</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Brazil</td><td class="p-2 text-right font-bold text-slate-700 pr-4">1,516.20</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Canada</td><td class="p-2 text-right font-bold text-slate-700 pr-4">217.59</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Chile</td><td class="p-2 text-right font-bold text-slate-700 pr-4">169.59</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Colombia</td><td class="p-2 text-right font-black text-emerald-600 pr-4">46,389.29</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Ecuador</td><td class="p-2 text-right font-black text-emerald-600 pr-4">89,138.80</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">El Salvador</td><td class="p-2 text-right font-bold text-slate-700 pr-4">57.00</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Guatemala</td><td class="p-2 text-right font-bold text-slate-700 pr-4">390.60</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Mexico</td><td class="p-2 text-right font-black text-emerald-600 pr-4">7,156.59</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Panama</td><td class="p-2 text-right font-black text-emerald-600 pr-4">10,912.89</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Peru</td><td class="p-2 text-right font-bold text-slate-700 pr-4">157.18</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Derecha</div>
+                            <div class="overflow-x-auto max-h-64 overflow-y-auto">
+                                <table class="w-full text-left text-xs whitespace-nowrap">
+                                    <thead class="text-slate-400 font-bold border-b border-slate-100 sticky top-0 bg-white"><tr><th class="p-2 pl-4">Origen</th><th class="p-2 text-right pr-4">Total CV</th></tr></thead>
+                                    <tbody class="divide-y divide-slate-50">
+                                        <tr><td class="p-2 pl-4 font-semibold">Brazil</td><td class="p-2 text-right font-bold text-slate-700 pr-4">46.50</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Canada</td><td class="p-2 text-right font-bold text-slate-700 pr-4">769.60</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Chile</td><td class="p-2 text-right font-bold text-slate-700 pr-4">1,591.78</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Colombia</td><td class="p-2 text-right font-black text-emerald-600 pr-4">120,348.10</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Costa Rica</td><td class="p-2 text-right font-bold text-slate-700 pr-4">187.09</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Ecuador</td><td class="p-2 text-right font-black text-emerald-600 pr-4">41,762.58</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Guatemala</td><td class="p-2 text-right font-bold text-slate-700 pr-4">212.00</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Mexico</td><td class="p-2 text-right font-black text-emerald-600 pr-4">8,875.98</td></tr>
+                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Panama</td><td class="p-2 text-right font-black text-emerald-600 pr-4">1,429.99</td></tr>
+                                        <tr><td class="p-2 pl-4 font-semibold">Peru</td><td class="p-2 text-right font-bold text-slate-700 pr-4">156.18</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-800 text-white px-5 py-2.5 font-bold text-sm tracking-wide">
+                        GCV 4 Semanas Consecutivas (Internacional)
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center">
+                        <div class="p-4 bg-slate-100/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">03/30 - 04/05/2026</p>
+                            <p class="text-xs text-slate-400 mb-2">Ciclo #904</p>
+                            <p class="text-xl font-black text-slate-800">162,368.90</p>
+                        </div>
+                        <div class="p-4 bg-slate-100/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">03/23 - 03/29/2026</p>
+                            <p class="text-xs text-slate-400 mb-2">Ciclo #903</p>
+                            <p class="text-xl font-black text-slate-800">173,051.90</p>
+                        </div>
+                        <div class="p-4 bg-slate-100/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">03/16 - 03/22/2026</p>
+                            <p class="text-xs text-slate-400 mb-2">Ciclo #902</p>
+                            <p class="text-xl font-black text-slate-800">114,695.95</p>
+                        </div>
+                        <div class="p-4 bg-slate-100/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">03/09 - 03/15/2026</p>
+                            <p class="text-xs text-slate-400 mb-2">Ciclo #901</p>
+                            <p class="text-xl font-black text-slate-800">116,399.90</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex justify-between">
+                            <span>AE Calificados + piernas</span>
+                            <span class="bg-slate-800 text-white px-2 py-0.5 rounded text-xs">9 / 9</span>
+                        </div>
+                        <div class="overflow-x-auto max-h-64 overflow-y-auto">
+                            <table class="w-full text-left text-xs whitespace-nowrap">
+                                <thead class="bg-slate-50 text-slate-500 font-bold sticky top-0"><tr><th class="p-3">Nombre</th><th class="p-3 text-center">Rango</th><th class="p-3 text-center">AE+ por Línea</th></tr></thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">ANDRES ALBARRAN SAS (BC# 3)</td><td class="p-3 text-center text-slate-500">Aprendiz Elite</td><td class="p-3 text-center font-bold text-blue-600">1</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">GRUPO EMPRESARIAL H & D SAS</td><td class="p-3 text-center text-slate-500">Diamante Corona</td><td class="p-3 text-center font-bold text-blue-600">561</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">DENISSE MICHELLY CASTILLA SILVA</td><td class="p-3 text-center text-slate-500">Diamante Ejecutivo</td><td class="p-3 text-center font-bold text-blue-600">2</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">ANDRES ALBARRAN SAS (BC# 2)</td><td class="p-3 text-center text-slate-500">Oro</td><td class="p-3 text-center font-bold text-blue-600">9</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">CARLOS ANDRES CICERY GIRALDO</td><td class="p-3 text-center text-slate-500">Oro</td><td class="p-3 text-center font-bold text-blue-600">8</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">JOHN JAIRO GAVIRIA VALLECILLA</td><td class="p-3 text-center text-slate-500">Platino</td><td class="p-3 text-center font-bold text-blue-600">1</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">HENRY PATIÑO RINCON</td><td class="p-3 text-center text-slate-500">Platino</td><td class="p-3 text-center font-bold text-blue-600">7</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">RENE GARCIA SAS</td><td class="p-3 text-center text-slate-500">Diamante Royal</td><td class="p-3 text-center font-bold text-blue-600">757</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-semibold text-slate-700">James Mosquera</td><td class="p-3 text-center text-slate-500">Plata</td><td class="p-3 text-center font-bold text-blue-600">1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex justify-between">
+                            <span>Líneas de Patrocinio de Oro</span>
+                            <span class="bg-yellow-500 text-white px-2 py-0.5 rounded text-xs">2</span>
+                        </div>
+                        <div class="overflow-x-auto max-h-64 overflow-y-auto">
+                            <table class="w-full text-left text-xs whitespace-nowrap">
+                                <thead class="bg-slate-50 text-slate-500 font-bold sticky top-0"><tr><th class="p-3">Nombre</th><th class="p-3 text-center">Rango</th><th class="p-3 text-center">Oro+ por línea</th></tr></thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr class="hover:bg-yellow-50/50"><td class="p-3 font-bold text-slate-800">GRUPO EMPRESARIAL H & D SAS</td><td class="p-3 text-center text-slate-500">Diamante Corona</td><td class="p-3 text-center font-black text-yellow-600">19</td></tr>
+                                    <tr class="hover:bg-yellow-50/50"><td class="p-3 font-bold text-slate-800">RENE GARCIA SAS</td><td class="p-3 text-center text-slate-500">Diamante Royal</td><td class="p-3 text-center font-black text-yellow-600">30</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal de Calificación Estructural
+        const cModal = document.getElementById('calificacionModal');
+        const cModalContent = document.getElementById('calificacionModalContent');
+
+        function openCalificacionModal() {
+            cModal.classList.remove('hidden');
+            setTimeout(() => {
+                cModal.classList.remove('opacity-0');
+                cModalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeCalificacionModal() {
+            cModal.classList.add('opacity-0');
+            cModalContent.classList.add('scale-95');
+            setTimeout(() => { cModal.classList.add('hidden'); }, 300);
+        }
+    </script>
+</body>
+</html>
