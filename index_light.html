@@ -54,6 +54,10 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             z-index: 50;
         }
+
+        /* Ocultar barra de desplazamiento para el Slider de Promociones */
+        .hide-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+        .hide-scroll::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased flex h-screen overflow-hidden">
@@ -318,6 +322,34 @@
                 </div>
             </div>
 
+            <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden mt-6 group">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        <span>📢</span> Promociones Activas
+                    </h2>
+                    <div class="flex gap-2">
+                        <button onclick="document.getElementById('promoSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="document.getElementById('promoSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="promoSlider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll scroll-smooth pb-2">
+                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo2343.jpg" alt="Promoción 1" class="w-full h-auto object-cover rounded-xl">
+                    </a>
+                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo23423423.jpg" alt="Promoción 2" class="w-full h-auto object-cover rounded-xl">
+                    </a>
+                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo456567654.jpg" alt="Promoción 3" class="w-full h-auto object-cover rounded-xl">
+                    </a>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -399,6 +431,36 @@
             data: { labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'], datasets: [{ label: 'GCV Generado', data: [2000, 2500, 3100, 3900], borderColor: ganoBlue, borderWidth: 3, pointBackgroundColor: '#ffffff', pointBorderColor: ganoBlue, pointBorderWidth: 2, pointRadius: 4, fill: 'origin', backgroundColor: (ctx) => { const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300); gradient.addColorStop(0, 'rgba(29, 78, 216, 0.15)'); gradient.addColorStop(1, 'rgba(29, 78, 216, 0.0)'); return gradient; }, tension: 0.4 }] },
             options: { plugins: { legend: { display: false } }, scales: { x: { grid: { color: gridColor, drawBorder: false }, ticks: { color: slateTypo } }, y: { grid: { color: gridColor, drawBorder: false }, ticks: { color: slateTypo } } }, maintainAspectRatio: false }
         });
+
+        // ---- NUEVO: Auto-scroll para Promociones Activas ----
+        const promoSlider = document.getElementById('promoSlider');
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                if (promoSlider) {
+                    const maxScroll = promoSlider.scrollWidth - promoSlider.clientWidth;
+                    // Si llegó al final (con un pequeño margen de error), vuelve al inicio
+                    if (promoSlider.scrollLeft >= maxScroll - 5) {
+                        promoSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        // Desplaza hacia la derecha
+                        promoSlider.scrollBy({ left: promoSlider.clientWidth > 320 ? 320 : promoSlider.clientWidth, behavior: 'smooth' });
+                    }
+                }
+            }, 4000); // Cambia cada 4 segundos
+        }
+
+        // Iniciar el slider automáticamente
+        startAutoScroll();
+
+        // Pausar si el usuario pone el mouse/dedo encima
+        if(promoSlider) {
+            promoSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+            promoSlider.addEventListener('mouseleave', startAutoScroll);
+            promoSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
+            promoSlider.addEventListener('touchend', startAutoScroll);
+        }
     </script>
 </body>
 </html>
