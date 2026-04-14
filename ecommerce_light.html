@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mi Sitio E-commerce - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .brand-card-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.03); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        
+        .copy-input { border: 1px solid #cbd5e1; background-color: #f8fafc; color: #475569; padding: 0.75rem 1rem; border-radius: 0.5rem; outline: none; width: 100%; font-family: monospace; font-size: 0.875rem; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Herramientas</h1>
+            </div>
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="mi_cuenta_light.html" class="profile-trigger">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover hover:border-blue-600 transition-colors">
+                </a>
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 brand-card-shadow flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 hover:bg-blue-50 transition shadow-sm flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="text-blue-600">🌐</span> Mi Sitio Web E-commerce
+                        </h2>
+                        <p class="text-xs text-slate-500 hidden sm:block mt-1">Gestiona tu tienda online personal, comparte tus enlaces y revisa tus estadísticas de ventas e inscripciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 sm:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 text-8xl pointer-events-none">💻</div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-lg">Tu Enlace Principal</h3>
+                                <p class="text-xs text-slate-500">Comparte este link general para que tus prospectos exploren tus productos y oportunidad.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                            <input type="text" readonly value="https://shop.ganoexcel.com.co/albarran47" class="copy-input flex-1 focus:ring-2 focus:ring-blue-200">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-sm whitespace-nowrap flex items-center justify-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                Copiar Link
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3 pt-4 border-t border-slate-100">
+                            <button class="text-sm font-semibold text-slate-600 hover:text-blue-700 bg-slate-50 hover:bg-blue-50 border border-slate-200 px-4 py-2 rounded-lg transition flex items-center gap-2">
+                                📱 Obtener Código QR
+                            </button>
+                            <button class="text-sm font-semibold text-slate-600 hover:text-blue-700 bg-slate-50 hover:bg-blue-50 border border-slate-200 px-4 py-2 rounded-lg transition flex items-center gap-2">
+                                ✏️ Personalizar URL
+                            </button>
+                            <button class="text-sm font-semibold text-slate-600 hover:text-blue-700 bg-slate-50 hover:bg-blue-50 border border-slate-200 px-4 py-2 rounded-lg transition flex items-center gap-2">
+                                🔄 Redireccionar Sitio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-slate-800 mb-1 flex items-center gap-2">🎯 Enlaces Directos</h3>
+                        <p class="text-xs text-slate-500 mb-6">Envía a tus prospectos exactamente a lo que necesitan.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition cursor-pointer group">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="font-bold text-emerald-700 text-sm flex items-center gap-2">🛒 Venta al por menor</h4>
+                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </div>
+                                <p class="text-xs text-slate-500">Link directo al catálogo de compras.</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition cursor-pointer group">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="font-bold text-purple-700 text-sm flex items-center gap-2">📝 Formulario de Inscripción</h4>
+                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-purple-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </div>
+                                <p class="text-xs text-slate-500">Link directo para nuevos afiliados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <h3 class="font-black text-slate-800 text-lg mb-4 uppercase tracking-wide flex items-center gap-2">
+                    📊 Analítica de tu Sitio Web
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">Tráfico del Sitio Web</h4>
+                            <p class="text-xs text-slate-500 mb-4 h-8">¿Cuántas personas están visitando tu sitio y qué páginas ven más?</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 mb-4">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">Visitas este mes</p>
+                                <p class="text-2xl font-black text-blue-700">142 <span class="text-xs text-emerald-500 font-bold ml-1">+12%</span></p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-600 font-bold py-2.5 rounded-xl transition text-sm">
+                            Ver Informe Detallado
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">Pedidos por Internet</h4>
+                            <p class="text-xs text-slate-500 mb-4 h-8">Visualiza el volumen de ventas a través de tu sitio web personal y artículos más vendidos.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 mb-4">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">Ventas al por menor</p>
+                                <p class="text-2xl font-black text-emerald-700">3 <span class="text-xs text-slate-500 font-normal ml-1">órdenes</span></p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-white border border-slate-200 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 text-slate-600 font-bold py-2.5 rounded-xl transition text-sm">
+                            Ver Informe Detallado
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform">
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-1">Estadísticas de Inscripción</h4>
+                            <p class="text-xs text-slate-500 mb-4 h-8">¡Verifica si tus esfuerzos de reclutamiento online están dando resultados!</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 mb-4">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">Nuevos Socios (Mes)</p>
+                                <p class="text-2xl font-black text-purple-700">1 <span class="text-xs text-slate-500 font-normal ml-1">afiliado</span></p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-white border border-slate-200 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-700 text-slate-600 font-bold py-2.5 rounded-xl transition text-sm">
+                            Ver Informe Detallado
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">📊</span><span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+            <a href="compensaciones_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">💎</span><span class="text-[10px] font-semibold mt-1">Compensaciones</span>
+            </a>
+            <a href="herramientas_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">🚀</span><span class="text-[10px] font-semibold mt-1">Herram.</span>
+            </a>
+        </div>
+    </nav>
+
+</body>
+</html>
