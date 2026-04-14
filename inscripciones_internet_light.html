@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Estadísticas de Inscripción - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        
+        .input-field { border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; outline: none; transition: all 0.2s; background-color: #ffffff; color: #334155; }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .table-sticky-header th { position: sticky; top: 0; z-index: 10; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Herramientas</h1>
+            </div>
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex text-right flex-col mr-2">
+                    <span class="text-xs font-bold text-slate-800">ANDRES ALBARRAN SAS</span>
+                    <span class="text-[10px] text-slate-500">ID: 4785109</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 brand-card-shadow flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <button onclick="window.location.href='ecommerce_light.html'" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-purple-700 hover:bg-purple-50 transition shadow-sm flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="text-purple-600">📝</span> Estadísticas de Inscripción
+                        </h2>
+                        <p class="text-xs text-slate-500 hidden sm:block mt-1">Verifica si tus esfuerzos de prospección y enlaces de inscripción están dando resultados.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Desde:</label>
+                        <input type="date" value="2026-04-01" class="input-field py-1.5 px-3">
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Hasta:</label>
+                        <input type="date" value="2026-04-14" class="input-field py-1.5 px-3">
+                    </div>
+                    <button class="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white font-bold py-1.5 px-4 rounded-lg shadow-sm transition text-xs uppercase tracking-wider">
+                        Filtrar
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 brand-card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 text-5xl">👥</div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Nuevos Socios (Período)</p>
+                    <h3 class="text-3xl font-black text-slate-800">4</h3>
+                    <p class="text-xs text-slate-500 mt-2 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-purple-500"></span> Exitosamente registrados</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 brand-card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Volumen Personal (PV) Generado</p>
+                    <h3 class="text-2xl font-black text-slate-800">1,350 <span class="text-sm font-normal text-slate-400">PV</span></h3>
+                    <p class="text-xs text-blue-600 font-bold mt-2">Aportado por nuevos ingresos</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-purple-200 brand-card-shadow relative overflow-hidden bg-purple-50/30">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
+                    <p class="text-[10px] font-bold text-purple-600 uppercase tracking-wider mb-1">Paquete Más Popular</p>
+                    <h3 class="text-2xl font-black text-purple-700">ESP 3</h3>
+                    <p class="text-xs text-purple-600 mt-2">50% de tus inscripciones</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 brand-card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tasa de Conversión Link</p>
+                    <h3 class="text-2xl font-black text-slate-800">4.5%</h3>
+                    <p class="text-xs text-emerald-600 font-bold mt-2 flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg> Alto rendimiento
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden flex flex-col">
+                <div class="bg-slate-800 text-white px-6 py-4 flex items-center justify-between">
+                    <h3 class="font-bold text-xs tracking-widest uppercase">Historial de Nuevos Afiliados (Web)</h3>
+                    <button class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded transition font-medium">Exportar Excel</button>
+                </div>
+                
+                <div class="overflow-x-auto w-full">
+                    <table class="w-full text-left whitespace-nowrap table-sticky-header">
+                        <thead class="bg-slate-50 text-slate-500 font-bold border-b border-slate-200 text-[10px] uppercase tracking-wider">
+                            <tr>
+                                <th class="p-4 pl-6">Fecha / Hora</th>
+                                <th class="p-4">Nuevo Socio</th>
+                                <th class="p-4">Paquete Comprado</th>
+                                <th class="p-4 text-center">PV</th>
+                                <th class="p-4 text-center">Ubicación (Rama)</th>
+                                <th class="p-4 text-center pr-6">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6">
+                                    <p class="font-bold text-slate-800">13/04/2026</p>
+                                    <p class="text-xs text-slate-500">02:45 PM</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="font-bold text-purple-700">Laura Daniela Martínez</p>
+                                    <p class="text-xs text-slate-500">ID: 8945123</p>
+                                </td>
+                                <td class="p-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-blue-200 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wide">
+                                        Paquete Empresarial ESP 3
+                                    </span>
+                                </td>
+                                <td class="p-4 text-center font-black text-slate-700">
+                                    500
+                                </td>
+                                <td class="p-4 text-center">
+                                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">Izquierda</span>
+                                </td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold text-xs transition border border-blue-200 hover:bg-blue-50 px-3 py-1.5 rounded-lg">Ver Contacto</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6">
+                                    <p class="font-bold text-slate-800">11/04/2026</p>
+                                    <p class="text-xs text-slate-500">10:15 AM</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="font-bold text-purple-700">Santiago Pérez Gómez</p>
+                                    <p class="text-xs text-slate-500">ID: 8943001</p>
+                                </td>
+                                <td class="p-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-emerald-200 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-wide">
+                                        Paquete Empresarial ESP 2
+                                    </span>
+                                </td>
+                                <td class="p-4 text-center font-black text-slate-700">
+                                    250
+                                </td>
+                                <td class="p-4 text-center">
+                                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">Derecha</span>
+                                </td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold text-xs transition border border-blue-200 hover:bg-blue-50 px-3 py-1.5 rounded-lg">Ver Contacto</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6">
+                                    <p class="font-bold text-slate-800">08/04/2026</p>
+                                    <p class="text-xs text-slate-500">08:20 PM</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="font-bold text-purple-700">Andrea Carolina Vega</p>
+                                    <p class="text-xs text-slate-500">ID: 8939542</p>
+                                </td>
+                                <td class="p-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-blue-200 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wide">
+                                        Paquete Empresarial ESP 3
+                                    </span>
+                                </td>
+                                <td class="p-4 text-center font-black text-slate-700">
+                                    500
+                                </td>
+                                <td class="p-4 text-center">
+                                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">Izquierda</span>
+                                </td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold text-xs transition border border-blue-200 hover:bg-blue-50 px-3 py-1.5 rounded-lg">Ver Contacto</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 pl-6">
+                                    <p class="font-bold text-slate-800">05/04/2026</p>
+                                    <p class="text-xs text-slate-500">11:05 AM</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="font-bold text-purple-700">Esteban Muñoz</p>
+                                    <p class="text-xs text-slate-500">ID: 8935210</p>
+                                </td>
+                                <td class="p-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-slate-200 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wide">
+                                        Paquete Empresarial ESP 1
+                                    </span>
+                                </td>
+                                <td class="p-4 text-center font-black text-slate-700">
+                                    100
+                                </td>
+                                <td class="p-4 text-center">
+                                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">Derecha</span>
+                                </td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-blue-600 hover:text-blue-800 font-bold text-xs transition border border-blue-200 hover:bg-blue-50 px-3 py-1.5 rounded-lg">Ver Contacto</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-1 bg-white rounded-2xl border border-slate-200 brand-card-shadow p-6 flex flex-col items-center">
+                    <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wide mb-4 w-full text-left">Paquetes Adquiridos</h3>
+                    <div class="w-48 h-48 relative">
+                        <canvas id="chartPaquetes"></canvas>
+                    </div>
+                    <div class="w-full mt-6 space-y-2">
+                        <div class="flex justify-between items-center text-xs"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-blue-600"></span>ESP 3</span><span class="font-bold">50%</span></div>
+                        <div class="flex justify-between items-center text-xs"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-emerald-500"></span>ESP 2</span><span class="font-bold">25%</span></div>
+                        <div class="flex justify-between items-center text-xs"><span class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-slate-400"></span>ESP 1</span><span class="font-bold">25%</span></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-gradient-to-br from-indigo-900 to-purple-800 rounded-2xl border border-slate-200 brand-card-shadow p-6 sm:p-8 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+                    <h3 class="font-black text-xl mb-2 relative z-10 flex items-center gap-2">🚀 ¡Felicidades por tus nuevos socios!</h3>
+                    <p class="text-purple-200 text-sm mb-6 relative z-10">Un nuevo registro es solo el comienzo. Asegúrate de retener y duplicar a estos nuevos afiliados siguiendo estos pasos clave en sus primeras 48 horas:</p>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex gap-4 items-start bg-white/10 p-3 rounded-xl border border-white/10">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold shrink-0">1</div>
+                            <div>
+                                <p class="font-bold text-sm">Llamada de Bienvenida</p>
+                                <p class="text-xs text-purple-200 mt-1">Haz clic en "Ver Contacto" y envíales un mensaje por WhatsApp o llámalos para darles la bienvenida al equipo oficial.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start bg-white/10 p-3 rounded-xl border border-white/10">
+                            <div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold shrink-0">2</div>
+                            <div>
+                                <p class="font-bold text-sm">Agendar el Tutorial de Inicio</p>
+                                <p class="text-xs text-purple-200 mt-1">Programa una reunión por Zoom (Ciclo del Éxito) para definir su porqué, lista de contactos y primera presentación.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start bg-white/10 p-3 rounded-xl border border-white/10">
+                            <div class="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold shrink-0">3</div>
+                            <div>
+                                <p class="font-bold text-sm">Validar Autoenvío</p>
+                                <p class="text-xs text-purple-200 mt-1">Enséñales a configurar su orden recurrente usando la herramienta de Auto Envío en este BackOffice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">📊</span><span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+            <a href="compensaciones_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">💎</span><span class="text-[10px] font-semibold mt-1">Compensaciones</span>
+            </a>
+            <a href="herramientas_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">🚀</span><span class="text-[10px] font-semibold mt-1">Herram.</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Gráfico de Paquetes
+        const ganoBlue = '#2563eb'; 
+        const ganoEmerald = '#10b981';
+        const slateTypo = '#94a3b8';
+
+        new Chart(document.getElementById('chartPaquetes'), {
+            type: 'doughnut',
+            data: { 
+                labels: ['ESP 3', 'ESP 2', 'ESP 1'],
+                datasets: [{ 
+                    data: [50, 25, 25], 
+                    backgroundColor: [ganoBlue, ganoEmerald, slateTypo], 
+                    borderColor: 'transparent', 
+                    borderWidth: 0, 
+                    cutout: '75%', 
+                    borderRadius: 4 
+                }] 
+            },
+            options: { 
+                plugins: { legend: { display: false }, tooltip: { enabled: true } }, 
+                maintainAspectRatio: false 
+            }
+        });
+    </script>
+</body>
+</html>
