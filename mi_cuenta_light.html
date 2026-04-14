@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mi Cuenta - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Perfil de Usuario</h1>
+            </div>
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex text-right flex-col mr-2">
+                    <span class="text-xs font-bold text-slate-800 uppercase">Rafael Andres Albarran</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest">ID: 4785109</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border-2 border-blue-600 shadow-sm object-cover cursor-pointer">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white rounded-3xl border border-slate-200 brand-card-shadow overflow-hidden text-center p-8">
+                        <div class="relative inline-block mb-6">
+                            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Foto Perfil" class="w-32 h-32 rounded-full border-4 border-slate-50 shadow-md object-cover mx-auto">
+                            <div class="absolute bottom-1 right-1 bg-blue-600 text-white p-2 rounded-full shadow-lg border-2 border-white cursor-pointer hover:bg-blue-700 transition" title="Cambiar foto">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-xl font-black text-slate-800 uppercase leading-tight">Rafael Andres Albarran Vallecilla</h2>
+                        <p class="text-blue-600 font-bold text-sm tracking-widest mt-1">ID: 4785109</p>
+
+                        <div class="mt-8 pt-8 border-t border-slate-100 space-y-4">
+                            <div class="flex flex-col items-center">
+                                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/diamante-royal-icon.png" alt="Royal Diamond" class="h-16 w-auto mb-2 drop-shadow-sm">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Rango Actual</span>
+                                <span class="text-lg font-black text-slate-700 uppercase">Diamante Royal</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4">
+                                <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-100">
+                                    <p class="text-[10px] font-bold text-emerald-600 uppercase">Estado</p>
+                                    <p class="text-sm font-black text-emerald-700">ACTIVO</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                                    <p class="text-[10px] font-bold text-blue-600 uppercase">Inscritos</p>
+                                    <p class="text-sm font-black text-blue-700">44</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-[10px] text-slate-400 font-medium italic mt-4">Fecha de Inscripción: 4/5/2011 11:42:00 AM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 space-y-6">
+                    
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-4 flex justify-between items-center">
+                            <h3 class="text-white font-bold text-xs tracking-widest uppercase flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                Información de mi cuenta
+                            </h3>
+                            <button class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-1.5 rounded-lg border border-white/20 transition uppercase">Editar</button>
+                        </div>
+                        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Teléfono Celular</label>
+                                <p class="text-sm font-bold text-slate-700">3183383668</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Teléfono Oficina</label>
+                                <p class="text-sm font-bold text-slate-700">3180607802</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dirección de correo electrónico</label>
+                                <p class="text-sm font-bold text-slate-700">aalbarransas@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-4 flex justify-between items-center">
+                            <h3 class="text-white font-bold text-xs tracking-widest uppercase flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414A1 1 0 0119 5.414V19a2 2 0 01-2 2z"></path></svg>
+                                Dirección de Facturación
+                            </h3>
+                            <button class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-1.5 rounded-lg border border-white/20 transition uppercase">Editar</button>
+                        </div>
+                        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dirección</label>
+                                <p class="text-sm font-bold text-slate-700">CL 182 78 10</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Departamento</label>
+                                <p class="text-sm font-bold text-slate-700">DC</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Ciudad/Municipio</label>
+                                <p class="text-sm font-bold text-slate-700">BOGOTÁ, D.C.</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">País</label>
+                                <p class="text-sm font-bold text-slate-700">Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-4 flex justify-between items-center">
+                            <h3 class="text-white font-bold text-xs tracking-widest uppercase flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Dirección de Envío
+                            </h3>
+                            <button class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-4 py-1.5 rounded-lg border border-white/20 transition uppercase">Editar</button>
+                        </div>
+                        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dirección</label>
+                                <p class="text-sm font-bold text-slate-700">CL 182 78 10</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Departamento</label>
+                                <p class="text-sm font-bold text-slate-700">DC</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Ciudad/Municipio</label>
+                                <p class="text-sm font-bold text-slate-700">BOGOTÁ, D.C.</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">País</label>
+                                <p class="text-sm font-bold text-slate-700">Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 brand-card-shadow">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase mb-4">Seguridad</h4>
+                            <button class="w-full bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold py-3 rounded-xl border border-slate-200 transition text-xs uppercase tracking-wider">Cambiar Contraseña</button>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 brand-card-shadow">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase mb-4">Preferencias</h4>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500">
+                                <span class="text-xs font-medium text-slate-600">Recibir noticias por email</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
