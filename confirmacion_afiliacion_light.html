@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Confirmación - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <h1 class="text-xl font-bold text-slate-800 hidden sm:flex items-center gap-2">
+                    <span class="text-red-600">👤+</span> Nuevas Afiliaciones
+                </h1>
+            </div>
+            <button onclick="window.location.href='index_light.html'" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red-600 transition bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+                Cancelar / Cerrar <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full space-y-6 pb-24">
+            
+            <div class="flex bg-white rounded-2xl border border-slate-100 brand-card-shadow overflow-hidden divide-x divide-slate-100">
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center"><span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Iniciar</span><div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div></div>
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center"><span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Suscripción</span><div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div></div>
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center hidden sm:block"><span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Afiliación</span><div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div></div>
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center hidden md:block"><span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Pago</span><div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center shadow-sm"><svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div></div>
+                <div class="flex-1 bg-red-600 text-white p-4 text-center hidden lg:block relative overflow-hidden">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Confirmar</span>
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 mx-auto bg-white text-red-600 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs shadow-inner">5</div>
+                </div>
+            </div>
+
+            <div class="text-center space-y-3 max-w-4xl mx-auto py-4">
+                <h2 class="text-2xl font-black text-slate-800">Confirmar la Información de Inscripción</h2>
+                <p class="text-emerald-600 font-bold text-sm">¡Ya casi finaliza! Gracias por su paciencia al proporcionarnos la información requerida para configurar su vinculación con Gano Excel.</p>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    Toda la información requerida por Gano Excel ha sido completada y la misma podrá ser visualizada a continuación. Por favor, revise la información detalladamente, si todo está correcto envié su solicitud de inscripción. De requerir alguna modificación, haga clic en el icono <strong>"Editar"</strong> que se encuentra en la cabecera de cada bloque.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                    <div class="bg-slate-50 border-b border-slate-200 px-6 py-3 flex justify-between items-center">
+                        <h3 class="font-bold text-sm text-slate-800 uppercase tracking-wide">Información de la Cuenta</h3>
+                        <button class="text-blue-600 hover:text-blue-800 text-xs font-bold flex items-center gap-1 uppercase transition bg-blue-50 px-3 py-1 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg> Editar
+                        </button>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Primer Nombre</span><span class="font-bold text-slate-800">{{FirstName}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Primer Apellido</span><span class="font-bold text-slate-800">{{LastName}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2 sm:col-span-2"><span class="text-slate-500 font-semibold">Dirección</span><span class="font-bold text-slate-800 text-right">{{Address}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Teléfono</span><span class="font-bold text-slate-800">{{Telephone}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Correo electrónico</span><span class="font-bold text-slate-800">{{Email}}</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                    <div class="bg-slate-50 border-b border-slate-200 px-6 py-3 flex justify-between items-center">
+                        <h3 class="font-bold text-sm text-slate-800 uppercase tracking-wide">Patrocinador y Colocación</h3>
+                        <button class="text-blue-600 hover:text-blue-800 text-xs font-bold flex items-center gap-1 uppercase transition bg-blue-50 px-3 py-1 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg> Editar
+                        </button>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Cód. Patrocinador de Registro</span><span class="font-bold text-slate-800">{{EnrollerID}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Cód. Patrocinador de Colocación</span><span class="font-bold text-slate-800">{{SponsorID}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Posición del Patrocinador</span><span class="font-bold text-blue-700">{{SponsorPos}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Número de documento</span><span class="font-bold text-slate-800">{{CCoCEoNIT}}</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                    <div class="bg-blue-800 text-white px-6 py-3 flex justify-between items-center">
+                        <h3 class="font-bold text-sm uppercase tracking-wide">Orden Procesada Hoy</h3>
+                        <button class="text-blue-100 hover:text-white text-xs font-bold flex items-center gap-1 uppercase transition bg-blue-900/50 px-3 py-1 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg> Editar
+                        </button>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs whitespace-nowrap">
+                            <thead class="bg-slate-100 text-slate-600 font-bold border-b border-slate-200 uppercase">
+                                <tr>
+                                    <th class="p-3 text-center">Código</th>
+                                    <th class="p-3">Descripción</th>
+                                    <th class="p-3 text-right">Precio unitario</th>
+                                    <th class="p-3 text-center">PV</th>
+                                    <th class="p-3 text-center">CV</th>
+                                    <th class="p-3 text-center">Cantidad</th>
+                                    <th class="p-3 text-center">PV/CV</th>
+                                    <th class="p-3 text-right">Precio Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 bg-white">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 text-center text-slate-500">{{InventoryID}}</td>
+                                    <td class="p-3 font-bold text-slate-800">{{Description}}</td>
+                                    <td class="p-3 text-right text-slate-600">{{Price}}</td>
+                                    <td class="p-3 text-center">{{WholesaleVolume}}</td>
+                                    <td class="p-3 text-center">{{RetailVolume}}</td>
+                                    <td class="p-3 text-center font-bold">{{Quantity}}</td>
+                                    <td class="p-3 text-center text-slate-500">{{LineWholesaleVolume}}/{{LineRetailVolume}}</td>
+                                    <td class="p-3 text-right font-bold text-slate-800">{{LinePrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-slate-50 border-t border-slate-200">
+                        <div class="flex justify-between px-6 py-2 border-b border-slate-100 text-sm"><span class="text-slate-600 font-semibold">Total PV</span><span class="font-bold text-slate-800">{{TotalPV}}</span></div>
+                        <div class="flex justify-between px-6 py-2 border-b border-slate-100 text-sm"><span class="text-slate-600 font-semibold">Total CV</span><span class="font-bold text-slate-800">{{TotalCV}}</span></div>
+                        <div class="flex justify-between px-6 py-2 border-b border-slate-100 text-sm"><span class="text-slate-600 font-semibold">Subtotal (antes de impuesto)</span><span class="font-bold text-slate-800">{{Subtotal}}</span></div>
+                        <div class="flex justify-between px-6 py-2 border-b border-slate-100 text-sm"><span class="text-slate-600 font-semibold">Impuesto (IVA)</span><span class="font-bold text-slate-800">{{TaxTotal}}</span></div>
+                        <div class="flex justify-between px-6 py-2 border-b border-slate-200 text-sm"><span class="text-slate-600 font-semibold">Gastos de Envío</span><span class="font-bold text-slate-800">{{ShippingCharges}}</span></div>
+                        
+                        <div class="flex justify-between items-center px-6 py-4 bg-blue-50/50">
+                            <span class="font-black text-slate-800 uppercase tracking-wider">Valor Total a Pagar</span>
+                            <span class="font-black text-blue-700 text-xl">{{GrandTotal}}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 border-t border-slate-200 bg-white text-sm">
+                        <div class="flex flex-col"><span class="text-slate-400 text-xs font-bold uppercase mb-1">Método de Envío</span><span class="font-bold text-slate-800">{{ShippingMethod}}</span></div>
+                        <div class="flex flex-col"><span class="text-slate-400 text-xs font-bold uppercase mb-1">Dirección de Envío</span><span class="font-bold text-slate-800">{{ShippingAddress}}</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                    <div class="bg-slate-50 border-b border-slate-200 px-6 py-3 flex justify-between items-center">
+                        <h3 class="font-bold text-sm text-slate-800 uppercase tracking-wide">Información para el Pago</h3>
+                        <button class="text-blue-600 hover:text-blue-800 text-xs font-bold flex items-center gap-1 uppercase transition bg-blue-50 px-3 py-1 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg> Editar
+                        </button>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Valor a pagar</span><span class="font-bold text-emerald-600">{{ChargeAmount}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Titular de la tarjeta</span><span class="font-bold text-slate-800">{{CardFirstName}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Número de tarjeta</span><span class="font-mono font-bold text-slate-800">{{CardMaskingNumber}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Vencimiento</span><span class="font-bold text-slate-800">{{CardExpiration}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500 font-semibold">Número de Cuotas</span><span class="font-bold text-slate-800">{{Installment}}</span></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2 sm:col-span-2"><span class="text-slate-500 font-semibold">Dirección de facturación</span><span class="font-bold text-slate-800 text-right">{{BillingAddress}}</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-6 pb-8 space-y-8 max-w-3xl mx-auto text-center">
+                
+                <label class="flex items-center justify-center gap-3 cursor-pointer group bg-blue-50/50 border border-blue-100 p-4 rounded-xl transition hover:bg-blue-50">
+                    <input type="checkbox" id="acceptPolicy" onchange="toggleSubmit()" class="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500 shadow-sm cursor-pointer">
+                    <span class="text-sm font-semibold text-slate-700">He leído y acepto la <a href="#" class="text-blue-600 hover:text-blue-800 underline">Política de Devoluciones de Gano Excel</a></span>
+                </label>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="history.back()" class="w-full sm:w-auto bg-white border border-slate-300 text-slate-600 hover:bg-slate-50 font-bold px-10 py-4 rounded-xl transition uppercase tracking-wider text-sm shadow-sm">
+                        Anterior
+                    </button>
+                    <button id="submitBtn" disabled class="w-full sm:w-auto bg-slate-300 text-slate-500 font-bold px-12 py-4 rounded-xl transition-all duration-300 uppercase tracking-widest text-sm cursor-not-allowed shadow-sm">
+                        PRESENTAR INSCRIPCIÓN
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function toggleSubmit() {
+            const checkbox = document.getElementById('acceptPolicy');
+            const button = document.getElementById('submitBtn');
+            
+            if (checkbox.checked) {
+                button.disabled = false;
+                button.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+                button.classList.add('bg-emerald-600', 'hover:bg-emerald-700', 'text-white', 'shadow-lg', 'transform', 'hover:-translate-y-0.5', 'cursor-pointer');
+                
+                // NOTA: Aquí colocamos el enlace a la página de "Afiliación Exitosa" (la que habíamos llamado "confirmacion" en el paso anterior).
+                // Te sugiero renombrar el archivo del mensaje anterior a 'exito_afiliacion_light.html' para no confundir.
+                button.onclick = () => window.location.href = 'exito_afiliacion_light.html';
+                
+            } else {
+                button.disabled = true;
+                button.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+                button.classList.remove('bg-emerald-600', 'hover:bg-emerald-700', 'text-white', 'shadow-lg', 'transform', 'hover:-translate-y-0.5', 'cursor-pointer');
+                button.onclick = null;
+            }
+        }
+    </script>
+</body>
+</html>
