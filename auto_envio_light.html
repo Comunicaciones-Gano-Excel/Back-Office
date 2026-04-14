@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Configuración de Auto Envío - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        
+        .input-field { border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.6rem 1rem; font-size: 0.875rem; outline: none; transition: all 0.2s; background-color: #ffffff; color: #334155; width: 100%; }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        
+        /* Estilos para Radio Buttons personalizados */
+        .radio-custom:checked + div { border-color: #2563eb; background-color: #eff6ff; }
+        .radio-custom:checked + div .radio-circle { border-color: #2563eb; }
+        .radio-custom:checked + div .radio-circle::after { content: ''; display: block; width: 8px; height: 8px; background: #2563eb; border-radius: 50%; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Tienda y Pedidos</h1>
+            </div>
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="mi_cuenta_light.html" class="profile-trigger">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover hover:border-blue-600 transition-colors">
+                </a>
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 brand-card-shadow flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 hover:bg-blue-50 transition shadow-sm flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="text-blue-600">⚙️</span> Configuración de Auto Envío
+                        </h2>
+                        <p class="text-xs text-slate-500 hidden sm:block mt-1">Programa tus compras mensuales automáticamente y asegura tu calificación activa.</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-lg border border-emerald-100">
+                    <span class="text-2xl">📦</span>
+                    <span class="text-xs font-bold text-emerald-700 uppercase tracking-wide">Mantén tu negocio activo sin interrupciones</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                            <h3 class="font-bold text-white text-xs tracking-widest uppercase">I. Día de Facturación</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm font-bold text-slate-600 mb-4">Día del mes seleccionado para el Autoenvío:</p>
+                            <select class="input-field cursor-pointer">
+                                <option value="" disabled>✓ Seleccione un día</option>
+                                <option value="1">Día 1 del mes</option>
+                                <option value="5" selected>Día 5 del mes</option>
+                                <option value="10">Día 10 del mes</option>
+                                <option value="15">Día 15 del mes</option>
+                                <option value="20">Día 20 del mes</option>
+                                <option value="25">Día 25 del mes</option>
+                            </select>
+                            <p class="text-[10px] text-slate-400 mt-3 italic">* Tu tarjeta será cargada automáticamente en el día seleccionado.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                            <h3 class="font-bold text-white text-xs tracking-widest uppercase">III. Método de Entrega</h3>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <label class="block relative cursor-pointer group">
+                                <input type="radio" name="deliveryMethod" class="peer sr-only radio-custom" checked>
+                                <div class="border border-slate-200 rounded-xl p-4 transition flex items-start gap-4 hover:bg-slate-50">
+                                    <div class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mt-0.5 radio-circle transition"></div>
+                                    <div>
+                                        <p class="font-bold text-slate-800 text-sm">🚚 Envío a mi Dirección Registrada</p>
+                                        <p class="text-xs text-slate-500 mt-1">CL 182 78 10, BOGOTÁ, D.C.</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="block relative cursor-pointer group">
+                                <input type="radio" name="deliveryMethod" class="peer sr-only radio-custom">
+                                <div class="border border-slate-200 rounded-xl p-4 transition flex items-start gap-4 hover:bg-slate-50">
+                                    <div class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center mt-0.5 radio-circle transition"></div>
+                                    <div>
+                                        <p class="font-bold text-slate-800 text-sm">🏢 Recoger en Oficina Administrativa</p>
+                                        <p class="text-xs text-slate-500 mt-1">Selecciona la sede principal para retirar tus productos presencialmente.</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                            <h3 class="font-bold text-white text-xs tracking-widest uppercase">II. Selección de Productos</h3>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full">
+                            <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+                                <thead class="bg-slate-50 text-slate-600 font-bold border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                                    <tr>
+                                        <th class="p-4">Producto</th>
+                                        <th class="p-4 text-right">Precio (IVA Inc.)</th>
+                                        <th class="p-4 text-center">PV / CV</th>
+                                        <th class="p-4 text-center w-24">Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr class="hover:bg-slate-50 transition">
+                                        <td class="p-4">
+                                            <p class="font-bold text-slate-800 text-xs">RESKINE AUTOENVÍO COMBO</p>
+                                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Item: 80530</p>
+                                        </td>
+                                        <td class="p-4 text-right font-black text-slate-700">$400,000.00</td>
+                                        <td class="p-4 text-center font-semibold text-emerald-600 bg-emerald-50/50">57.2 / 50.9</td>
+                                        <td class="p-4"><input type="number" min="0" value="0" class="input-field text-center py-1.5 font-bold"></td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 transition">
+                                        <td class="p-4">
+                                            <p class="font-bold text-slate-800 text-xs">GANOCAFÉ 3 EN 1</p>
+                                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Item: 501</p>
+                                        </td>
+                                        <td class="p-4 text-right font-black text-slate-700">$110,900.00</td>
+                                        <td class="p-4 text-center font-semibold text-emerald-600 bg-emerald-50/50">15.0 / 14.0</td>
+                                        <td class="p-4"><input type="number" min="0" value="2" class="input-field text-center py-1.5 font-bold text-blue-600 border-blue-300"></td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 transition">
+                                        <td class="p-4">
+                                            <p class="font-bold text-slate-800 text-xs">GANO SCHOKOLADE</p>
+                                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Item: 502</p>
+                                        </td>
+                                        <td class="p-4 text-right font-black text-slate-700">$124,900.00</td>
+                                        <td class="p-4 text-center font-semibold text-emerald-600 bg-emerald-50/50">17.0 / 15.6</td>
+                                        <td class="p-4"><input type="number" min="0" value="0" class="input-field text-center py-1.5 font-bold"></td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 transition">
+                                        <td class="p-4">
+                                            <p class="font-bold text-slate-800 text-xs">GANORICO MOCHA RICO</p>
+                                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Item: 503</p>
+                                        </td>
+                                        <td class="p-4 text-right font-black text-slate-700">$119,900.00</td>
+                                        <td class="p-4 text-center font-semibold text-emerald-600 bg-emerald-50/50">17.0 / 15.0</td>
+                                        <td class="p-4"><input type="number" min="0" value="0" class="input-field text-center py-1.5 font-bold"></td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 transition">
+                                        <td class="p-4">
+                                            <p class="font-bold text-slate-800 text-xs">OLEAF GANO ROOIBOS DRINK</p>
+                                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Item: 504</p>
+                                        </td>
+                                        <td class="p-4 text-right font-black text-slate-700">$119,900.00</td>
+                                        <td class="p-4 text-center font-semibold text-emerald-600 bg-emerald-50/50">17.0 / 15.0</td>
+                                        <td class="p-4"><input type="number" min="0" value="0" class="input-field text-center py-1.5 font-bold"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="bg-slate-50 border-t border-slate-200 p-3 flex justify-center">
+                            <nav class="flex items-center gap-1 shadow-sm bg-white border border-slate-200 rounded-md p-1">
+                                <button class="px-2 py-1 text-slate-400 hover:text-blue-600 font-bold transition text-xs">&laquo;</button>
+                                <button class="px-2.5 py-1 bg-blue-600 text-white rounded font-bold shadow-sm text-xs">1</button>
+                                <button class="px-2.5 py-1 text-slate-600 hover:bg-slate-100 rounded font-bold transition text-xs">2</button>
+                                <button class="px-2.5 py-1 text-slate-600 hover:bg-slate-100 rounded font-bold transition text-xs">3</button>
+                                <button class="px-2.5 py-1 text-slate-600 hover:bg-slate-100 rounded font-bold transition text-xs">4</button>
+                                <button class="px-2.5 py-1 text-slate-600 hover:bg-slate-100 rounded font-bold transition text-xs">5</button>
+                                <button class="px-2 py-1 text-slate-400 hover:text-blue-600 font-bold transition text-xs">&raquo;</button>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                        <div class="bg-slate-800 px-6 py-3 border-b border-slate-700">
+                            <h3 class="font-bold text-white text-xs tracking-widest uppercase">IV. Información de Pago (Titular de Tarjeta)</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Número de Tarjeta de Crédito</label>
+                                    <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="input-field font-mono tracking-widest">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Mes de Vencimiento</label>
+                                    <select class="input-field cursor-pointer">
+                                        <option value="" disabled selected>Seleccione mes</option>
+                                        <option value="01">01 - Enero</option>
+                                        <option value="02">02 - Febrero</option>
+                                        <option value="03">03 - Marzo</option>
+                                        <option value="04">04 - Abril</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Año de Vencimiento</label>
+                                    <select class="input-field cursor-pointer">
+                                        <option value="" disabled selected>Seleccione un año</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Código de Verificación (CVV)</label>
+                                    <input type="text" placeholder="123" class="input-field w-24 text-center font-mono">
+                                </div>
+                                <div>
+                                    </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Nombre del Titular</label>
+                                    <input type="text" class="input-field uppercase">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Apellido del Titular</label>
+                                    <input type="text" class="input-field uppercase">
+                                </div>
+
+                                <div class="md:col-span-2 border-t border-slate-100 pt-4 mt-2">
+                                    <h4 class="text-sm font-bold text-slate-700 mb-4">Dirección de Facturación de la Tarjeta</h4>
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Dirección</label>
+                                    <input type="text" class="input-field">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Departamento</label>
+                                    <select class="input-field cursor-pointer">
+                                        <option value="" disabled selected>Seleccionar Departamento</option>
+                                        <option value="CUN">Cundinamarca</option>
+                                        <option value="ANT">Antioquia</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Ciudad / Municipio</label>
+                                    <select class="input-field cursor-pointer">
+                                        <option value="" disabled selected>Seleccionar Ciudad</option>
+                                        <option value="BOG">Bogotá D.C.</option>
+                                        <option value="MED">Medellín</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Correo Electrónico</label>
+                                    <input type="email" class="input-field">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Teléfono</label>
+                                    <input type="tel" class="input-field">
+                                </div>
+                            </div>
+
+                            <div class="mt-8 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500 mt-0.5">
+                                    <span class="text-xs font-medium text-slate-600 leading-tight">
+                                        He leído y acepto las <a href="#" class="text-blue-600 font-bold hover:underline">Políticas de Privacidad</a> y autorizo los cargos recurrentes mensuales en esta tarjeta de acuerdo al ciclo seleccionado.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="mt-6 flex justify-end">
+                                <button class="bg-blue-600 hover:bg-blue-700 text-white font-black py-4 px-10 rounded-xl shadow-lg transition text-sm uppercase tracking-widest w-full md:w-auto">
+                                    Confirmar Auto Envío
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span></a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span></a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700"><span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span></a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">📊</span><span class="text-[10px] font-semibold mt-1">Reportes</span></a>
+            <a href="compensaciones_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">💎</span><span class="text-[10px] font-semibold mt-1">Compensaciones</span></a>
+            <a href="herramientas_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600"><span class="text-xl">🚀</span><span class="text-[10px] font-semibold mt-1">Herram.</span></a>
+        </div>
+    </nav>
+
+</body>
+</html>
