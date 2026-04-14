@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Actividad Árbol de Patrocinio - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        
+        /* Table sticky header */
+        .table-sticky-header th { position: sticky; top: 0; z-index: 10; background-color: #f8fafc; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        
+        .input-field { border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; outline: none; transition: all 0.2s; background-color: #ffffff; color: #334155; }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        
+        /* Estilo uniforme para ID cliqueable */
+        .id-button {
+            background-color: #ffffff; border: 1px solid #cbd5e1; color: #475569;
+            padding: 4px 12px; border-radius: 4px; font-family: monospace; font-weight: 700;
+            transition: all 0.2s ease; cursor: pointer; display: inline-block; width: 100%; text-align: center;
+        }
+        .id-button:hover {
+            border-color: #3b82f6; color: #2563eb; background-color: #eff6ff; box-shadow: 0 2px 4px rgba(59,130,246,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Reportes</h1>
+            </div>
+
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex text-right flex-col mr-2">
+                    <span class="text-xs font-bold text-slate-800">ANDRES ALBARRAN SAS</span>
+                    <span class="text-[10px] text-slate-500">ID: 4785109</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 brand-card-shadow flex flex-col space-y-4">
+                
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <div class="flex items-center gap-3">
+                        <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 hover:bg-blue-50 transition shadow-sm flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                                <span class="text-blue-600">🔗</span> Actividad Árbol de Patrocinio
+                            </h2>
+                        </div>
+                    </div>
+                    <button onclick="resetTable()" id="btnReset" class="hidden text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 font-bold px-3 py-2 rounded-lg transition">
+                        Volver a mi red principal
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Seleccionar Ciclo:</label>
+                        <select class="input-field cursor-pointer font-semibold">
+                            <option value="906" selected>(Cycle #906) Apr. 13, 2026 - Apr. 19, 2026</option>
+                            <option value="905">(Cycle #905) Apr. 6, 2026 - Apr. 12, 2026</option>
+                            <option value="904">(Cycle #904) Mar. 30, 2026 - Apr. 5, 2026</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Navegador de Equipo:</label>
+                        <div class="relative">
+                            <input type="text" class="input-field w-full pl-10" placeholder="Seleccionar Patrocinador o buscar por ID/Nombre...">
+                            <svg class="w-5 h-5 absolute left-3 top-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                <div class="bg-slate-800 text-white px-6 py-4 flex flex-col items-center justify-center text-center gap-1 transition-all duration-300">
+                    <h3 id="tableTitle" class="font-bold text-sm tracking-widest uppercase transition-all duration-300">
+                        ANDRES ALBARRAN SAS (ID# 4785109) - Línea de Patrocinio de primer nivel
+                    </h3>
+                </div>
+                
+                <div class="overflow-x-auto w-full max-h-[600px] overflow-y-auto relative">
+                    <div id="loadingOverlay" class="absolute inset-0 bg-white/80 backdrop-blur-sm z-20 flex flex-col items-center justify-center hidden">
+                        <div class="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+                        <p class="text-slate-600 font-bold mt-2 text-sm">Cargando red...</p>
+                    </div>
+
+                    <table class="w-full text-left text-xs whitespace-nowrap table-sticky-header">
+                        <thead class="text-slate-600 font-bold border-b border-slate-200 shadow-sm uppercase tracking-wider text-[10px]">
+                            <tr>
+                                <th class="p-3 pl-5 w-32">ID</th>
+                                <th class="p-3">Nombre</th>
+                                <th class="p-3">Rango/Título <span class="font-normal normal-case">(Rango de Pago)</span></th>
+                                <th class="p-3 text-center">Equipo Bin.</th>
+                                <th class="p-3 text-center">Prof Bin.</th>
+                                <th class="p-3 text-center">Nivel ESP</th>
+                                <th class="p-3 text-center">Fecha Insc.</th>
+                                <th class="p-3 text-right">PV</th>
+                                <th class="p-3 text-center" title="Activos Izquierda / Derecha">IZQ/DER</th>
+                                <th class="p-3 text-center">LAE</th>
+                                <th class="p-3 text-center">LO</th>
+                                <th class="p-3 text-right">VOLGCV <span class="font-normal normal-case">(+/- %)</span></th>
+                                <th class="p-3 text-center" title="Nuevas Insc. / TILP (+%)">Nuevas Insc./TILP(+)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody" class="divide-y divide-slate-100 bg-white">
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('RENE GARCIA SAS', '4815024')" class="id-button">4815024</button></td>
+                                <td class="p-3 font-bold text-slate-800">RENE GARCIA SAS</td>
+                                <td class="p-3 font-semibold text-emerald-700">R.Diamond (A. Elite)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">R</td>
+                                <td class="p-3 text-center text-slate-500">47</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">12/13/2011</td>
+                                <td class="p-3 text-right font-black text-slate-800">622</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">1 / 2</td>
+                                <td class="p-3 text-center text-slate-600">3</td>
+                                <td class="p-3 text-center text-slate-600">2</td>
+                                <td class="p-3 text-right font-bold text-slate-700">24006.00 <span class="text-red-500 font-medium text-[10px]">(-88%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/7</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('ANDRES ALBARRAN SAS (BC# 2)', '4884449')" class="id-button">4884449</button></td>
+                                <td class="p-3 font-bold text-slate-800">ANDRES ALBARRAN SAS (BC# 2)</td>
+                                <td class="p-3 font-semibold text-slate-600">Oro (Afiliado)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">E</td>
+                                <td class="p-3 text-center text-slate-500">-1</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">03/15/2014</td>
+                                <td class="p-3 text-right font-black text-slate-800">117</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">1 / 7</td>
+                                <td class="p-3 text-center text-slate-600">4</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-700">199.00 <span class="text-red-500 font-medium text-[10px]">(-83%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/26</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('GRUPO EMPRESARIAL H & D SAS', '4785132')" class="id-button">4785132</button></td>
+                                <td class="p-3 font-bold text-slate-800">GRUPO EMPRESARIAL H & D SAS</td>
+                                <td class="p-3 font-semibold text-slate-600">C.Diamond (Platino)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">L</td>
+                                <td class="p-3 text-center text-slate-500">11</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">04/05/2011</td>
+                                <td class="p-3 text-right font-black text-emerald-600">728</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">5 / 9</td>
+                                <td class="p-3 text-center text-slate-600">16</td>
+                                <td class="p-3 text-center text-slate-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-700">42476.70 <span class="text-red-500 font-medium text-[10px]">(-79%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/31</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('PAOLA ANDREA SALINAS FLORIDO', '7318050')" class="id-button">7318050</button></td>
+                                <td class="p-3 font-bold text-slate-800">PAOLA ANDREA SALINAS FLORIDO</td>
+                                <td class="p-3 font-semibold text-slate-600">Plata (Afiliado)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">R</td>
+                                <td class="p-3 text-center text-slate-500">138</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">05/06/2020</td>
+                                <td class="p-3 text-right font-black text-slate-800">0</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">0 / 0</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-700">0.00 <span class="text-red-500 font-medium text-[10px]">(-100%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/3</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('DENISSE MICHELLY CASTILLA SILVA', '4831392')" class="id-button">4831392</button></td>
+                                <td class="p-3 font-bold text-slate-800">DENISSE MICHELLY CASTILLA SILVA</td>
+                                <td class="p-3 font-semibold text-slate-600">E.Diamond (Aprendiz)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">R</td>
+                                <td class="p-3 text-center text-slate-500">66</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">05/17/2012</td>
+                                <td class="p-3 text-right font-black text-slate-800">64</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">0 / 1</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-700">28.00 <span class="text-red-500 font-medium text-[10px]">(-82%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/2</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('HENRY PATIÑO RINCON', '4852282')" class="id-button">4852282</button></td>
+                                <td class="p-3 font-bold text-slate-800">HENRY PATIÑO RINCON</td>
+                                <td class="p-3 font-semibold text-slate-600">Platino (Afiliado)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">L</td>
+                                <td class="p-3 text-center text-slate-500">34</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">01/30/2013</td>
+                                <td class="p-3 text-right font-black text-slate-800">500</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">1 / 2</td>
+                                <td class="p-3 text-center text-slate-600">1</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-700">171.00 <span class="text-red-500 font-medium text-[10px]">(-92%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/30</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition">
+                                <td class="p-3 pl-5"><button onclick="simulateDrillDown('JOHN JAIRO GAVIRIA VALLECILLA', '4814289')" class="id-button">4814289</button></td>
+                                <td class="p-3 font-bold text-slate-800">JOHN JAIRO GAVIRIA VALLECILLA</td>
+                                <td class="p-3 font-semibold text-slate-600">Platino (Aprendiz)</td>
+                                <td class="p-3 text-center font-bold text-slate-600">R</td>
+                                <td class="p-3 text-center text-slate-500">44</td>
+                                <td class="p-3 text-center font-bold text-blue-600">3</td>
+                                <td class="p-3 text-center text-slate-500">12/06/2011</td>
+                                <td class="p-3 text-right font-black text-slate-800">60</td>
+                                <td class="p-3 text-center font-semibold text-slate-600">1 / 0</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-center text-slate-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-700">66.00 <span class="text-red-500 font-medium text-[10px]">(-91%)</span></td>
+                                <td class="p-3 text-center text-slate-500">0/20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-xl text-[10px] sm:text-xs leading-relaxed shadow-sm mt-4">
+                <strong>*La calificación estimada y la información reflejada se actualizó por última vez el 4/14/2026 9:48:10 AM (Hora Pacífico).</strong>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+                <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                    <div class="bg-slate-100 border-b border-slate-200 px-6 py-3">
+                        <h3 class="font-bold text-xs tracking-widest text-slate-700 uppercase">Descripción Títulos</h3>
+                    </div>
+                    <div class="p-5 text-xs sm:text-sm text-slate-600 space-y-3">
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">ID</span><span>Número único de identificación del Vendedor Independiente.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">Nombre</span><span>Nombre / Apellido o Razón Social.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">Rango/Título (Rango Pago)</span><span>Representa el nivel o logro más alto alcanzado.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">Equipo Bin.</span><span>Ubicación del Vendedor Independiente en el Árbol Binario (Izquierda / Derecha).</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">Prof Bin.</span><span>Nivel en el cual se encuentra ubicado el afiliado en descendencia en el Árbol Binario.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">Nivel ESP</span><span>Nivel de calificación del ESP (Paquete Ejecutivo de Éxito).</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">PV</span><span>Volumen Personal - Volumen de compra personal para calificaciones.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">IZQ/DER</span><span>Líneas de Patrocinio Activas (Izq. / Der.). Número de afiliados de la Línea con 50PV +.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-50 pb-2"><span class="font-bold text-slate-800 w-48 shrink-0">VOLGCV (+/- %)</span><span>Volumen Comisional Grupal (GCV) por Línea de Patrocinio.</span></div>
+                        <div class="flex flex-col sm:flex-row"><span class="font-bold text-slate-800 w-48 shrink-0">Nuevas Insc./TILP (+%)</span><span>Nuevas inscripciones durante el ciclo seleccionado / Total de Inscritos.</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden h-fit">
+                    <div class="bg-slate-100 border-b border-slate-200 px-6 py-3">
+                        <h3 class="font-bold text-xs tracking-widest text-slate-700 uppercase">Abreviaturas de Rango</h3>
+                    </div>
+                    <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap">
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Afiliado</td><td class="p-3 text-slate-600">Afiliado</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Aprendiz</td><td class="p-3 text-slate-600">Aprendiz</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">A. Elite</td><td class="p-3 text-slate-600">Asistente Ejecutivo</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Bronce</td><td class="p-3 text-slate-600">Bronce</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Plata</td><td class="p-3 text-slate-600">Plata</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Oro</td><td class="p-3 text-slate-600">Oro</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Platino</td><td class="p-3 text-slate-600">Platino</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">Diamante</td><td class="p-3 text-slate-600">Diamante</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">D. Ejecutivo</td><td class="p-3 text-slate-600">Diamante Ejecutivo</td></tr>
+                            <tr class="hover:bg-slate-50"><td class="p-3 pl-6 font-bold text-slate-800">D. Royal</td><td class="p-3 text-slate-600">Diamante Royal</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">📊</span><span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        const originalHTML = document.getElementById('tableBody').innerHTML;
+        const originalTitle = "ANDRES ALBARRAN SAS (ID# 4785109) - Línea de Patrocinio de primer nivel";
+
+        function simulateDrillDown(name, id) {
+            // Mostrar estado de carga
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+            
+            setTimeout(() => {
+                // Cambiar el título
+                document.getElementById('tableTitle').innerText = `${name} (ID# ${id}) - Línea de Patrocinio de primer nivel`;
+                document.getElementById('tableTitle').classList.add('text-blue-400');
+                
+                // Mostrar botón de volver
+                document.getElementById('btnReset').classList.remove('hidden');
+                
+                // Generar tabla falsa (solo para el ID de Paola como ejemplo)
+                let newHtml = '';
+                if(id === '7318050') {
+                    newHtml = `
+                        <tr class="hover:bg-blue-50/50 transition">
+                            <td class="p-3 pl-5"><button onclick="simulateDrillDown('VANESSA RODRIGUEZ ESCOBAR', '7410876')" class="id-button">7410876</button></td>
+                            <td class="p-3 font-bold text-slate-800">VANESSA RODRIGUEZ ESCOBAR</td><td class="p-3 text-slate-600">A. Elite (Afiliado)</td>
+                            <td class="p-3 text-center text-slate-600 font-bold">L</td><td class="p-3 text-center text-slate-500">2</td><td class="p-3 text-center text-blue-600 font-bold">1</td><td class="p-3 text-center text-slate-500">08/24/2022</td><td class="p-3 text-right font-black text-slate-800">0</td><td class="p-3 text-center text-slate-600">0 / 0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-right font-bold text-slate-700">0.00</td><td class="p-3 text-center text-slate-500">0/0</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition">
+                            <td class="p-3 pl-5"><button onclick="simulateDrillDown('DIANA PATRICIA GUALDRON', '7420089')" class="id-button">7420089</button></td>
+                            <td class="p-3 font-bold text-slate-800">DIANA PATRICIA GUALDRON</td><td class="p-3 text-slate-600">A. Elite (Afiliado)</td>
+                            <td class="p-3 text-center text-slate-600 font-bold">R</td><td class="p-3 text-center text-slate-500">9</td><td class="p-3 text-center text-blue-600 font-bold">1</td><td class="p-3 text-center text-slate-500">11/17/2022</td><td class="p-3 text-right font-black text-slate-800">0</td><td class="p-3 text-center text-slate-600">0 / 0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-right font-bold text-slate-700">0.00</td><td class="p-3 text-center text-slate-500">0/0</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/50 transition">
+                            <td class="p-3 pl-5"><button onclick="simulateDrillDown('GLORIA NELLY FLORIDO DE SALINAS', '7451528')" class="id-button">7451528</button></td>
+                            <td class="p-3 font-bold text-slate-800">GLORIA NELLY FLORIDO DE SALINAS</td><td class="p-3 text-slate-600">Aprendiz (Afiliado)</td>
+                            <td class="p-3 text-center text-slate-600 font-bold">L</td><td class="p-3 text-center text-slate-500">5</td><td class="p-3 text-center text-slate-500 font-bold">--</td><td class="p-3 text-center text-slate-500">12/06/2023</td><td class="p-3 text-right font-black text-slate-800">0</td><td class="p-3 text-center text-slate-600">0 / 0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-center text-slate-600">0</td><td class="p-3 text-right font-bold text-slate-700">0.00</td><td class="p-3 text-center text-slate-500">0/0</td>
+                        </tr>
+                    `;
+                } else {
+                    newHtml = `<tr><td colspan="13" class="p-8 text-center text-slate-500 italic">No hay red debajo de este usuario en este ciclo o ID no configurado en el demo.</td></tr>`;
+                }
+                
+                document.getElementById('tableBody').innerHTML = newHtml;
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 600); // 0.6 segundos de simulación de carga
+        }
+
+        function resetTable() {
+            document.getElementById('tableTitle').innerText = originalTitle;
+            document.getElementById('tableTitle').classList.remove('text-blue-400');
+            document.getElementById('btnReset').classList.add('hidden');
+            document.getElementById('tableBody').innerHTML = originalHTML;
+        }
+    </script>
+</body>
+</html>
