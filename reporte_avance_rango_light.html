@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reporte de Avance de Rango - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        .mobile-nav-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .mobile-nav-scroll::-webkit-scrollbar { display: none; }
+        .mobile-nav-item { flex: 0 0 22%; scroll-snap-align: start; }
+        
+        /* Table sticky header for long tables */
+        .table-sticky-header th { position: sticky; top: 0; z-index: 10; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50 pb-20">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 md:hidden object-contain">
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Reportes</h1>
+            </div>
+
+            <div class="flex-1 hidden md:flex justify-center items-center gap-4 xl:gap-6 px-4">
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+                    <span class="text-[11px] xl:text-[12px] text-emerald-700 font-bold uppercase tracking-wider whitespace-nowrap">Estado: Activo <span class="text-slate-500 font-normal normal-case">(sem. 4)</span></span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex text-right flex-col mr-2">
+                    <span class="text-xs font-bold text-slate-800">ANDRES ALBARRAN SAS</span>
+                    <span class="text-[10px] text-slate-500">ID: 4785109</span>
+                </div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full border border-slate-300 shadow-sm object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6">
+            
+            <div class="bg-white p-5 rounded-2xl border border-slate-100 brand-card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="history.back()" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-500 hover:text-blue-700 hover:bg-blue-50 transition shadow-sm flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="text-blue-600">🚀</span> Reporte de Avance de Rango
+                        </h2>
+                        <p class="text-xs text-slate-500 hidden sm:block">Consulta el progreso y los nuevos rangos de los miembros de tu organización.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full md:w-auto">
+                    <span class="text-sm font-semibold text-slate-600 whitespace-nowrap">Seleccionar Ciclo:</span>
+                    <select class="w-full sm:w-80 border border-slate-300 rounded-xl px-4 py-2 text-sm font-semibold text-slate-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 bg-white shadow-sm cursor-pointer">
+                        <option value="903" selected>(Cycle #903) Mar. 23, 2026 - Mar. 29, 2026</option>
+                        <option value="902">(Cycle #902) Mar. 16, 2026 - Mar. 22, 2026</option>
+                        <option value="901">(Cycle #901) Mar. 9, 2026 - Mar. 15, 2026</option>
+                        <option value="900">(Cycle #900) Mar. 2, 2026 - Mar. 8, 2026</option>
+                        <option value="899">(Cycle #899) Feb. 23, 2026 - Mar. 1, 2026</option>
+                        <option value="898">(Cycle #898) Feb. 16, 2026 - Feb. 22, 2026</option>
+                        <option value="897">(Cycle #897) Feb. 9, 2026 - Feb. 15, 2026</option>
+                        <option value="896">(Cycle #896) Feb. 2, 2026 - Feb. 8, 2026</option>
+                        <option value="895">(Cycle #895) Jan. 26, 2026 - Feb. 1, 2026</option>
+                        <option value="894">(Cycle #894) Jan. 19, 2026 - Jan. 25, 2026</option>
+                        <option value="893">(Cycle #893) Jan. 12, 2026 - Jan. 18, 2026</option>
+                        <option value="892">(Cycle #892) Jan. 5, 2026 - Jan. 11, 2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                <div class="bg-slate-800 text-white px-6 py-4 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm tracking-widest uppercase mb-1">LÍDERES SUPERIORES</h3>
+                    <p class="text-xs text-slate-300 font-medium">D. Ejecutivo, D. Premier, D. Royal, D. Corona</p>
+                </div>
+                <div class="p-6 bg-slate-50 text-center text-sm font-semibold text-slate-500 italic">
+                    No hay avances para mostrar en este grupo.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                <div class="bg-blue-800 text-white px-6 py-4 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm tracking-widest uppercase mb-1">LÍDERES EMERGENTES</h3>
+                    <p class="text-xs text-blue-200 font-medium">Oro, Platino, Diamante</p>
+                </div>
+                <div class="overflow-x-auto w-full">
+                    <table class="w-full text-left text-xs whitespace-nowrap table-sticky-header">
+                        <thead class="text-slate-600 font-bold border-b border-slate-200 shadow-sm">
+                            <tr>
+                                <th class="p-3 pl-4">ID</th>
+                                <th class="p-3">Nombre</th>
+                                <th class="p-3">Ubicación</th>
+                                <th class="p-3 text-center">Fecha Insc.</th>
+                                <th class="p-3 text-center">DIN</th>
+                                <th class="p-3 text-center">Nivel ESP</th>
+                                <th class="p-3 text-center">Equipo Binario</th>
+                                <th class="p-3 text-center">Nivel Binario</th>
+                                <th class="p-3 text-center text-slate-400">Rango Anterior</th>
+                                <th class="p-3 text-center text-emerald-600">Rango Actual</th>
+                                <th class="p-3 text-center" title="Total Inscritos Línea de Patrocinio">TILP</th>
+                                <th class="p-3 text-center" title="Activos Izquierda">IZQ</th>
+                                <th class="p-3 text-center" title="Activos Derecha">DER</th>
+                                <th class="p-3 text-right" title="Volumen Rama de Pago">PLV</th>
+                                <th class="p-3 text-center" title="Líneas Asistente Ejecutivo">LAE</th>
+                                <th class="p-3 text-center" title="Líneas Oro">LO</th>
+                                <th class="p-3 text-center" title="Duplicación ESP">ESPD</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 bg-white">
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">5058554</td>
+                                <td class="p-3 font-bold text-slate-800">SANDRA NALLELY HERNANDEZ RODRIGUEZ</td>
+                                <td class="p-3 text-slate-600">ACATLAN DE JUAREZ JAL MX</td>
+                                <td class="p-3 text-center text-slate-500">05/15/2024</td>
+                                <td class="p-3 text-center font-mono">683</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">284</td>
+                                <td class="p-3 text-center text-slate-400">Silver</td>
+                                <td class="p-3 text-center font-bold text-yellow-500">Gold</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">2</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">2</td>
+                                <td class="p-3 text-right font-bold text-slate-800">5857.32</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">4</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6700440</td>
+                                <td class="p-3 font-bold text-slate-800">EDWARD FERNEY IBARRA PORTILLA</td>
+                                <td class="p-3 text-slate-600">CAYAMBE P ECUADOR</td>
+                                <td class="p-3 text-center text-slate-500">11/22/2016</td>
+                                <td class="p-3 text-center font-mono">3414</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">113</td>
+                                <td class="p-3 text-center text-slate-400">Silver</td>
+                                <td class="p-3 text-center font-bold text-yellow-500">Gold</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">1</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">4</td>
+                                <td class="p-3 text-right font-bold text-slate-800">6742.06</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">2</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6775850</td>
+                                <td class="p-3 font-bold text-slate-800">DARIO JAVIER NAVARRO ROMERO</td>
+                                <td class="p-3 text-slate-600">DURAN G EC</td>
+                                <td class="p-3 text-center text-slate-500">01/07/2025</td>
+                                <td class="p-3 text-center font-mono">446</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">216</td>
+                                <td class="p-3 text-center text-slate-400">Silver</td>
+                                <td class="p-3 text-center font-bold text-yellow-500">Gold</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">3</td>
+                                <td class="p-3 text-center font-bold text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">5456.85</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">2</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 brand-card-shadow overflow-hidden">
+                <div class="bg-emerald-700 text-white px-6 py-4 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm tracking-widest uppercase mb-1">CONSTRUCTORES</h3>
+                    <p class="text-xs text-emerald-200 font-medium">Aprendiz Elite, Bronce, Plata</p>
+                </div>
+                <div class="overflow-x-auto w-full max-h-[600px] overflow-y-auto">
+                    <table class="w-full text-left text-xs whitespace-nowrap table-sticky-header">
+                        <thead class="text-slate-600 font-bold border-b border-slate-200 shadow-sm">
+                            <tr>
+                                <th class="p-3 pl-4">ID</th>
+                                <th class="p-3">Nombre</th>
+                                <th class="p-3">Ubicación</th>
+                                <th class="p-3 text-center">Fecha Insc.</th>
+                                <th class="p-3 text-center">DIN</th>
+                                <th class="p-3 text-center">Nivel ESP</th>
+                                <th class="p-3 text-center">Eq. Binario</th>
+                                <th class="p-3 text-center">Niv. Binario</th>
+                                <th class="p-3 text-center text-slate-400">Rango Anterior</th>
+                                <th class="p-3 text-center text-emerald-600">Rango Actual</th>
+                                <th class="p-3 text-center">TILP</th>
+                                <th class="p-3 text-center">IZQ</th>
+                                <th class="p-3 text-center">DER</th>
+                                <th class="p-3 text-right">PLV</th>
+                                <th class="p-3 text-center">LAE</th>
+                                <th class="p-3 text-center">LO</th>
+                                <th class="p-3 text-center">ESPD</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 bg-white">
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6763438</td>
+                                <td class="p-3 font-bold text-slate-800">JULIA GENOVEVA LUQUE HURTADO</td>
+                                <td class="p-3 text-slate-600">GUAYAQUIL G EC</td>
+                                <td class="p-3 text-center text-slate-500">11/06/2025</td>
+                                <td class="p-3 text-center font-mono">143</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">262</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">3</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">776.5</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">1</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">7426898</td>
+                                <td class="p-3 font-bold text-slate-800">CINDY LORENA ERASO FERNANDEZ</td>
+                                <td class="p-3 text-slate-600">VILLAVICENCIO MET COLOMBIA</td>
+                                <td class="p-3 text-center text-slate-500">11/30/2022</td>
+                                <td class="p-3 text-center font-mono">1215</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">96</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">629.42</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6791042</td>
+                                <td class="p-3 font-bold text-slate-800">DIANA MABEL OCHOA ZAMBRANO</td>
+                                <td class="p-3 text-slate-600">GUAYAQUIL G EC</td>
+                                <td class="p-3 text-center text-slate-500">09/22/2025</td>
+                                <td class="p-3 text-center font-mono">187</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">225</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">607.5</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">1</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6793268</td>
+                                <td class="p-3 font-bold text-slate-800">MARTHA EDITH GOMEZ AVILA</td>
+                                <td class="p-3 text-slate-600">GUAYAQUIL G EC</td>
+                                <td class="p-3 text-center text-slate-500">11/03/2025</td>
+                                <td class="p-3 text-center font-mono">147</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">226</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">2</td>
+                                <td class="p-3 text-right font-bold text-slate-800">603.26</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">4999196</td>
+                                <td class="p-3 font-bold text-slate-800">LUZ MILA RAMOS SIERRA</td>
+                                <td class="p-3 text-slate-600">BOGOTÁ, D.C. DC COLOMBIA</td>
+                                <td class="p-3 text-center text-slate-500">03/07/2016</td>
+                                <td class="p-3 text-center font-mono">3674</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">50</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">588.19</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6783144</td>
+                                <td class="p-3 font-bold text-slate-800">ENNY DAYELHI TORO VELEZ</td>
+                                <td class="p-3 text-slate-600">GUAYAQUIL G EC</td>
+                                <td class="p-3 text-center text-slate-500">08/09/2025</td>
+                                <td class="p-3 text-center font-mono">293</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">254</td>
+                                <td class="p-3 text-center text-slate-400">Bronze</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">2</td>
+                                <td class="p-3 text-right font-bold text-slate-800">846.8</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">1</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">7508268</td>
+                                <td class="p-3 font-bold text-slate-800">CLAUDIA FELISA JARAMILLO PEREZ</td>
+                                <td class="p-3 text-slate-600">MEDELLIN ANT COLOMBIA</td>
+                                <td class="p-3 text-center text-slate-500">11/26/2025</td>
+                                <td class="p-3 text-center font-mono">123</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">210</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">3</td>
+                                <td class="p-3 text-right font-bold text-slate-800">540.1</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">2</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6791828</td>
+                                <td class="p-3 font-bold text-slate-800">EMY DAYANA IMBAQUINGO CABRERA</td>
+                                <td class="p-3 text-slate-600">CAYAMBE P EC</td>
+                                <td class="p-3 text-center text-slate-500">10/01/2025</td>
+                                <td class="p-3 text-center font-mono">179</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">178</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">500</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">5100505</td>
+                                <td class="p-3 font-bold text-slate-800">MARIA ENMA LEAL AGUILAR</td>
+                                <td class="p-3 text-slate-600">PAJACUARAN MIC MX</td>
+                                <td class="p-3 text-center text-slate-500">06/21/2025</td>
+                                <td class="p-3 text-center font-mono">281</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">312</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">500</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">1</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">7404482</td>
+                                <td class="p-3 font-bold text-slate-800">MARIA JANET MOLINA TIQUE</td>
+                                <td class="p-3 text-slate-600">BOGOTA, D.C. DC COLOMBIA</td>
+                                <td class="p-3 text-center text-slate-500">07/13/2022</td>
+                                <td class="p-3 text-center font-mono">1355</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">257</td>
+                                <td class="p-3 text-center text-slate-400">Bronze</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-center text-emerald-600">2</td>
+                                <td class="p-3 text-right font-bold text-slate-800">476.27</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6759137</td>
+                                <td class="p-3 font-bold text-slate-800">MARTHA CECILIA AVILA DELGADO</td>
+                                <td class="p-3 text-slate-600">JARAMIJO M ECUADOR</td>
+                                <td class="p-3 text-center text-slate-500">09/30/2025</td>
+                                <td class="p-3 text-center font-mono">911</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">218</td>
+                                <td class="p-3 text-center text-slate-400">Bronze</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">2</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-800">420.4</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">7504749</td>
+                                <td class="p-3 font-bold text-slate-800">MARIA ADELA DELGADO HORTUA</td>
+                                <td class="p-3 text-slate-600">ORITO PUT COLOMBIA</td>
+                                <td class="p-3 text-center text-slate-500">09/13/2025</td>
+                                <td class="p-3 text-center font-mono">197</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">R</td>
+                                <td class="p-3 text-center text-slate-500">135</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-800">302.9</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6790312</td>
+                                <td class="p-3 font-bold text-slate-800">BRITHANY DORIS PAZMINO BODERO</td>
+                                <td class="p-3 text-slate-600">GUAYAQUIL G EC</td>
+                                <td class="p-3 text-center text-slate-500">09/11/2025</td>
+                                <td class="p-3 text-center font-mono">199</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">231</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">3</td>
+                                <td class="p-3 text-center text-emerald-600">1</td>
+                                <td class="p-3 text-right font-bold text-slate-800">288.2</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-3 pl-4 text-slate-500">6778405</td>
+                                <td class="p-3 font-bold text-slate-800">FANNY NOHEMIT CARRILLO GUDINO</td>
+                                <td class="p-3 text-slate-600">QUITO P EC</td>
+                                <td class="p-3 text-center text-slate-500">02/07/2025</td>
+                                <td class="p-3 text-center font-mono">415</td>
+                                <td class="p-3 text-center font-semibold text-blue-700">ESP-3</td>
+                                <td class="p-3 text-center font-bold text-slate-700">L</td>
+                                <td class="p-3 text-center text-slate-500">214</td>
+                                <td class="p-3 text-center text-slate-400">Apprentice Elite</td>
+                                <td class="p-3 text-center font-bold text-slate-600">Silver</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-center text-emerald-600">0</td>
+                                <td class="p-3 text-right font-bold text-slate-800">266.6</td>
+                                <td class="p-3 text-center text-blue-600 font-bold">0</td>
+                                <td class="p-3 text-center">0</td>
+                                <td class="p-3 text-center">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-xl text-xs leading-relaxed text-justify shadow-sm mt-8">
+                <strong>**Nota:</strong> Los valores reflejados en el Reporte de Avance de Rango corresponde únicamente al ciclo seleccionado.
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-100 brand-card-shadow overflow-hidden mt-6">
+                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4">
+                    <h3 class="font-bold text-sm text-slate-800 uppercase tracking-wide">Descripción Títulos y Abreviaturas</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 p-6 gap-8">
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-600">
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Fecha Insc</span><span>Fecha de vinculación en Gano Excel.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">DIN</span><span>Días en el Negocio - Días inscritos en Gano Excel.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Nivel ESP</span><span>Nivel de calificación ESP.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Equipo Binario</span><span>(Izquierda / Derecha).</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Nivel Binario</span><span>Niveles de profundidad en su Árbol Binario.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Rango Anterior</span><span>Rango previo al reciente avance.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">Rango Actual</span><span>Nuevo rango logrado.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">TILP</span><span>Total de Inscritos en la Línea de Patrocinio.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">IZQ</span><span>Línea de Patrocinio activos rama izquierda ** - Línea de Patrocinio con 50 PV + (Binario Izquierdo).</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">DER</span><span>Línea de Patrocinio activos rama derecha ** - Línea de Patrocinio con 50 PV + (Binario Derecho).</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">PLV</span><span>Volumen de la Rama de Pago ** - Volumen Comisional Grupal (GCV) de la Rama de Pago.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">LAE</span><span>Líneas de Asistente Ejecutivo**.</span></div>
+                        <div class="flex flex-col sm:flex-row border-b border-slate-100 pb-2"><span class="font-bold text-slate-800 w-32 shrink-0">LO</span><span>Líneas de Oro.</span></div>
+                        <div class="flex flex-col sm:flex-row"><span class="font-bold text-slate-800 w-32 shrink-0">ESPD</span><span>Duplicación ESP ** - Número de personas inscritas en ESP.</span></div>
+                    </div>
+
+                    <div>
+                        <table class="w-full text-left text-xs sm:text-sm whitespace-nowrap border border-slate-200 rounded-lg overflow-hidden">
+                            <thead class="bg-[#83b0b8] text-white font-bold">
+                                <tr>
+                                    <th class="p-3">Mostrado</th>
+                                    <th class="p-3">Definición</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">AF</td><td class="p-3 text-slate-600">Afiliado</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">AP</td><td class="p-3 text-slate-600">Aprendiz</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">AE</td><td class="p-3 text-slate-600">Asistente Ejecutivo</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">BR</td><td class="p-3 text-slate-600">Bronce</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">SI</td><td class="p-3 text-slate-600">Plata</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">PL</td><td class="p-3 text-slate-600">Platino</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">DI</td><td class="p-3 text-slate-600">Diamante</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">ED</td><td class="p-3 text-slate-600">Diamante Ejecutivo</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">PD</td><td class="p-3 text-slate-600">Diamante Premier</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">RD</td><td class="p-3 text-slate-600">Diamante Royal</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-800">CD</td><td class="p-3 text-slate-600">Diamante Corona</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+        <div class="mobile-nav-scroll py-3 pb-safe">
+            <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🏠</span><span class="text-[10px] font-bold mt-1">Inicio</span>
+            </a>
+            <a href="equipo_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">👥</span><span class="text-[10px] font-semibold mt-1">Línea Desc.</span>
+            </a>
+            <a href="tienda_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
+                <span class="text-xl">🛒</span><span class="text-[10px] font-semibold mt-1">Tienda</span>
+            </a>
+            <a href="finanzas_light.html" class="mobile-nav-item flex flex-col items-center text-blue-700">
+                <span class="text-xl drop-shadow-[0_0_5px_rgba(37,99,235,0.3)]">📊</span><span class="text-[10px] font-semibold mt-1">Reportes</span>
+            </a>
+        </div>
+    </nav>
+
+</body>
+</html>
