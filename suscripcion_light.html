@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Suscripción - Excelia (White Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        
+        /* Estilo para Radio Buttons Ocultos (Selección de Tarjetas) */
+        .kit-radio:checked + div {
+            border-color: #1d4ed8;
+            background-color: #eff6ff;
+            box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+        }
+        .kit-radio:checked + div .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50">
+        
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <h1 class="text-xl font-bold text-slate-800 hidden sm:flex items-center gap-2">
+                    <span class="text-red-500">👤+</span> Nuevas Afiliaciones
+                </h1>
+            </div>
+            <button onclick="window.location.href='index_light.html'" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red-600 transition bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
+                Cancelar / Cerrar <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full space-y-8 pb-24">
+            
+            <div class="flex bg-white rounded-2xl border border-slate-100 brand-card-shadow overflow-hidden divide-x divide-slate-100">
+                <div class="flex-1 bg-emerald-500 text-white p-4 text-center">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Iniciar</span>
+                    <div class="w-5 h-5 mx-auto bg-white text-emerald-500 rounded-full flex items-center justify-center">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+                <div class="flex-1 bg-red-600 text-white p-4 text-center">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Suscripción</span>
+                    <div class="w-5 h-5 mx-auto bg-white text-red-600 rounded-full flex items-center justify-center font-bold text-xs">2</div>
+                </div>
+                <div class="flex-1 bg-slate-100 text-slate-400 p-4 text-center hidden sm:block">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Afiliación</span>
+                    <div class="w-5 h-5 mx-auto bg-slate-200 rounded-full"></div>
+                </div>
+                <div class="flex-1 bg-slate-100 text-slate-400 p-4 text-center hidden md:block">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Pago</span>
+                    <div class="w-5 h-5 mx-auto bg-slate-200 rounded-full"></div>
+                </div>
+                <div class="flex-1 bg-slate-100 text-slate-400 p-4 text-center hidden lg:block">
+                    <span class="block font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1">Confirmar</span>
+                    <div class="w-5 h-5 mx-auto bg-slate-200 rounded-full"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow overflow-hidden">
+                <div class="bg-slate-700 text-white px-6 py-3"><h2 class="font-bold text-sm tracking-wide uppercase">Selección de Paquete</h2></div>
+                
+                <div class="p-6 sm:p-10 bg-slate-50/30">
+                    <p class="text-slate-600 text-sm mb-8 text-center">Gano Excel ofrece una amplia gama de opciones de inscripción que se adaptan a cualquier presupuesto u objetivo de negocio deseado. Por favor, elija uno de los siguientes paquetes.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                        
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="kit_selection" class="kit-radio peer sr-only" value="esp3">
+                            <div class="h-full border border-slate-200 rounded-xl overflow-hidden bg-white text-center transition-all duration-200 hover:shadow-md">
+                                <div class="bg-[#007ba7] text-white py-3 font-bold uppercase text-sm">ESP-3</div>
+                                <div class="p-4 relative">
+                                    <div class="absolute top-2 right-2 w-6 h-6 bg-[#007ba7] rounded-full text-white flex items-center justify-center opacity-0 transform scale-50 transition-all duration-200 check-icon shadow-md z-10"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp33.jpg" class="h-32 object-contain mx-auto mix-blend-multiply mb-3">
+                                    <a href="#" class="text-xs text-[#007ba7] underline">vea más detalles del paquete</a>
+                                    <p class="font-black text-slate-800 text-xl mt-4">$4,500,000.00</p>
+                                    <p class="text-xs text-slate-400 mb-4">Por Paquete</p>
+                                    <div class="flex items-center justify-center gap-2 text-sm text-slate-600"><span class="w-4 h-4 rounded-full border border-slate-300 inline-block peer-checked:bg-[#007ba7]"></span> Seleccionar Paquete</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="kit_selection" class="kit-radio peer sr-only" value="esp2">
+                            <div class="h-full border border-slate-200 rounded-xl overflow-hidden bg-white text-center transition-all duration-200 hover:shadow-md">
+                                <div class="bg-[#36358c] text-white py-3 font-bold uppercase text-sm">ESP-2</div>
+                                <div class="p-4 relative">
+                                    <div class="absolute top-2 right-2 w-6 h-6 bg-[#36358c] rounded-full text-white flex items-center justify-center opacity-0 transform scale-50 transition-all duration-200 check-icon shadow-md z-10"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp3.jpg" class="h-32 object-contain mx-auto mix-blend-multiply mb-3">
+                                    <a href="#" class="text-xs text-[#007ba7] underline">vea más detalles del paquete</a>
+                                    <p class="font-black text-slate-800 text-xl mt-4">$2,250,000.00</p>
+                                    <p class="text-xs text-slate-400 mb-4">Por Paquete</p>
+                                    <div class="flex items-center justify-center gap-2 text-sm text-slate-600"><span class="w-4 h-4 rounded-full border border-slate-300 inline-block"></span> Seleccionar Paquete</div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="kit_selection" class="kit-radio peer sr-only" value="esp1">
+                            <div class="h-full border border-slate-200 rounded-xl overflow-hidden bg-white text-center transition-all duration-200 hover:shadow-md">
+                                <div class="bg-[#a864a8] text-white py-3 font-bold uppercase text-sm">ESP-1</div>
+                                <div class="p-4 relative">
+                                    <div class="absolute top-2 right-2 w-6 h-6 bg-[#a864a8] rounded-full text-white flex items-center justify-center opacity-0 transform scale-50 transition-all duration-200 check-icon shadow-md z-10"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp1.jpg" class="h-32 object-contain mx-auto mix-blend-multiply mb-3">
+                                    <a href="#" class="text-xs text-[#007ba7] underline">vea más detalles del paquete</a>
+                                    <p class="font-black text-slate-800 text-xl mt-4">$900,000.00</p>
+                                    <p class="text-xs text-slate-400 mb-4">Por Paquete</p>
+                                    <div class="flex items-center justify-center gap-2 text-sm text-slate-600"><span class="w-4 h-4 rounded-full border border-slate-300 inline-block"></span> Seleccionar Paquete</div>
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <label class="relative cursor-pointer group block max-w-3xl mx-auto">
+                        <input type="radio" name="kit_selection" class="kit-radio peer sr-only" value="kit_basico">
+                        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white text-center transition-all duration-200 hover:shadow-md">
+                            <div class="bg-black text-white py-4 font-bold text-lg">Construye tu propio Kit de Inicio</div>
+                            <div class="p-6 relative">
+                                <div class="absolute top-4 right-4 w-6 h-6 bg-black rounded-full text-white flex items-center justify-center opacity-0 transform scale-50 transition-all duration-200 check-icon shadow-md"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+                                <p class="font-bold text-slate-800 mb-6">Oficina Virtual (Back Office)</p>
+                                <div class="flex items-center justify-center gap-2 text-sm text-slate-600"><span class="w-4 h-4 rounded-full border border-slate-300 inline-block"></span> Seleccionar Paquete</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <div class="flex justify-center gap-4 mt-10">
+                        <button onclick="history.back()" class="bg-slate-400 text-white font-bold px-10 py-3 rounded uppercase text-sm hover:bg-slate-500 transition shadow-sm">Anterior</button>
+                        <button id="nextBtn" disabled class="bg-slate-300 text-slate-500 font-bold px-10 py-3 rounded uppercase text-sm transition-all duration-300 cursor-not-allowed">Siguiente</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Lógica para habilitar el botón SIGUIENTE solo cuando se selecciona un kit
+        const radios = document.querySelectorAll('input[name="kit_selection"]');
+        const nextBtn = document.getElementById('nextBtn');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if(document.querySelector('input[name="kit_selection"]:checked')) {
+                    nextBtn.disabled = false;
+                    nextBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
+                    nextBtn.classList.add('bg-slate-500', 'text-white', 'hover:bg-slate-600', 'cursor-pointer', 'shadow-md');
+                    nextBtn.onclick = () => window.location.href = 'formulario_afiliacion_light.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
