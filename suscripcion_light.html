@@ -22,6 +22,12 @@
             opacity: 1;
             transform: scale(1);
         }
+
+        /* Estilos agregados para las tarjetas de productos de la lista desplegable */
+        .product-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-color: #3b82f6; }
+        .qty-btn { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 99px; transition: all 0.2s; font-weight: bold;}
+        .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
     </style>
 </head>
 <body class="antialiased flex h-screen overflow-hidden">
@@ -126,7 +132,7 @@
                     <label class="relative cursor-pointer group block max-w-3xl mx-auto">
                         <input type="radio" name="kit_selection" class="kit-radio peer sr-only" value="kit_basico">
                         <div class="border border-slate-200 rounded-xl overflow-hidden bg-white text-center transition-all duration-200 hover:shadow-md">
-                            <div class="bg-black text-white py-4 font-bold text-lg">Construye tu propio Kit de Inicio</div>
+                            <div class="bg-black text-white py-4 font-bold text-lg">Personaliza tu Kit de Inicio</div>
                             <div class="p-6 relative">
                                 <div class="absolute top-4 right-4 w-6 h-6 bg-black rounded-full text-white flex items-center justify-center opacity-0 transform scale-50 transition-all duration-200 check-icon shadow-md"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
                                 <p class="font-bold text-slate-800 mb-6">Oficina Virtual (Back Office)</p>
@@ -134,6 +140,26 @@
                             </div>
                         </div>
                     </label>
+
+                    <div id="personalizedKitArea" class="hidden border-t border-slate-200 pt-8 mt-8 transition-all duration-300">
+                        <div class="text-center mb-8">
+                            <h3 class="font-black text-2xl text-slate-800">✨ Selecciona tus Productos</h3>
+                            <p class="text-sm text-slate-500 mt-2 bg-blue-50 text-blue-800 inline-block px-4 py-2 rounded-lg border border-blue-100">
+                                💡 <strong>Importante:</strong> Para activar tu código debes acumular un mínimo de <strong>50 PV</strong> en productos. (El Business Kit - N de $25,210 es obligatorio y ya está incluido en tu total).
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 text-left" id="productsGrid">
+                            </div>
+
+                        <div class="mt-6 bg-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-left">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Subtotal del Kit Personalizado</p>
+                                <p class="text-xs text-slate-300 mt-1">Incluye Business Kit ($25,210) <span id="summaryItems" class="ml-2 font-bold text-white">| 0 Productos agregados</span></p>
+                                <h3 class="text-3xl font-black text-white mt-2">Total: <span id="totalKitPrice" class="text-emerald-400">$25,210 COP</span></h3>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="flex justify-center gap-4 mt-10">
                         <button onclick="history.back()" class="bg-slate-400 text-white font-bold px-10 py-3 rounded uppercase text-sm hover:bg-slate-500 transition shadow-sm">Anterior</button>
@@ -147,20 +173,129 @@
     </main>
 
     <script>
-        // Lógica para habilitar el botón SIGUIENTE solo cuando se selecciona un kit
+        // 1. Mostrar/Ocultar y habilitar botón
         const radios = document.querySelectorAll('input[name="kit_selection"]');
         const nextBtn = document.getElementById('nextBtn');
+        const personalizedArea = document.getElementById('personalizedKitArea');
 
         radios.forEach(radio => {
-            radio.addEventListener('change', () => {
+            radio.addEventListener('change', (e) => {
                 if(document.querySelector('input[name="kit_selection"]:checked')) {
                     nextBtn.disabled = false;
                     nextBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
                     nextBtn.classList.add('bg-slate-500', 'text-white', 'hover:bg-slate-600', 'cursor-pointer', 'shadow-md');
                     nextBtn.onclick = () => window.location.href = 'formulario_afiliacion_light.html';
                 }
+
+                if(e.target.value === 'kit_basico') {
+                    personalizedArea.classList.remove('hidden');
+                } else {
+                    personalizedArea.classList.add('hidden');
+                }
             });
         });
+
+        // 2. Base de Datos de Productos
+        const baseKitPrice = 25210.08; 
+        
+        const productsData = [
+            { id: 'prod501', code: '501', name: 'GANOCAFÉ 3 EN 1', price: 93193.28, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg', max: 3 },
+            { id: 'prod502', code: '502', name: 'GANO SCHOKOLADE', price: 104957.98, pv: 17, cv: 15.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/chocolate.jpg', max: 3 },
+            { id: 'prod503', code: '503', name: 'GANORICO MOCHA RICO', price: 100756.3, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganomocharico.jpg', max: 3 },
+            { id: 'prod504', code: '504', name: 'OLEAF GANO ROOIBOS DRINK', price: 100756.3, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/leaf.jpg', max: 3 },
+            { id: 'prod505', code: '505', name: 'GANOCAFÉ CLASSIC', price: 93193.28, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg', max: 3 },
+            { id: 'prod509', code: '509', name: 'GANORICO LATTE RICO', price: 100756.3, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganoricolate.jpg', max: 3 },
+            { id: 'prod530', code: '530', name: 'RESKINE COLLAGEN DRINK', price: 182268.91, pv: 31, cv: 27.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/colageno.jpg', max: 3 },
+            { id: 'prod301', code: '301', name: 'GANO SOAP', price: 62100.84, pv: 10.4, cv: 8.9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/07/ganosoapportada111.jpg', max: 3 },
+            { id: 'prod302', code: '302', name: 'GANO FRESH TOOTHPASTE', price: 62100.84, pv: 11, cv: 9.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganofresh.jpg', max: 1 },
+            { id: 'prod303', code: '303', name: 'GANO TRANSPARENT SOAP', price: 65966.39, pv: 12, cv: 10, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganotransparent.jpg', max: 3 },
+            { id: 'prod305', code: '305', name: 'PIEL8BRILLO SHAMPOO', price: 62100.84, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/shampoo.jpg', max: 3 },
+            { id: 'prod306', code: '306', name: 'PIEL8BRILLO ACONDICIONADOR', price: 62100.84, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/acondicionadorpielybrillo.jpg', max: 3 },
+            { id: 'prod307', code: '307', name: 'PIEL8BRILLO EXFOLIANTE CORPORAL', price: 62100.84, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/exfoliante.jpg', max: 3 },
+            { id: 'prod308', code: '308', name: 'PIEL8BRILLO SHAMPOO & ACONDICIONADOR', price: 120168.07, pv: 22, cv: 18, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo2-300x300.jpg', max: 3 },
+            { id: 'prod309', code: '309', name: 'PIEL8BRILLO (SHAMPO Y ACONDI Y EXFOLI)', price: 178571.43, pv: 33, cv: 27, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo1-300x300.jpg', max: 3 },
+            { id: 'prod801', code: '801', name: 'GANODERMA CAPSULAS', price: 228991.6, pv: 41, cv: 34.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganodermacapsulas.jpg', max: 3 },
+            { id: 'prod803', code: '803', name: 'EXCELLIUM CAPSULAS', price: 228991.6, pv: 41, cv: 34.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/excelium.jpg', max: 3 },
+            { id: 'prod805', code: '805', name: 'CORDYGOLD CAPSULAS', price: 283109.24, pv: 49, cv: 43, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cordygold.jpg', max: 3 },
+            { id: 'prod507', code: '507', name: 'GANO C\'REAL SPIRULINA', price: 100756.3, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cereal.jpg', max: 3 },
+            { id: 'prod512', code: '512', name: 'GANORICO SHOKO RICO', price: 104957.98, pv: 17, cv: 15.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/07/shokorico112.jpg', max: 3 },
+            { id: 'prod816', code: '816', name: 'LUVOCO SUAVE', price: 93193.28, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/luvocosuave2.jpg', max: 3 },
+            { id: 'prod997', code: '997', name: 'LUVOCO PREMIUM MAQUINA', price: 862184.87, pv: 0, cv: 0, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/maquinaluvoco.jpg', max: 3 }
+        ];
+
+        const productQuantities = {};
+        const productPricesMap = {};
+        
+        // 3. Renderizar Productos en el Grid (CON IMÁGENES GRANDES)
+        const grid = document.getElementById('productsGrid');
+        
+        productsData.forEach(prod => {
+            productQuantities[prod.id] = 0;
+            productPricesMap[prod.id] = prod.price;
+            
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-2xl p-4 product-card flex flex-col justify-between border border-slate-200";
+            
+            const displayPrice = Math.round(prod.price).toLocaleString('es-CO');
+            
+            card.innerHTML = `
+                <div class="mb-3">
+                    <div class="w-full h-36 bg-slate-50 rounded-xl flex items-center justify-center p-2 mb-4 relative overflow-hidden group">
+                        <img src="${prod.img}" alt="${prod.name}" class="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110">
+                        <span class="absolute top-2 right-2 text-[9px] font-bold text-slate-500 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded shadow-sm uppercase border border-slate-200">Cod: ${prod.code}</span>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-800 leading-tight min-h-[40px]">${prod.name}</h4>
+                    <p class="text-xs text-slate-500 mt-1">PV: ${prod.pv} | CV: ${prod.cv}</p>
+                    <p class="text-base text-blue-700 font-black mt-1">$${displayPrice}</p>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-3 border-t border-slate-100 mt-auto">
+                    <button type="button" onclick="updateQty('${prod.id}', -1, ${prod.max})" class="qty-btn bg-slate-100 text-slate-600 hover:bg-slate-200 w-8 h-8 rounded-full">-</button>
+                    <span id="qty_${prod.id}" class="font-black text-sm text-slate-800 w-6 text-center">0</span>
+                    <button type="button" id="btnPlus_${prod.id}" onclick="updateQty('${prod.id}', 1, ${prod.max})" class="qty-btn bg-emerald-100 text-emerald-700 hover:bg-emerald-200 w-8 h-8 rounded-full">+</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // 4. Lógica de Suma y Resta
+        window.updateQty = function(productId, change, maxLimit) {
+            let current = productQuantities[productId];
+            let newVal = current + change;
+            
+            if (newVal >= 0 && newVal <= maxLimit) {
+                productQuantities[productId] = newVal;
+                document.getElementById(`qty_${productId}`).innerText = newVal;
+                
+                // Bloquear botón + si llega al límite
+                const btnPlus = document.getElementById(`btnPlus_${productId}`);
+                if (newVal === maxLimit) {
+                    btnPlus.disabled = true;
+                    btnPlus.classList.add('opacity-30', 'cursor-not-allowed');
+                } else {
+                    btnPlus.disabled = false;
+                    btnPlus.classList.remove('opacity-30', 'cursor-not-allowed');
+                }
+                
+                calculateTotal();
+            }
+        };
+
+        // 5. Calcular Totales
+        function calculateTotal() {
+            let totalItems = 0;
+            let totalValue = baseKitPrice;
+            
+            for (const id in productQuantities) {
+                totalItems += productQuantities[id];
+                totalValue += productQuantities[id] * productPricesMap[id];
+            }
+            
+            document.getElementById('summaryItems').innerText = `| ${totalItems} Productos agregados`;
+            document.getElementById('totalKitPrice').innerText = '$' + Math.round(totalValue).toLocaleString('es-CO') + ' COP';
+        }
+        
+        // Inicializar
+        calculateTotal();
     </script>
 </body>
 </html>
