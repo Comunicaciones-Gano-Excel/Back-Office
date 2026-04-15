@@ -80,78 +80,149 @@
                             Ingrese a continuación la información que desea usar para su cuenta. Si desea registrarse como empresa o si es ciudadano venezolano que tengan el permiso especial de permanencia <strong class="text-slate-700">(PEP)</strong>, deberá ponerse en contacto con nuestra línea de servicio al cliente o a través de nuestras oficinas corporativas para obtener mayor información.
                         </p>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <input type="text" class="input-field" placeholder="Primer Nombre">
-                            <input type="text" class="input-field" placeholder="Segundo Nombre">
-                            <input type="text" class="input-field" placeholder="Primer Apellido">
-                            <input type="text" class="input-field" placeholder="Segundo Apellido">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Nombres Completos</label>
+                                <input type="text" class="input-field" placeholder="Ej. Juan Carlos">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Apellidos Completos</label>
+                                <input type="text" class="input-field" placeholder="Ej. Pérez Gómez">
+                            </div>
                         </div>
 
                         <div class="space-y-4 pt-4 border-t border-slate-100">
                             <p class="text-slate-500 text-xs">
                                 Tenga en cuenta que la información suministrada en los campos de: dirección de domicilio, departamento, Ciudad / Municipio, serán registrados como dirección de facturación y envío. El costo de envío será determinado con base en la información de dirección de domicilio suministrada.
-                                <br><br><strong class="text-slate-700">Nota:</strong> En caso de presentarse novedad en el envío por error en la información suministrada por parte del Vendedor Independiente, el mismo deberá asumir los costos asociados a un nuevo envío.
                             </p>
 
-                            <div class="bg-slate-50/50 p-5 rounded-xl border border-slate-200 space-y-3 shadow-inner">
+                            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-4">
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Dirección de Domicilio</label>
+                                
                                 <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
-                                    <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option><option>Calle</option><option>Carrera</option><option>Avenida</option></select>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
-                                    <div class="bg-slate-300 text-slate-600 font-bold px-4 py-2 rounded-lg">#</div>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
-                                    <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
+                                    <select class="input-field w-full md:w-40 font-semibold cursor-pointer">
+                                        <option value="" disabled selected>Tipo de Vía</option>
+                                        <option value="Calle">Calle</option>
+                                        <option value="Carrera">Carrera</option>
+                                        <option value="Avenida">Avenida</option>
+                                        <option value="Transversal">Transversal</option>
+                                        <option value="Diagonal">Diagonal</option>
+                                        <option value="Circular">Circular</option>
+                                        <option value="Autopista">Autopista</option>
+                                    </select>
+                                    
+                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 123 A">
+                                    <span class="text-slate-400 font-bold hidden md:block">#</span>
+                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 45 B">
+                                    <span class="text-slate-400 font-bold hidden md:block">-</span>
+                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 67">
                                 </div>
-                                <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
-                                    <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
-                                    <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
-                                    <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-slate-100 border-dashed" placeholder="">
-                                </div>
+                                
                                 <div>
-                                    <input type="text" class="input-field input-readonly w-full" placeholder="Dirección de Domicilio - Por favor use el formato de dirección anterior" readonly>
+                                    <input type="text" class="input-field w-full" placeholder="Complemento (Opcional): Ej. Apto 801, Torre 3, Conjunto Los Pinos, Barrio Centro">
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Departamento</label>
+                                        <select class="input-field cursor-pointer">
+                                            <option value="" disabled selected>Seleccione Departamento</option>
+                                            <option value="Amazonas">Amazonas</option>
+                                            <option value="Antioquia">Antioquia</option>
+                                            <option value="Arauca">Arauca</option>
+                                            <option value="Atlántico">Atlántico</option>
+                                            <option value="Bogotá D.C.">Bogotá D.C.</option>
+                                            <option value="Bolívar">Bolívar</option>
+                                            <option value="Boyacá">Boyacá</option>
+                                            <option value="Caldas">Caldas</option>
+                                            <option value="Caquetá">Caquetá</option>
+                                            <option value="Casanare">Casanare</option>
+                                            <option value="Cauca">Cauca</option>
+                                            <option value="Cesar">Cesar</option>
+                                            <option value="Chocó">Chocó</option>
+                                            <option value="Córdoba">Córdoba</option>
+                                            <option value="Cundinamarca">Cundinamarca</option>
+                                            <option value="Guainía">Guainía</option>
+                                            <option value="Guaviare">Guaviare</option>
+                                            <option value="Huila">Huila</option>
+                                            <option value="La Guajira">La Guajira</option>
+                                            <option value="Magdalena">Magdalena</option>
+                                            <option value="Meta">Meta</option>
+                                            <option value="Nariño">Nariño</option>
+                                            <option value="Norte de Santander">Norte de Santander</option>
+                                            <option value="Putumayo">Putumayo</option>
+                                            <option value="Quindío">Quindío</option>
+                                            <option value="Risaralda">Risaralda</option>
+                                            <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                                            <option value="Santander">Santander</option>
+                                            <option value="Sucre">Sucre</option>
+                                            <option value="Tolima">Tolima</option>
+                                            <option value="Valle del Cauca">Valle del Cauca</option>
+                                            <option value="Vaupés">Vaupés</option>
+                                            <option value="Vichada">Vichada</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Ciudad / Municipio</label>
+                                        <input type="text" class="input-field" placeholder="Ej. Medellín">
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <select class="input-field"><option>Seleccione Departamento</option></select>
-                            <select class="input-field"><option>Seleccione Ciudad / Municipio</option></select>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">País</label>
+                                <input type="text" class="input-field input-readonly" value="COLOMBIA" readonly>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Teléfono Móvil / Celular</label>
+                                <input type="tel" class="input-field" placeholder="Ej. 300 123 4567">
+                            </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" class="input-field input-readonly" value="COLOMBIA" readonly>
-                            <input type="tel" class="input-field" placeholder="Teléfono">
-                        </div>
-
-                        <div class="flex flex-col md:flex-row gap-3 items-center">
-                            <input type="text" class="input-field md:w-1/3" placeholder="Correo Electrónico">
-                            <span class="font-bold text-slate-400">@</span>
-                            <select class="input-field md:w-1/4">
-                                <option>hotmail.com</option>
-                                <option>gmail.com</option>
-                                <option>yahoo.com</option>
-                                <option>Otros</option>
-                            </select>
-                            <input type="text" class="input-field md:flex-1 bg-slate-50" placeholder="Si selection otros, por favor indique">
+                        <div class="w-full md:w-3/4">
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Correo Electrónico</label>
+                            
+                            <div class="flex items-stretch w-full border border-slate-300 rounded-lg bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200 transition-all overflow-hidden">
+                                
+                                <input type="text" id="emailUser" class="flex-1 px-4 py-2.5 text-sm text-slate-700 outline-none bg-transparent" placeholder="Ej. juan.perez" required>
+                                
+                                <div class="border-l border-slate-200 bg-slate-50 relative flex items-center min-w-[140px]">
+                                    <select id="emailDomain" onchange="toggleCustomEmail()" class="pl-3 pr-8 py-2.5 text-sm font-semibold text-slate-600 bg-transparent outline-none cursor-pointer appearance-none w-full h-full">
+                                        <option value="" disabled selected>@dominio...</option>
+                                        <option value="@gmail.com">@gmail.com</option>
+                                        <option value="@hotmail.com">@hotmail.com</option>
+                                        <option value="@outlook.com">@outlook.com</option>
+                                        <option value="@yahoo.com">@yahoo.com</option>
+                                        <option value="@icloud.com">@icloud.com</option>
+                                        <option value="otro">Otro...</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="customEmailContainer" class="hidden mt-3">
+                                <input type="text" class="input-field bg-slate-50 border-dashed" placeholder="Escriba su dominio completo (Ej. @miempresa.com)">
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center pt-4 border-t border-slate-100">
                             <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                                <label class="text-sm font-bold text-slate-700 whitespace-nowrap w-32">Genero</label>
-                                <select class="input-field flex-1"><option>Seleccione el género</option><option>Masculino</option><option>Femenino</option></select>
+                                <label class="text-sm font-bold text-slate-700 whitespace-nowrap w-32">Género</label>
+                                <select class="input-field flex-1 cursor-pointer"><option value="" disabled selected>Seleccione</option><option>Masculino</option><option>Femenino</option><option>Otro</option></select>
                             </div>
                             <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                                 <label class="text-sm font-bold text-slate-700 whitespace-nowrap w-40">Fecha de Nacimiento</label>
-                                <input type="date" class="input-field flex-1 text-slate-500">
+                                <input type="date" class="input-field flex-1 text-slate-500 cursor-pointer">
                             </div>
                         </div>
 
                         <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
                             <label class="text-sm font-bold text-slate-700">¿Posee usted familiares que sean empleados directos de Gano Excel S.A.?</label>
-                            <select class="input-field sm:w-32"><option>NO</option><option>SÍ</option></select>
+                            <select class="input-field sm:w-32 cursor-pointer"><option>NO</option><option>SÍ</option></select>
                         </div>
                     </div>
                 </div>
@@ -189,12 +260,20 @@
                     </div>
                     <div class="p-6 sm:p-8 bg-white space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <select class="input-field">
-                                <option>CC - Cédula de Ciudadania</option>
-                                <option>CE - Cédula de Extranjería</option>
-                                <option>Pasaporte</option>
-                            </select>
-                            <input type="text" class="input-field" placeholder="Número de Identificación">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tipo de Documento</label>
+                                <select class="input-field cursor-pointer">
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option>CC - Cédula de Ciudadanía</option>
+                                    <option>CE - Cédula de Extranjería</option>
+                                    <option>Pasaporte</option>
+                                    <option>PPT - Permiso de Protección Temporal</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Número de Identificación</label>
+                                <input type="text" class="input-field" placeholder="Sin puntos ni comas">
+                            </div>
                         </div>
                         <p class="text-xs text-slate-700 leading-relaxed font-medium">
                             <strong>(*) Nota:</strong> Para vinculación de Compañías (NIT) y ciudadanos Venezolanos que tengan los permisos especiales de permanencia (PEP), Permiso por Protección Temporal (PPT) o el Permiso Especial de Permanencia para el Fomento de la Formalización (PEPFF) vigentes, deberán enviar su documentación previamente a nuestro Departamento de Servicio al Cliente.
@@ -216,5 +295,19 @@
         </div>
     </main>
 
+    <script>
+        function toggleCustomEmail() {
+            var domainSelect = document.getElementById("emailDomain");
+            var customContainer = document.getElementById("customEmailContainer");
+            
+            if (domainSelect.value === "otro") {
+                customContainer.classList.remove("hidden");
+                customContainer.classList.add("block");
+            } else {
+                customContainer.classList.remove("block");
+                customContainer.classList.add("hidden");
+            }
+        }
+    </script>
 </body>
 </html>
