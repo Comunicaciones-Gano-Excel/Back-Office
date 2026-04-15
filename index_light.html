@@ -203,7 +203,7 @@
                     🛒 Nuevo Pedido
                 </button>
                 <button onclick="window.location.href='https://comunicaciones-gano-excel.github.io/Back-Office/arbol_patrocinio_light.html'" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2">
-                    ➕ Inscribir Socio
+                    ➕ Nuevo Afiliado
                 </button>
                 <button onclick="window.location.href='reporte_volumen_banco_light.html'" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl shadow-sm border border-slate-200 transition flex items-center justify-center text-sm gap-2">
                     💳 Mi Billetera
@@ -244,7 +244,7 @@
                         <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
                             <span class="mt-1 rounded-full bg-emerald-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(16,185,129,0.5)]"></span>
                             <div>
-                                <p class="text-sm font-semibold text-slate-800">Nuevo Socio: Juan Pérez</p>
+                                <p class="text-sm font-semibold text-slate-800">Nuevo Afiliado: Juan Pérez</p>
                                 <p class="text-xs text-slate-500 mt-0.5">Rama Izquierda • Hace 1d</p>
                             </div>
                         </li>
@@ -260,36 +260,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
-                <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden">
-                    <div class="absolute inset-0 bg-yellow-50 opacity-30"></div>
-                    <div class="flex justify-between items-start mb-4">
-                        <p class="text-sm text-slate-500 uppercase tracking-wide font-semibold flex items-center gap-2 pr-2 relative z-10">
-                            🏆 Calificación Viaje Malasia y Tailandia 2026
-                        </p>
-                        <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200 whitespace-nowrap mt-0.5 relative z-10">En Curso</span>
-                    </div>
-                    <div class="space-y-4 relative z-10">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-slate-600">Semanas Calificadas</span>
-                                <span class="text-slate-800 font-bold">18 / 26</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200">
-                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 69%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-slate-600">Volumen Acumulado (CV)</span>
-                                <span class="text-slate-800 font-bold">12,500 / 20,000</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200">
-                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 62.5%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 group" onclick="window.location.href='equipo_light.html'">
                     <div class="absolute inset-0 bg-emerald-50 opacity-30 group-hover:bg-emerald-100 transition"></div>
                     <p class="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-4 flex items-center justify-between gap-2 relative z-10">
@@ -306,7 +277,7 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
                                     <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_3px_rgba(16,185,129,0.5)]"></span>
-                                    <span class="text-sm text-slate-600">Socios Activos</span>
+                                    <span class="text-sm text-slate-600">Afiliados Activos</span>
                                 </div>
                                 <span class="font-bold text-slate-800">45</span>
                             </div>
@@ -320,6 +291,50 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden flex flex-col">
+                    <div class="absolute inset-0 bg-purple-50 opacity-20"></div>
+                    <div class="flex justify-between items-center mb-4 relative z-10">
+                        <p class="text-sm text-slate-500 uppercase tracking-wide font-semibold flex items-center gap-2">
+                            <span>📡</span> Radar de Prospectos
+                        </p>
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                        </span>
+                    </div>
+                    
+                    <p class="text-xs text-slate-500 mb-4 relative z-10">Personas que interactuaron con tu Sitio Réplica recientemente y dejaron sus datos.</p>
+                    
+                    <div class="space-y-3 flex-1 overflow-y-auto relative z-10">
+                        <div class="bg-white border border-slate-100 p-3 rounded-xl flex items-center justify-between hover:border-purple-200 transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">MA</div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">María Acosta</p>
+                                    <p class="text-[10px] text-slate-500">Vio: Gano Café 3 en 1 • Hace 10 min</p>
+                                </div>
+                            </div>
+                            <button class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-2 rounded-lg transition" title="Contactar por WhatsApp">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white border border-slate-100 p-3 rounded-xl flex items-center justify-between hover:border-purple-200 transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">CE</div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">Carlos Echeverry</p>
+                                    <p class="text-[10px] text-slate-500">Inició registro ESP3 • Hace 1 hora</p>
+                                </div>
+                            </div>
+                            <button class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-2 rounded-lg transition" title="Contactar por WhatsApp">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden mt-6 group">
