@@ -80,63 +80,68 @@
             </div>
         </header>
 
-        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8 pb-48 md:pb-16">
+        <div class="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full space-y-6 pb-48 md:pb-16">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white border border-blue-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 cursor-pointer" onclick="window.location.href='pedido_en_linea_light.html'">
+                <div class="absolute inset-0 bg-blue-50/50 opacity-100 transition"></div>
+                <div class="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-16 -ml-16 w-48 h-48 bg-blue-200 rounded-full opacity-30 blur-2xl"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-md border border-blue-100 group-hover:scale-105 transition-transform duration-500">
+                        <span class="text-5xl sm:text-6xl">🛒</span>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-2xl sm:text-3xl font-black text-blue-900 mb-3 uppercase tracking-tight">Realizar Nuevo Pedido</h2>
+                        <p class="text-blue-700/80 mb-6 text-sm sm:text-base font-medium max-w-2xl">Ingresa a nuestra tienda virtual para adquirir tus productos favoritos de Gano Excel de manera rápida, segura y sumando PV/CV al instante.</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-600/30 transition uppercase tracking-wider text-sm flex items-center gap-2 mx-auto md:mx-0">
+                            Iniciar Compra <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 
-                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
-                    <div class="absolute inset-0 bg-blue-50 opacity-30 group-hover:opacity-50 transition"></div>
-                    <div class="relative z-10 flex flex-col h-full items-center text-center">
-                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 border border-blue-100 shadow-sm">
-                            <span class="text-4xl">🛒</span>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col h-full cursor-pointer" onclick="window.location.href='historial_pedidos_light.html'">
+                    <div class="absolute inset-0 bg-slate-50 opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center border border-slate-200 text-2xl group-hover:bg-white group-hover:shadow-sm transition">
+                                📋
+                            </div>
+                            <h2 class="font-bold text-slate-800 text-lg leading-tight">Historial de Pedidos</h2>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Pedido en Línea</h2>
-                        <p class="text-slate-500 mb-8 text-sm">Realiza tus compras de productos Gano Excel de forma rápida y segura a través de nuestra plataforma virtual.</p>
-                        <button onclick="window.location.href='pedido_en_linea_light.html'" class="mt-auto w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded-xl shadow-md transition uppercase tracking-wider text-sm">
-                            Iniciar Pedido
-                        </button>
+                        <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Consulta el estado, los detalles y realiza el seguimiento a tus órdenes anteriores.</p>
+                        <span class="text-blue-600 text-xs font-bold uppercase tracking-wider group-hover:text-blue-700 transition flex items-center gap-1">Ver listado &rarr;</span>
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
-                    <div class="absolute inset-0 bg-slate-50 opacity-50 group-hover:opacity-100 transition"></div>
-                    <div class="relative z-10 flex flex-col h-full items-center text-center">
-                        <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-6 border border-slate-200 shadow-sm">
-                            <span class="text-4xl">📋</span>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col h-full cursor-pointer" onclick="window.location.href='transacciones_pse_light.html'">
+                    <div class="absolute inset-0 bg-emerald-50/50 opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center border border-emerald-100 text-2xl group-hover:bg-white group-hover:shadow-sm transition">
+                                💳
+                            </div>
+                            <h2 class="font-bold text-slate-800 text-lg leading-tight">Transacciones PSE</h2>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Historial de Pedidos</h2>
-                        <p class="text-slate-500 mb-8 text-sm">Consulta el estado, los detalles y las guías de seguimiento de todas tus compras y órdenes anteriores.</p>
-                        <button onclick="window.location.href='historial_pedidos_light.html'" class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
-                            Ver Historial
-                        </button>
+                        <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Verifica el estado y los comprobantes de tus pagos electrónicos seguros.</p>
+                        <span class="text-emerald-600 text-xs font-bold uppercase tracking-wider group-hover:text-emerald-700 transition flex items-center gap-1">Ver pagos &rarr;</span>
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
-                    <div class="absolute inset-0 bg-emerald-50 opacity-30 group-hover:opacity-50 transition"></div>
-                    <div class="relative z-10 flex flex-col h-full items-center text-center">
-                        <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-6 border border-emerald-100 shadow-sm">
-                            <span class="text-4xl">💳</span>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 flex flex-col h-full cursor-pointer" onclick="window.location.href='ordenes_efectivo_light.html'">
+                    <div class="absolute inset-0 bg-yellow-50/50 opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center border border-yellow-100 text-2xl group-hover:bg-white group-hover:shadow-sm transition">
+                                💵
+                            </div>
+                            <h2 class="font-bold text-slate-800 text-lg leading-tight">Órdenes Efectivo</h2>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Transacciones PSE</h2>
-                        <p class="text-slate-500 mb-8 text-sm">Revisa el comprobante y verifica el estado de tus pagos realizados a través de la pasarela segura PSE.</p>
-                        <button onclick="window.location.href='transacciones_pse_light.html'" class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
-                            Ver Transacciones
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-3xl p-8 brand-card-shadow relative overflow-hidden group transition-all duration-300 hover:-translate-y-1">
-                    <div class="absolute inset-0 bg-yellow-50 opacity-30 group-hover:opacity-50 transition"></div>
-                    <div class="relative z-10 flex flex-col h-full items-center text-center">
-                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mb-6 border border-yellow-100 shadow-sm">
-                            <span class="text-4xl">💵</span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-800 mb-3 uppercase tracking-wide">Órdenes en Efectivo</h2>
-                        <p class="text-slate-500 mb-8 text-sm">Gestiona y verifica los pines y órdenes generadas para realizar tu pago en puntos en efectivo autorizados.</p>
-                        <button onclick="window.location.href='ordenes_efectivo_light.html'" class="mt-auto w-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold py-4 px-6 rounded-xl shadow-sm transition uppercase tracking-wider text-sm">
-                            Lista de Órdenes
-                        </button>
+                        <p class="text-slate-500 text-xs leading-relaxed flex-1 mb-4">Gestiona y verifica las órdenes generadas para realizar tu pago en puntos autorizados.</p>
+                        <span class="text-yellow-600 text-xs font-bold uppercase tracking-wider group-hover:text-yellow-700 transition flex items-center gap-1">Ver órdenes &rarr;</span>
                     </div>
                 </div>
 
