@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gano Excel Dashboard - Excelia (White Mode)</title>
+    <title>Gano Excel Dashboard (White Mode)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -64,7 +64,9 @@
 
     <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-200 flex-shrink-0">
         <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
-            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            <a href="index_light.html" class="block cursor-pointer">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            </a>
         </div>
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
             <a href="index_light.html" class="block p-3 active-link rounded-r-lg font-semibold flex items-center gap-3">🏠 Inicio</a>
@@ -125,6 +127,38 @@
                 </div>
             </div>
 
+            <div class="bg-white border border-slate-200 rounded-2xl p-4 brand-card-shadow flex flex-wrap justify-between items-center gap-4 text-sm relative z-10 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-emerald-50/50 opacity-50"></div>
+                
+                <div class="flex items-center gap-3 relative z-10 flex-1 min-w-[120px] justify-center sm:justify-start">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-lg shadow-sm">👤</div>
+                    <div>
+                        <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wide">Inscritos Personales</p>
+                        <p class="font-black text-slate-800 text-lg">44</p>
+                    </div>
+                </div>
+                
+                <div class="w-px h-10 bg-slate-200 hidden sm:block relative z-10"></div>
+                
+                <div class="flex items-center gap-3 relative z-10 flex-1 min-w-[140px] justify-center">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-lg shadow-sm">👥</div>
+                    <div>
+                        <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wide">Organización Binaria</p>
+                        <p class="font-black text-slate-800 text-lg">475,574</p>
+                    </div>
+                </div>
+
+                <div class="w-px h-10 bg-slate-200 hidden sm:block relative z-10"></div>
+                
+                <div class="flex items-center gap-3 relative z-10 flex-1 min-w-[120px] justify-center sm:justify-end pr-2">
+                    <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 text-lg shadow-sm">📅</div>
+                    <div>
+                        <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wide">Días en el negocio</p>
+                        <p class="font-black text-slate-800 text-lg">5,495</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
                 <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow flex flex-col justify-between relative overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 group" onclick="window.location.href='historial_compensaciones_light.html'">
                     <div class="absolute inset-0 bg-blue-50 opacity-30 group-hover:opacity-50 transition"></div>
@@ -181,7 +215,7 @@
                 <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow flex flex-col items-center justify-center relative overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 group" onclick="window.location.href='calificacion_estimada_light.html'">
                     <div class="absolute inset-0 bg-red-50 opacity-20 group-hover:opacity-40 transition"></div>
                     <p class="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-2 w-full text-left flex items-center justify-between gap-2 relative z-10">
-                        <span>🎯 Próximo Rango</span>
+                        <span>🎯 Estimado del Rango Actual</span>
                         <span class="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                     </p>
                     <div class="relative w-32 h-32 flex items-center justify-center mt-2 z-10">
@@ -190,77 +224,106 @@
                            <span class="font-bold text-3xl text-slate-800">85%</span>
                         </div>
                     </div>
-                    <p class="text-sm font-bold text-slate-800 mt-4 flex items-center gap-2 relative z-10">✨ Aprendiz Élite</p>
-                    <p class="text-xs text-slate-500 relative z-10">Faltan: 150 CV</p>
+                    <p class="text-sm font-bold text-slate-800 mt-4 flex items-center gap-2 relative z-10">✨ Diamante Corona</p>
+                    
+                    <div class="mt-2 text-center w-full relative z-10">
+                        <div class="bg-white border border-slate-200 rounded-lg p-2 text-[10px] sm:text-xs">
+                            <p class="text-slate-600"><span class="font-bold text-slate-800">Ciclo Actual 907</span> (04/20/2026 - 04/26/2026)</p>
+                        </div>
+                        <p class="text-[9px] text-slate-400 mt-2 font-bold leading-tight px-1">
+                            La calificación estimada y la información reflejada se actualizó por última vez el 21/04/2026 2:14:07 PM (Hora Pacífico)
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
-                <button onclick="window.location.href='ecommerce_light.html'" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2">
-                    🌐 Mi Sitio E-commerce
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <button onclick="window.location.href='https://comunicaciones-gano-excel.github.io/Back-Office/pedido_en_linea_light.html'" class="bg-[#d56831] hover:bg-[#ba5827] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2" title="Pilar: Energiza">
+                    🛒 Recompra
                 </button>
-                <button onclick="window.location.href='https://comunicaciones-gano-excel.github.io/Back-Office/pedido_en_linea_light.html'" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl shadow-sm border border-slate-200 transition flex items-center justify-center text-sm gap-2">
-                    🛒 Nuevo Pedido
-                </button>
-                <button onclick="window.location.href='https://comunicaciones-gano-excel.github.io/Back-Office/arbol_patrocinio_light.html'" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2">
+                <button onclick="window.location.href='https://comunicaciones-gano-excel.github.io/Back-Office/arbol_patrocinio_light.html'" class="bg-[#9aa646] hover:bg-[#808b37] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2" title="Pilar: Revitaliza">
                     ➕ Nuevo Afiliado
                 </button>
-                <button onclick="window.location.href='reporte_volumen_banco_light.html'" class="bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 rounded-xl shadow-sm border border-slate-200 transition flex items-center justify-center text-sm gap-2">
-                    💳 Mi Billetera
-                </button>
-                <button onclick="window.location.href='auto_envio_light.html'" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2 col-span-2 md:col-span-1">
+                <button onclick="window.location.href='auto_envio_light.html'" class="bg-[#6a5197] hover:bg-[#543e7b] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2" title="Pilar: Armoniza">
                     🔄 Auto Envío
+                </button>
+                <button onclick="window.location.href='ecommerce_light.html'" class="bg-[#518995] hover:bg-[#41707a] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center text-sm gap-2" title="Pilar: Socializa">
+                    🌐 Mi Sitio E-commerce
                 </button>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="lg:col-span-2 bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden">
-                    <p class="text-sm text-slate-500 font-semibold mb-4 flex items-center gap-2 relative z-10">📈 Crecimiento GCV (Últimas 4 semanas)</p>
-                    <div class="w-full h-72 bg-slate-50 border border-slate-100 rounded-xl flex items-end px-2 pb-2 gap-2 relative z-10">
+                <div class="lg:col-span-2 bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden flex flex-col">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 relative z-10 gap-4">
+                        <p class="text-sm text-slate-500 font-semibold flex items-center gap-2">📈 Crecimiento rama de pago (últimas 4 semanas)</p>
+                        
+                        <div class="flex gap-2 sm:gap-4 shrink-0">
+                            <div class="bg-slate-50 border border-slate-200 px-3 py-2 rounded-lg text-right">
+                                <p class="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase">Ciclo de Pago (905)</p>
+                                <p class="text-xs sm:text-sm font-black text-slate-800">233,728.35 <span class="text-[9px] font-normal text-slate-500">GCV</span></p>
+                            </div>
+                            <div class="bg-[#e6f4f1] border border-[#a8d3cc] px-3 py-2 rounded-lg text-right">
+                                <p class="text-[9px] sm:text-[10px] text-[#0f5b69] font-bold uppercase">Mejor Ciclo (716)</p>
+                                <p class="text-xs sm:text-sm font-black text-[#0f5b69]">615,646.22 <span class="text-[9px] font-normal opacity-70">GCV</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-72 bg-slate-50 border border-slate-100 rounded-xl flex items-end px-2 pb-2 gap-2 relative z-10 mt-auto">
                         <canvas id="chartCrecimiento"></canvas>
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative z-10 overflow-hidden flex flex-col cursor-pointer hover:bg-slate-50 transition-colors duration-300" onclick="window.location.href='reporte_arbol_patrocinio_light.html'">
-                    <div class="flex justify-between items-center mb-6">
-                        <p class="text-sm text-slate-500 font-semibold flex items-center gap-2">🛒 Actividad Reciente</p>
-                        <span class="text-blue-500 text-xs font-bold hover:underline">Ver más &rarr;</span>
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative z-10 overflow-hidden flex flex-col">
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#0f5b69]/5 to-transparent"></div>
+                    <div class="flex justify-between items-center mb-6 relative z-10">
+                        <p class="text-sm font-bold text-[#0f5b69] flex items-center gap-2">🏆 Noticias del Equipo: Top 5 de hoy</p>
                     </div>
-                    <ul class="space-y-4 overflow-y-auto flex-1 pr-2">
-                        <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
-                            <span class="mt-1 rounded-full bg-blue-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(59,130,246,0.5)]"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-slate-800">Venta: 2x Gano Café 3 en 1</p>
-                                <p class="text-xs text-slate-500 mt-0.5">Tienda Réplica • Hace 2h</p>
+                    
+                    <div class="flex-1 overflow-y-auto pr-2 relative z-10 space-y-3">
+                        <div class="flex items-center gap-3 p-2 rounded-xl bg-amber-50 border border-amber-100 hover:shadow-sm transition">
+                            <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-black text-sm shadow-sm shrink-0">1</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[11px] sm:text-xs font-black text-slate-800 uppercase truncate" title="4814289 - GAVIRIA VALLECILLA, JOHN JAIRO">4814289 - GAVIRIA VALLECILLA, JOHN JAIRO</p>
+                                <p class="text-[10px] text-amber-700 italic">Apprentice</p>
                             </div>
-                        </li>
-                        <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
-                            <span class="mt-1 rounded-full bg-red-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(239,68,68,0.5)]"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-slate-800">14 Clics en tu enlace</p>
-                                <p class="text-xs text-slate-500 mt-0.5">Origen: WhatsApp • Hace 5h</p>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 p-2 rounded-xl bg-slate-50 border border-slate-200 hover:shadow-sm transition">
+                            <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center font-black text-sm shadow-sm shrink-0">2</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[11px] sm:text-xs font-black text-slate-800 uppercase truncate" title="4785132 - GRUPO EMPRESARIAL H & D SAS">4785132 - GRUPO EMPRESARIAL H & D SAS</p>
+                                <p class="text-[10px] text-slate-500 italic">Platinum</p>
                             </div>
-                        </li>
-                        <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
-                            <span class="mt-1 rounded-full bg-emerald-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(16,185,129,0.5)]"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-slate-800">Nuevo Afiliado: Juan Pérez</p>
-                                <p class="text-xs text-slate-500 mt-0.5">Rama Izquierda • Hace 1d</p>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 p-2 rounded-xl bg-orange-50 border border-orange-100 hover:shadow-sm transition">
+                            <div class="w-8 h-8 rounded-full bg-orange-300 text-orange-800 flex items-center justify-center font-black text-sm shadow-sm shrink-0">3</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[11px] sm:text-xs font-black text-slate-800 uppercase truncate" title="7139385 - VALLECILLA DE GAVIRIA, MARIA NEUBELLY">7139385 - VALLECILLA DE GAVIRIA, MARIA NEUBELLY</p>
+                                <p class="text-[10px] text-orange-700 italic">Apprentice</p>
                             </div>
-                        </li>
-                        <li class="flex gap-4 items-start">
-                            <span class="mt-1 rounded-full bg-yellow-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(234,179,8,0.5)]"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-slate-800">Avance Rango: Carlos G.</p>
-                                <p class="text-xs text-slate-500 mt-0.5">Calificó a Ejecutivo • Hace 2d</p>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs shrink-0">4</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase truncate" title="7239306 - CP & R ASOCIADOS SAS">7239306 - CP & R ASOCIADOS SAS</p>
+                                <p class="text-[10px] text-slate-400 italic">Apprentice</p>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs shrink-0">5</div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase truncate" title="8465416 - SANCHEZ, EFREN">8465416 - SANCHEZ, EFREN</p>
+                                <p class="text-[10px] text-slate-400 italic">Apprentice</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
-                
                 <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 group" onclick="window.location.href='equipo_light.html'">
                     <div class="absolute inset-0 bg-emerald-50 opacity-30 group-hover:bg-emerald-100 transition"></div>
                     <p class="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-4 flex items-center justify-between gap-2 relative z-10">
@@ -303,9 +366,7 @@
                           <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
                         </span>
                     </div>
-                    
                     <p class="text-xs text-slate-500 mb-4 relative z-10">Personas que interactuaron con tu Sitio Réplica recientemente y dejaron sus datos.</p>
-                    
                     <div class="space-y-3 flex-1 overflow-y-auto relative z-10">
                         <div class="bg-white border border-slate-100 p-3 rounded-xl flex items-center justify-between hover:border-purple-200 transition">
                             <div class="flex items-center gap-3">
@@ -319,7 +380,6 @@
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                             </button>
                         </div>
-                        
                         <div class="bg-white border border-slate-100 p-3 rounded-xl flex items-center justify-between hover:border-purple-200 transition">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">CE</div>
@@ -334,34 +394,78 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="bg-white border border-slate-200 p-6 rounded-2xl brand-card-shadow relative overflow-hidden mt-6 group">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-                        <span>📢</span> Promociones Activas
-                    </h2>
-                    <div class="flex gap-2">
-                        <button onclick="document.getElementById('promoSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        </button>
-                        <button onclick="document.getElementById('promoSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </button>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <div class="lg:col-span-1 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-slate-100 pb-6 lg:pb-0 lg:pr-6 cursor-pointer hover:bg-slate-50 transition-colors duration-300 rounded-xl p-2 -ml-2" onclick="window.location.href='reporte_arbol_patrocinio_light.html'">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                🛒 Actividad Reciente
+                            </h2>
+                            <span class="text-blue-500 text-xs font-bold hover:underline">Ver más &rarr;</span>
+                        </div>
+                        <ul class="space-y-4 overflow-y-auto flex-1 pr-2">
+                            <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
+                                <span class="mt-1 rounded-full bg-blue-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(59,130,246,0.5)]"></span>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Venta: 2x Gano Café 3 en 1</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Tienda Réplica • Hace 2h</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
+                                <span class="mt-1 rounded-full bg-red-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(239,68,68,0.5)]"></span>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">14 Clics en tu enlace</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Origen: WhatsApp • Hace 5h</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start border-b border-slate-100 pb-3">
+                                <span class="mt-1 rounded-full bg-emerald-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(16,185,129,0.5)]"></span>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Nuevo Afiliado: Juan Pérez</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Rama Izquierda • Hace 1d</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <span class="mt-1 rounded-full bg-yellow-500 w-2 h-2 block flex-shrink-0 shadow-[0_0_4px_rgba(234,179,8,0.5)]"></span>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Avance Rango: Carlos G.</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Calificó a Ejecutivo • Hace 2d</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div id="promoSlider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll scroll-smooth pb-2">
-                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo2343.jpg" alt="Promoción 1" class="w-full h-auto object-cover rounded-xl">
-                    </a>
-                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo23423423.jpg" alt="Promoción 2" class="w-full h-auto object-cover rounded-xl">
-                    </a>
-                    <a href="#" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo456567654.jpg" alt="Promoción 3" class="w-full h-auto object-cover rounded-xl">
-                    </a>
+
+                    <div class="lg:col-span-2 flex flex-col justify-center">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <span>📢</span> Noticias
+                            </h2>
+                            <div class="flex gap-2">
+                                <button onclick="document.getElementById('promoSlider').scrollBy({left: -320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button onclick="document.getElementById('promoSlider').scrollBy({left: 320, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="promoSlider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll scroll-smooth pb-2">
+                            <a href="javascript:void(0)" onclick="openModal('https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo2343.jpg')" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition cursor-zoom-in">
+                                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo2343.jpg" alt="Promoción 1" class="w-full h-auto object-cover rounded-xl">
+                            </a>
+                            <a href="javascript:void(0)" onclick="openModal('https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo23423423.jpg')" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition cursor-zoom-in">
+                                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo23423423.jpg" alt="Promoción 2" class="w-full h-auto object-cover rounded-xl">
+                            </a>
+                            <a href="javascript:void(0)" onclick="openModal('https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo456567654.jpg')" class="snap-start shrink-0 w-[85%] sm:w-[45%] lg:w-[31.5%] block overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition cursor-zoom-in">
+                                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/promo456567654.jpg" alt="Promoción 3" class="w-full h-auto object-cover rounded-xl">
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -420,6 +524,11 @@
         </div>
     </div>
 
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity opacity-0" onclick="closeModal()">
+        <span class="absolute top-4 right-6 text-white text-4xl cursor-pointer hover:text-slate-300">&times;</span>
+        <img id="modalImage" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300" src="" alt="Noticia ampliada" onclick="event.stopPropagation()">
+    </div>
+
     <script>
         const ganoBlue = '#1d4ed8'; 
         const ganoRed = '#b91c1c'; 
@@ -447,7 +556,6 @@
             options: { plugins: { legend: { display: false } }, scales: { x: { grid: { color: gridColor, drawBorder: false }, ticks: { color: slateTypo } }, y: { grid: { color: gridColor, drawBorder: false }, ticks: { color: slateTypo } } }, maintainAspectRatio: false }
         });
 
-        // ---- NUEVO: Auto-scroll para Promociones Activas ----
         const promoSlider = document.getElementById('promoSlider');
         let autoScrollInterval;
 
@@ -455,26 +563,52 @@
             autoScrollInterval = setInterval(() => {
                 if (promoSlider) {
                     const maxScroll = promoSlider.scrollWidth - promoSlider.clientWidth;
-                    // Si llegó al final (con un pequeño margen de error), vuelve al inicio
                     if (promoSlider.scrollLeft >= maxScroll - 5) {
                         promoSlider.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
-                        // Desplaza hacia la derecha
                         promoSlider.scrollBy({ left: promoSlider.clientWidth > 320 ? 320 : promoSlider.clientWidth, behavior: 'smooth' });
                     }
                 }
-            }, 4000); // Cambia cada 4 segundos
+            }, 4000); 
         }
 
-        // Iniciar el slider automáticamente
         startAutoScroll();
 
-        // Pausar si el usuario pone el mouse/dedo encima
         if(promoSlider) {
             promoSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
             promoSlider.addEventListener('mouseleave', startAutoScroll);
             promoSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
             promoSlider.addEventListener('touchend', startAutoScroll);
+        }
+
+        // ---- NUEVO: Funciones para el Modal de Zoom ----
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            
+            // Forzar reflow para que la transición funcione
+            void modal.offsetWidth;
+            
+            modal.classList.remove('opacity-0');
+            modalImg.classList.remove('scale-95');
+            modalImg.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            // Esperar a que termine la transición antes de ocultar
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
         }
     </script>
 </body>
