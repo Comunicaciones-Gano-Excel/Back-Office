@@ -40,13 +40,21 @@
         /* Ocultar input number arrows */
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+        /* Estilos agregados para las tarjetas de productos interactivos */
+        .product-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-color: #3b82f6; }
+        .qty-btn { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 99px; transition: all 0.2s; font-weight: bold;}
+        .qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
     </style>
 </head>
 <body class="antialiased flex h-screen overflow-hidden">
 
     <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
         <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
-            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            <a href="index_light.html" class="block cursor-pointer">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            </a>
         </div>
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
             <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
@@ -79,7 +87,7 @@
             <div class="flex items-center gap-3 sm:gap-4">
                 <button class="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full bg-blue-50 items-center justify-center text-blue-700 hover:bg-blue-100 transition border border-blue-200 shadow-sm flex">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center transition-transform duration-300">0</span>
                 </button>
 
                 <a href="pedido_en_linea.html" class="flex w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full bg-slate-50 items-center justify-center text-slate-500 hover:text-blue-700 hover:bg-slate-200 transition border border-slate-200 shadow-sm group" title="Cambiar a Modo Oscuro">
@@ -89,7 +97,7 @@
             </div>
         </header>
 
-        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 pb-48 md:pb-16">
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 pb-64 md:pb-32">
             
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
                 <a href="tienda_light.html" class="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-blue-700 transition">
@@ -106,138 +114,26 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                
-                <div class="bg-white border border-blue-200 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">DESTACADO</div>
-                    <div class="bg-gradient-to-tr from-blue-50 to-indigo-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg" alt="Ganocafé 3 en 1" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Ganocafé 3 en 1</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 501</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$110,900</span>
-                        <button onclick="openModal('Ganocafé 3 en 1', '501', '$110,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg')" class="bg-blue-700 text-white hover:bg-blue-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 text-left" id="productsGrid">
                 </div>
-
-                <div class="bg-white border border-blue-200 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">DESTACADO</div>
-                    <div class="bg-gradient-to-tr from-blue-50 to-indigo-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg" alt="Ganocafé Classic" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Ganocafé Classic</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 505</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$110,900</span>
-                        <button onclick="openModal('Ganocafé Classic', '505', '$110,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg')" class="bg-blue-700 text-white hover:bg-blue-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-blue-200 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg z-10">DESTACADO</div>
-                    <div class="bg-gradient-to-tr from-blue-50 to-indigo-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp33.jpg" alt="Paquete ESP 3" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Paquete ESP 3</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 899</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$4,500,000</span>
-                        <button onclick="openModal('Paquete ESP 3', '899', '$4,500,000', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp33.jpg')" class="bg-blue-700 text-white hover:bg-blue-800 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="bg-slate-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/chocolate.jpg" alt="Gano Schokolade" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Gano Schokolade</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 502</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$124,900</span>
-                        <button onclick="openModal('Gano Schokolade', '502', '$124,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/chocolate.jpg')" class="bg-blue-50 text-blue-700 hover:bg-blue-700 hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="bg-slate-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganomocharico.jpg" alt="GanoRico Mocha" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">GanoRico Mocha</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 503</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$119,900</span>
-                        <button onclick="openModal('GanoRico Mocha', '503', '$119,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganomocharico.jpg')" class="bg-blue-50 text-blue-700 hover:bg-blue-700 hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="bg-slate-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/leaf.jpg" alt="Oleaf Rooibos Drink" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Oleaf Rooibos Drink</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 504</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$119,900</span>
-                        <button onclick="openModal('Oleaf Rooibos Drink', '504', '$119,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/leaf.jpg')" class="bg-blue-50 text-blue-700 hover:bg-blue-700 hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="bg-slate-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganodermacapsulas.jpg" alt="Ganoderma Capsulas" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Ganoderma Capsulas</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 801</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$272,500</span>
-                        <button onclick="openModal('Ganoderma Capsulas', '801', '$272,500', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganodermacapsulas.jpg')" class="bg-blue-50 text-blue-700 hover:bg-blue-700 hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 brand-card-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="bg-slate-50 rounded-xl aspect-square mb-4 flex items-center justify-center relative overflow-hidden">
-                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/07/ganosoapportada111.jpg" alt="Gano Soap" class="object-contain w-full h-full p-4 mix-blend-multiply transition-transform group-hover:scale-110">
-                    </div>
-                    <h3 class="font-bold text-slate-800 text-sm text-center mb-1 leading-tight">Gano Soap</h3>
-                    <p class="text-xs text-slate-400 text-center mb-4">Código: 301</p>
-                    <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-3">
-                        <span class="font-bold text-blue-700">$73,900</span>
-                        <button onclick="openModal('Gano Soap', '301', '$73,900', 'https://www.ganoexcel.com.co/wp-content/uploads/2024/07/ganosoapportada111.jpg')" class="bg-blue-50 text-blue-700 hover:bg-blue-700 hover:text-white w-8 h-8 rounded-full flex items-center justify-center transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="flex justify-center mt-8">
-                <nav class="flex items-center gap-1">
-                    <button class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-700 text-white font-bold shadow-md">1</button>
-                    <a href="pedido_en_linea_light_2.html" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 font-semibold transition">2</a>
-                    <a href="pedido_en_linea_light_3.html" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 font-semibold transition">3</a>
-                    <a href="pedido_en_linea_light_4.html" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 font-semibold transition">4</a>
-                    <a href="pedido_en_linea_light_2.html" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
-                </nav>
-            </div>
 
         </div>
     </main>
+
+    <div class="fixed bottom-24 md:bottom-16 left-4 md:left-[272px] right-4 z-50 transition-all duration-300 opacity-0 pointer-events-none translate-y-10" id="checkoutBar">
+        <div class="bg-slate-800 rounded-2xl shadow-2xl border border-slate-700 p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Subtotal del Pedido</p>
+                <p class="text-xs text-slate-300 mt-1"><span id="summaryItems" class="font-bold text-white">0 Productos agregados</span></p>
+                <h3 class="text-xl sm:text-2xl font-black text-white mt-1">Total: <span id="totalOrderPrice" class="text-emerald-400">$0 COP</span></h3>
+            </div>
+            <div class="flex gap-3 w-full sm:w-auto">
+                <button onclick="window.location.href='checkout_light.html'" class="w-full sm:w-auto px-10 py-3.5 text-sm font-bold text-slate-800 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition shadow-md uppercase tracking-wider whitespace-nowrap transform hover:-translate-y-0.5">
+                    Ir a Pagar
+                </button>
+            </div>
+        </div>
+    </div>
 
     <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
         <div class="mobile-nav-scroll py-3 pb-safe">
@@ -268,7 +164,7 @@
         </div>
     </nav>
 
-    <div class="fixed bottom-[68px] md:bottom-0 left-0 md:left-64 w-full bg-white border-t border-slate-100 z-30 h-10 flex items-center overflow-hidden ticker-container shadow-[0_-5px_15px_rgba(0,0,0,0.03)]">
+    <div class="fixed bottom-0 left-0 md:left-64 w-full bg-white border-t border-slate-100 z-20 h-10 flex items-center overflow-hidden ticker-container shadow-[0_-5px_15px_rgba(0,0,0,0.03)] hidden md:flex">
         <div class="bg-red-700 text-white font-bold px-3 sm:px-4 py-2 h-full flex items-center z-10 shrink-0 text-[10px] sm:text-xs tracking-wider uppercase">
             ÚLTIMAS NOTICIAS
         </div>
@@ -283,80 +179,122 @@
         </div>
     </div>
 
-    <div id="productModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
-            
-            <div class="flex justify-between items-center p-4 border-b border-slate-100 bg-slate-50">
-                <h2 class="font-bold text-slate-800 text-lg flex items-center gap-2">
-                    <span class="text-blue-600">🛒</span> Agregar al carrito
-                </h2>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-red-500 transition p-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-
-            <div class="p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center md:items-start">
-                <div class="w-full md:w-1/2 bg-slate-50 rounded-2xl aspect-square flex items-center justify-center p-6 border border-slate-100 shadow-inner">
-                    <img id="modalImage" src="" alt="Producto" class="object-contain w-full h-full drop-shadow-md mix-blend-multiply">
-                </div>
-
-                <div class="w-full md:w-1/2 flex flex-col h-full">
-                    <h3 id="modalProductName" class="text-2xl font-bold text-slate-800 mb-2">Nombre del Producto</h3>
-                    
-                    <div class="flex flex-col gap-3 my-6 border-y border-slate-100 py-4">
-                        <div class="flex justify-between text-sm">
-                            <span class="text-slate-500 font-semibold">Código:</span>
-                            <span id="modalProductCode" class="text-slate-800 font-bold">000</span>
-                        </div>
-                        <div class="flex justify-between text-sm">
-                            <span class="text-slate-500 font-semibold">Precio Afiliado:</span>
-                            <span id="modalProductPrice" class="text-blue-700 font-bold text-lg">$0.00</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center gap-4">
-                        <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm h-12 w-32">
-                            <button class="w-10 h-full text-slate-500 hover:bg-slate-100 font-bold transition">-</button>
-                            <input type="number" value="1" class="w-full h-full text-center font-bold text-slate-800 outline-none">
-                            <button class="w-10 h-full text-slate-500 hover:bg-slate-100 font-bold transition">+</button>
-                        </div>
-                        <button onclick="window.location.href='checkout_light.html'" class="flex-1 bg-blue-700 hover:bg-blue-800 text-white font-bold h-12 rounded-xl shadow-md shadow-blue-200 transition transform hover:-translate-y-0.5 uppercase tracking-wider text-sm">
-                            COMPRAR
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const modal = document.getElementById('productModal');
-        const modalContent = document.getElementById('modalContent');
-        const mName = document.getElementById('modalProductName');
-        const mCode = document.getElementById('modalProductCode');
-        const mPrice = document.getElementById('modalProductPrice');
-        const mImage = document.getElementById('modalImage');
+        // Base de Datos Centralizada con TODOS LOS PRODUCTOS
+        const productsData = [
+            { id: 'prod501', code: '501', name: 'GANOCAFÉ 3 EN 1', price: 110900, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg', max: 50 },
+            { id: 'prod505', code: '505', name: 'GANOCAFÉ CLASSIC', price: 110900, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg', max: 50 },
+            { id: 'prod502', code: '502', name: 'GANO SCHOKOLADE', price: 124900, pv: 17, cv: 15.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/chocolate.jpg', max: 50 },
+            { id: 'prod503', code: '503', name: 'GANORICO MOCHA', price: 119900, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganomocharico.jpg', max: 50 },
+            { id: 'prod504', code: '504', name: 'OLEAF ROOIBOS DRINK', price: 119900, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/leaf.jpg', max: 50 },
+            { id: 'prod507', code: '507', name: 'GANO C\'REAL SPIRULINA', price: 119900, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cereal.jpg', max: 50 },
+            { id: 'prod509', code: '509', name: 'GANORICO LATTE RICO', price: 119900, pv: 17, cv: 15, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganoricolate.jpg', max: 50 },
+            { id: 'prod512', code: '512', name: 'GANORICO SHOKO RICO', price: 124900, pv: 17, cv: 15.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/07/shokorico112.jpg', max: 50 },
+            { id: 'prod530', code: '530', name: 'RESKINE COLLAGEN DRINK', price: 216900, pv: 31, cv: 27.6, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/colageno.jpg', max: 50 },
+            { id: 'prod801', code: '801', name: 'GANODERMA CAPSULAS', price: 272500, pv: 41, cv: 34.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganodermacapsulas.jpg', max: 50 },
+            { id: 'prod803', code: '803', name: 'EXCELLIUM CAPSULAS', price: 272500, pv: 41, cv: 34.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/excelium.jpg', max: 50 },
+            { id: 'prod805', code: '805', name: 'CORDYGOLD CAPSULAS', price: 336900, pv: 49, cv: 43, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cordygold.jpg', max: 50 },
+            { id: 'prod301', code: '301', name: 'GANO SOAP', price: 73900, pv: 10.4, cv: 8.9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/07/ganosoapportada111.jpg', max: 50 },
+            { id: 'prod302', code: '302', name: 'GANO FRESH TOOTHPASTE', price: 73900, pv: 11, cv: 9.5, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganofresh.jpg', max: 50 },
+            { id: 'prod303', code: '303', name: 'GANO TRANSPARENT SOAP', price: 78500, pv: 12, cv: 10, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganotransparent.jpg', max: 50 },
+            { id: 'prod305', code: '305', name: 'PIEL&BRILLO SHAMPOO', price: 73900, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/shampoo.jpg', max: 50 },
+            { id: 'prod306', code: '306', name: 'PIEL&BRILLO ACONDICIONADOR', price: 73900, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/acondicionadorpielybrillo.jpg', max: 50 },
+            { id: 'prod307', code: '307', name: 'PIEL&BRILLO EXFOLIANTE', price: 73900, pv: 11, cv: 9, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/exfoliante.jpg', max: 50 },
+            { id: 'prod308', code: '308', name: 'PIEL&BRILLO SHAMPOO & ACONDICIONADOR', price: 143000, pv: 22, cv: 18, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo2.jpg', max: 50 },
+            { id: 'prod309', code: '309', name: 'PIEL&BRILLO (SHAMPO Y ACONDI Y EXFOLI)', price: 212500, pv: 33, cv: 27, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo1.jpg', max: 50 },
+            { id: 'prod816', code: '816', name: 'LUVOCO SUAVE', price: 110900, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/luvocosuave2.jpg', max: 50 },
+            { id: 'prod817', code: '817', name: 'LUVOCO MEDIO', price: 110900, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/luvoco-medio3.jpg', max: 50 },
+            { id: 'prod818', code: '818', name: 'LUVOCO FUERTE', price: 110900, pv: 15, cv: 14, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/luvocofuerte1.jpg', max: 50 },
+            { id: 'prod997', code: '997', name: 'LUVOCO PREMIUM MAQUINA', price: 1026000, pv: 0, cv: 0, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/maquinaluvoco.jpg', max: 10 },
+            { id: 'prod287', code: '287', name: 'BUSINESS KIT - N', price: 30000, pv: 0, cv: 0, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2026/04/kit.jpg', max: 10 },
+            { id: 'prod897', code: '897', name: 'PAQUETE ESP 1', price: 900000, pv: 100, cv: 100, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp1.jpg', max: 10 },
+            { id: 'prod898', code: '898', name: 'PAQUETE ESP 2', price: 2250000, pv: 250, cv: 250, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp3.jpg', max: 10 },
+            { id: 'prod899', code: '899', name: 'PAQUETE ESP 3', price: 4500000, pv: 500, cv: 500, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp33.jpg', max: 10 }
+        ];
 
-        function openModal(name, code, price, imgSrc) {
-            mName.innerText = name;
-            mCode.innerText = code;
-            mPrice.innerText = price;
-            mImage.src = imgSrc;
+        const productQuantities = {};
+        const productPricesMap = {};
+        const checkoutBar = document.getElementById('checkoutBar');
+        const cartBadge = document.getElementById('cartBadge');
+        
+        // Renderizar Productos en la cuadrícula
+        const grid = document.getElementById('productsGrid');
+        
+        productsData.forEach(prod => {
+            productQuantities[prod.id] = 0;
+            productPricesMap[prod.id] = prod.price;
             
-            modal.classList.remove('hidden');
-            // Pequeño delay para la animación de opacidad y escala
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-            }, 10);
-        }
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-2xl p-4 product-card flex flex-col justify-between border border-slate-200 brand-card-shadow";
+            
+            const displayPrice = Math.round(prod.price).toLocaleString('es-CO');
+            
+            card.innerHTML = `
+                <div class="mb-3">
+                    <div class="w-full h-36 bg-slate-50 rounded-xl flex items-center justify-center p-2 mb-4 relative overflow-hidden group">
+                        <img src="${prod.img}" alt="${prod.name}" class="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110">
+                        <span class="absolute top-2 right-2 text-[9px] font-bold text-slate-500 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded shadow-sm uppercase border border-slate-200">Cod: ${prod.code}</span>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-800 leading-tight min-h-[40px]">${prod.name}</h4>
+                    <p class="text-xs text-slate-500 mt-1">PV: ${prod.pv} | CV: ${prod.cv}</p>
+                    <p class="text-base text-blue-700 font-black mt-1">$${displayPrice}</p>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-3 border-t border-slate-100 mt-auto">
+                    <button type="button" onclick="updateQty('${prod.id}', -1, ${prod.max})" class="qty-btn bg-slate-100 text-slate-600 hover:bg-slate-200 w-8 h-8 rounded-full">-</button>
+                    <span id="qty_${prod.id}" class="font-black text-sm text-slate-800 w-6 text-center">0</span>
+                    <button type="button" id="btnPlus_${prod.id}" onclick="updateQty('${prod.id}', 1, ${prod.max})" class="qty-btn bg-emerald-100 text-emerald-700 hover:bg-emerald-200 w-8 h-8 rounded-full">+</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
 
-        function closeModal() {
-            modal.classList.add('opacity-0');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300); // Esperar que termine la transición
+        // Lógica de Suma y Resta
+        window.updateQty = function(productId, change, maxLimit) {
+            let current = productQuantities[productId];
+            let newVal = current + change;
+            
+            if (newVal >= 0 && newVal <= maxLimit) {
+                productQuantities[productId] = newVal;
+                document.getElementById(`qty_${productId}`).innerText = newVal;
+                
+                // Bloquear botón + si llega al límite
+                const btnPlus = document.getElementById(`btnPlus_${productId}`);
+                if (newVal === maxLimit) {
+                    btnPlus.disabled = true;
+                    btnPlus.classList.add('opacity-30', 'cursor-not-allowed');
+                } else {
+                    btnPlus.disabled = false;
+                    btnPlus.classList.remove('opacity-30', 'cursor-not-allowed');
+                }
+                
+                calculateTotal();
+            }
+        };
+
+        // Calcular Totales
+        function calculateTotal() {
+            let totalItems = 0;
+            let totalValue = 0;
+            
+            for (const id in productQuantities) {
+                totalItems += productQuantities[id];
+                totalValue += productQuantities[id] * productPricesMap[id];
+            }
+            
+            document.getElementById('summaryItems').innerText = `${totalItems} Productos agregados`;
+            document.getElementById('totalOrderPrice').innerText = '$' + Math.round(totalValue).toLocaleString('es-CO') + ' COP';
+            
+            // Actualizar icono carrito superior
+            cartBadge.innerText = totalItems;
+            
+            // Mostrar u ocultar barra inferior de pago
+            if(totalItems > 0) {
+                checkoutBar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                checkoutBar.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                checkoutBar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                checkoutBar.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
         }
     </script>
 </body>
