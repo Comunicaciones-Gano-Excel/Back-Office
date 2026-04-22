@@ -38,7 +38,9 @@
 
     <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
         <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
-            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            <a href="index_light.html" class="block cursor-pointer">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            </a>
         </div>
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
             <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
@@ -118,9 +120,9 @@
                     </p>
                 </div>
 
-                <div class="min-w-[1200px] flex flex-col items-center select-none">
+                <div class="w-full min-w-[768px] lg:min-w-full flex flex-col items-center select-none">
                     
-                    <div class="flex justify-between w-[900px] mb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    <div class="flex justify-between w-full max-w-[900px] px-4 mb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
                         <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
                             Extrema Izquierda
@@ -132,7 +134,7 @@
                     </div>
 
                     <div class="flex flex-col items-center w-full">
-                        <div class="node-box bg-node-root w-[450px]">
+                        <div class="node-box bg-node-root w-1/2 max-w-[450px]">
                             <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl mb-2 backdrop-blur-sm">👤</div>
                             <p class="text-sm font-bold uppercase tracking-wide">ANGELA MARIA RICAURTE RAMIREZ</p>
                             <p class="text-xs font-medium opacity-80 mt-1">ID: 7341463</p>
@@ -140,7 +142,7 @@
                         <div class="tree-line-v h-[30px]"></div>
                     </div>
 
-                    <div class="flex relative w-[900px] justify-between">
+                    <div class="flex relative w-full max-w-[900px] justify-between">
                         <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                         
                         <div class="flex flex-col items-center w-1/2 px-2">
@@ -170,7 +172,7 @@
                         </div>
                     </div>
 
-                    <div class="flex relative w-[900px] justify-between">
+                    <div class="flex relative w-full max-w-[900px] justify-between">
                         <div class="flex w-1/2 relative justify-between px-2">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             
@@ -219,21 +221,21 @@
                         </div>
                     </div>
 
-                    <div class="flex relative w-[900px] justify-between">
+                    <div class="flex relative w-full max-w-[900px] justify-between">
                         
                         <div class="flex w-1/4 relative justify-between px-1">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-occupied h-[50px]">
+                                <div class="node-box bg-node-occupied h-[50px] w-full">
                                     <div class="w-4 h-4 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1 text-[8px]">👤</div>
-                                    <p class="text-[7px] font-bold text-slate-700 truncate w-16">DIANA OSORIO</p>
+                                    <p class="text-[7px] font-bold text-slate-700 truncate w-full px-1">DIANA OSORIO</p>
                                     <p class="text-[7px] text-slate-500">7366158</p>
                                 </div>
                             </div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[50px]">
+                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[50px] w-full">
                                     <svg class="w-4 h-4 text-emerald-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                                     <p class="text-[7px] font-bold">Patrocinar</p>
                                 </button>
@@ -244,23 +246,11 @@
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
                             </div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                        </div>
-
-                        <div class="flex w-1/4 relative justify-between px-1">
-                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
                             </div>
                         </div>
 
@@ -268,17 +258,29 @@
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
                             </div>
                             <div class="flex flex-col items-center w-1/2 px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px]"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/4 relative justify-between px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-10">
+                <div class="flex justify-center mt-10 w-full">
                     <button class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase px-6 py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition">
                         Mostrar Todos Los Niveles
                     </button>
@@ -315,7 +317,6 @@
             <span class="hidden sm:block">No Disponible (N/A)</span>
         </div>
     </div>
-
 
     <div id="sponsorModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col" id="sponsorModalContent">
