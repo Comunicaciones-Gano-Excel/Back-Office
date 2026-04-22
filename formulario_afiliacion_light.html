@@ -27,7 +27,9 @@
         
         <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
             <div class="flex items-center gap-4">
-                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                <a href="index_light.html" class="block cursor-pointer">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                </a>
                 <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
                 <h1 class="text-xl font-bold text-slate-800 hidden sm:flex items-center gap-2">
                     <span class="text-red-600">👤+</span> Nuevas Afiliaciones
@@ -91,6 +93,26 @@
                             </div>
                         </div>
 
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tipo de Documento</label>
+                                <select class="input-field cursor-pointer">
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option>CC - Cédula de Ciudadanía</option>
+                                    <option>CE - Cédula de Extranjería</option>
+                                    <option>Pasaporte</option>
+                                    <option>PPT - Permiso de Protección Temporal</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Número de Identificación</label>
+                                <input type="text" class="input-field" placeholder="Sin puntos ni comas">
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 leading-relaxed italic">
+                            <strong>(*) Nota:</strong> Para vinculación de Compañías (NIT) y ciudadanos Venezolanos que tengan los permisos especiales de permanencia (PEP), Permiso por Protección Temporal (PPT) o el Permiso Especial de Permanencia para el Fomento de la Formalización (PEPFF) vigentes, deberán enviar su documentación previamente a nuestro Departamento de Servicio al Cliente.
+                        </p>
+
                         <div class="space-y-4 pt-4 border-t border-slate-100">
                             <p class="text-slate-500 text-xs">
                                 Tenga en cuenta que la información suministrada en los campos de: dirección de domicilio, departamento, Ciudad / Municipio, serán registrados como dirección de facturación y envío. El costo de envío será determinado con base en la información de dirección de domicilio suministrada.
@@ -100,7 +122,7 @@
                                 <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Dirección de Domicilio</label>
                                 
                                 <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
-                                    <select class="input-field w-full md:w-40 font-semibold cursor-pointer">
+                                    <select id="addrTipoVia" onchange="updateAddressSummary()" class="input-field w-full md:w-40 font-semibold cursor-pointer">
                                         <option value="" disabled selected>Tipo de Vía</option>
                                         <option value="Calle">Calle</option>
                                         <option value="Carrera">Carrera</option>
@@ -111,21 +133,26 @@
                                         <option value="Autopista">Autopista</option>
                                     </select>
                                     
-                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 123 A">
+                                    <input type="text" id="addrNum1" oninput="updateAddressSummary()" class="input-field w-full md:w-24 text-center" placeholder="Ej: 123 A">
                                     <span class="text-slate-400 font-bold hidden md:block">#</span>
-                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 45 B">
+                                    <input type="text" id="addrNum2" oninput="updateAddressSummary()" class="input-field w-full md:w-24 text-center" placeholder="Ej: 45 B">
                                     <span class="text-slate-400 font-bold hidden md:block">-</span>
-                                    <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 67">
+                                    <input type="text" id="addrNum3" oninput="updateAddressSummary()" class="input-field w-full md:w-24 text-center" placeholder="Ej: 67">
                                 </div>
                                 
                                 <div>
-                                    <input type="text" class="input-field w-full" placeholder="Complemento (Opcional): Ej. Apto 801, Torre 3, Conjunto Los Pinos, Barrio Centro">
+                                    <input type="text" id="addrComplemento" oninput="updateAddressSummary()" class="input-field w-full" placeholder="Complemento (Opcional): Ej. Apto 801, Torre 3, Conjunto Los Pinos, Barrio Centro">
+                                </div>
+                                
+                                <div class="mt-4 p-4 bg-white border border-blue-100 rounded-lg shadow-sm">
+                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Dirección Generada:</span>
+                                    <p id="addressSummary" class="text-sm font-black text-slate-400 uppercase min-h-[20px]">ESPERANDO DATOS...</p>
                                 </div>
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                                     <div>
                                         <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Departamento</label>
-                                        <select class="input-field cursor-pointer">
+                                        <select id="departamentoSelect" onchange="cargarMunicipios()" class="input-field cursor-pointer">
                                             <option value="" disabled selected>Seleccione Departamento</option>
                                             <option value="Amazonas">Amazonas</option>
                                             <option value="Antioquia">Antioquia</option>
@@ -164,7 +191,9 @@
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Ciudad / Municipio</label>
-                                        <input type="text" class="input-field" placeholder="Ej. Medellín">
+                                        <select id="municipioSelect" class="input-field cursor-pointer disabled:bg-slate-100 disabled:cursor-not-allowed" disabled>
+                                            <option value="" disabled selected>Primero seleccione un departamento</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -181,31 +210,33 @@
                             </div>
                         </div>
 
-                        <div class="w-full md:w-3/4">
-                            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Correo Electrónico</label>
-                            
-                            <div class="flex items-stretch w-full border border-slate-300 rounded-lg bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200 transition-all overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Correo Electrónico</label>
                                 
-                                <input type="text" id="emailUser" class="flex-1 px-4 py-2.5 text-sm text-slate-700 outline-none bg-transparent" placeholder="Ej. juan.perez" required>
-                                
-                                <div class="border-l border-slate-200 bg-slate-50 relative flex items-center min-w-[140px]">
-                                    <select id="emailDomain" onchange="toggleCustomEmail()" class="pl-3 pr-8 py-2.5 text-sm font-semibold text-slate-600 bg-transparent outline-none cursor-pointer appearance-none w-full h-full">
-                                        <option value="" disabled selected>@dominio...</option>
-                                        <option value="@gmail.com">@gmail.com</option>
-                                        <option value="@hotmail.com">@hotmail.com</option>
-                                        <option value="@outlook.com">@outlook.com</option>
-                                        <option value="@yahoo.com">@yahoo.com</option>
-                                        <option value="@icloud.com">@icloud.com</option>
-                                        <option value="otro">Otro...</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <div class="flex items-stretch w-full border border-slate-300 rounded-lg bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200 transition-all overflow-hidden">
+                                    
+                                    <input type="text" id="emailUser" class="flex-1 px-4 py-2.5 text-sm text-slate-700 outline-none bg-transparent min-w-[120px]" placeholder="Ej. juan.perez" required>
+                                    
+                                    <div class="border-l border-slate-200 bg-slate-50 relative flex items-center shrink-0">
+                                        <select id="emailDomain" onchange="toggleCustomEmail()" class="pl-2 pr-6 py-2.5 text-[11px] sm:text-xs font-semibold text-slate-600 bg-transparent outline-none cursor-pointer appearance-none w-full h-full">
+                                            <option value="" disabled selected>@dominio</option>
+                                            <option value="@gmail.com">@gmail.com</option>
+                                            <option value="@hotmail.com">@hotmail.com</option>
+                                            <option value="@outlook.com">@outlook.com</option>
+                                            <option value="@yahoo.com">@yahoo.com</option>
+                                            <option value="@icloud.com">@icloud.com</option>
+                                            <option value="otro">Otro...</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1.5 text-slate-400">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div id="customEmailContainer" class="hidden mt-3">
-                                <input type="text" class="input-field bg-slate-50 border-dashed" placeholder="Escriba su dominio completo (Ej. @miempresa.com)">
+                                
+                                <div id="customEmailContainer" class="hidden mt-3">
+                                    <input type="text" class="input-field bg-slate-50 border-dashed" placeholder="Ej. @miempresa.com">
+                                </div>
                             </div>
                         </div>
 
@@ -254,33 +285,6 @@
                     </div>
                 </div>
 
-                <div>
-                    <div class="bg-slate-600 text-white px-6 py-3">
-                        <h2 class="font-bold text-sm tracking-wide uppercase">Identificación del Nuevo Vendedor Independiente</h2>
-                    </div>
-                    <div class="p-6 sm:p-8 bg-white space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tipo de Documento</label>
-                                <select class="input-field cursor-pointer">
-                                    <option value="" disabled selected>Seleccione...</option>
-                                    <option>CC - Cédula de Ciudadanía</option>
-                                    <option>CE - Cédula de Extranjería</option>
-                                    <option>Pasaporte</option>
-                                    <option>PPT - Permiso de Protección Temporal</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Número de Identificación</label>
-                                <input type="text" class="input-field" placeholder="Sin puntos ni comas">
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-700 leading-relaxed font-medium">
-                            <strong>(*) Nota:</strong> Para vinculación de Compañías (NIT) y ciudadanos Venezolanos que tengan los permisos especiales de permanencia (PEP), Permiso por Protección Temporal (PPT) o el Permiso Especial de Permanencia para el Fomento de la Formalización (PEPFF) vigentes, deberán enviar su documentación previamente a nuestro Departamento de Servicio al Cliente.
-                        </p>
-                    </div>
-                </div>
-
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
@@ -306,6 +310,94 @@
             } else {
                 customContainer.classList.remove("block");
                 customContainer.classList.add("hidden");
+            }
+        }
+
+        // FUNCIÓN: Arma la dirección en tiempo real
+        function updateAddressSummary() {
+            const tipoVia = document.getElementById('addrTipoVia').value;
+            const num1 = document.getElementById('addrNum1').value.trim();
+            const num2 = document.getElementById('addrNum2').value.trim();
+            const num3 = document.getElementById('addrNum3').value.trim();
+            const complemento = document.getElementById('addrComplemento').value.trim();
+
+            let summaryString = '';
+            
+            if (tipoVia) summaryString += tipoVia + ' ';
+            if (num1) summaryString += num1 + ' ';
+            if (num2 || num3) summaryString += '# ';
+            if (num2) summaryString += num2 + ' ';
+            if (num3) summaryString += '- ' + num3 + ' ';
+            if (complemento) summaryString += complemento;
+
+            const summaryElement = document.getElementById('addressSummary');
+            
+            if (summaryString.trim() === '') {
+                summaryElement.textContent = 'ESPERANDO DATOS...';
+                summaryElement.classList.replace('text-blue-700', 'text-slate-400');
+            } else {
+                summaryElement.textContent = summaryString.trim().toUpperCase();
+                summaryElement.classList.replace('text-slate-400', 'text-blue-700');
+            }
+        }
+
+        // DATOS DE DEPARTAMENTOS Y MUNICIPIOS
+        const colombiaData = {
+            "Amazonas": ["Leticia", "Puerto Nariño", "El Encanto", "La Chorrera", "La Pedrera"],
+            "Antioquia": ["Medellín", "Bello", "Itagüí", "Envigado", "Apartadó", "Rionegro", "Caucasia", "Turbo"],
+            "Arauca": ["Arauca", "Tame", "Saravena", "Arauquita", "Fortul"],
+            "Atlántico": ["Barranquilla", "Soledad", "Malambo", "Sabanagrande", "Baranoa"],
+            "Bogotá D.C.": ["Bogotá D.C."],
+            "Bolívar": ["Cartagena", "Soledad", "Magangué", "Turbaco", "Arjona", "El Carmen de Bolívar"],
+            "Boyacá": ["Tunja", "Sogamoso", "Duitama", "Chiquinquirá", "Puerto Boyacá"],
+            "Caldas": ["Manizales", "Dosquebradas", "Chinchiná", "Villamaría", "La Dorada"],
+            "Caquetá": ["Florencia", "San Vicente del Caguán", "Cartagena del Chairá", "Puerto Rico"],
+            "Casanare": ["Yopal", "Aguazul", "Paz de Ariporo", "Villanueva", "Tauramena"],
+            "Cauca": ["Popayán", "Santander de Quilichao", "Puerto Tejada", "El Tambo"],
+            "Cesar": ["Valledupar", "Aguachica", "Agustín Codazzi", "Bosconia", "La Jagua de Ibirico"],
+            "Chocó": ["Quibdó", "Istmina", "Tadó", "Condoto", "El Carmen de Atrato"],
+            "Córdoba": ["Montería", "Santa Cruz de Lorica", "Cereté", "Sahagún", "Montelíbano"],
+            "Cundinamarca": ["Soacha", "Chía", "Zipaquirá", "Facatativá", "Fusagasugá", "Madrid", "Mosquera"],
+            "Guainía": ["Inírida", "Barranco Minas", "Cacahual", "La Guadalupe"],
+            "Guaviare": ["San José del Guaviare", "Calamar", "El Retorno", "Miraflores"],
+            "Huila": ["Neiva", "Pitalito", "Garzón", "La Plata", "Campoalegre"],
+            "La Guajira": ["Riohacha", "Maicao", "Uribia", "San Juan del Cesar", "Fonseca"],
+            "Magdalena": ["Santa Marta", "Ciénaga", "Fundación", "El Banco", "Plato"],
+            "Meta": ["Villavicencio", "Acacías", "Granada", "Puerto López", "Puerto Gaitán"],
+            "Nariño": ["Pasto", "Ipiales", "Tumaco", "Tuquerres", "Samaniego"],
+            "Norte de Santander": ["Cúcuta", "Ocaña", "Villa del Rosario", "Los Patios", "Pamplona"],
+            "Putumayo": ["Mocoa", "Puerto Asís", "Orito", "Valle del Guamuez"],
+            "Quindío": ["Armenia", "Calarcá", "Montenegro", "La Tebaida", "Quimbaya"],
+            "Risaralda": ["Pereira", "Dosquebradas", "Santa Rosa de Cabal", "La Virginia"],
+            "San Andrés y Providencia": ["San Andrés", "Providencia"],
+            "Santander": ["Bucaramanga", "Floridablanca", "Barrancabermeja", "Piedecuesta", "Girón", "San Gil"],
+            "Sucre": ["Sincelejo", "Corozal", "San Marcos", "Tolú", "Sampués"],
+            "Tolima": ["Ibagué", "El Espinal", "Melgar", "Chaparral", "Líbano"],
+            "Valle del Cauca": ["Cali", "Buenaventura", "Palmira", "Tuluá", "Yumbo", "Cartago", "Buga"],
+            "Vaupés": ["Mitú", "Carurú", "Pacoa", "Taraira"],
+            "Vichada": ["Puerto Carreño", "La Primavera", "Santa Rosalía", "Cumaribo"]
+        };
+
+        function cargarMunicipios() {
+            const deptoSelect = document.getElementById("departamentoSelect");
+            const muniSelect = document.getElementById("municipioSelect");
+            const departamento = deptoSelect.value;
+            
+            // Limpiar municipios actuales
+            muniSelect.innerHTML = '<option value="" disabled selected>Seleccione Ciudad / Municipio</option>';
+            
+            if(departamento && colombiaData[departamento]) {
+                muniSelect.disabled = false;
+                
+                colombiaData[departamento].forEach(municipio => {
+                    const option = document.createElement("option");
+                    option.value = municipio;
+                    option.textContent = municipio;
+                    muniSelect.appendChild(option);
+                });
+            } else {
+                muniSelect.disabled = true;
+                muniSelect.innerHTML = '<option value="" disabled selected>Primero seleccione un departamento</option>';
             }
         }
     </script>
