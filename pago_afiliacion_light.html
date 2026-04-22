@@ -26,7 +26,9 @@
         
         <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 sm:p-6 flex justify-between items-center sticky top-0 z-20 shadow-sm">
             <div class="flex items-center gap-4">
-                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                <a href="index_light.html" class="block cursor-pointer">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                </a>
                 <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
                 <h1 class="text-xl font-bold text-slate-800 hidden sm:flex items-center gap-2">
                     <span class="text-red-600">👤+</span> Nuevas Afiliaciones
@@ -66,16 +68,7 @@
             <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow overflow-hidden">
                 
                 <div class="border-b border-slate-100">
-                    <div class="bg-slate-600 text-white px-6 py-3">
-                        <h2 class="font-bold text-sm tracking-wide uppercase">Seleccionar Pago y Envío</h2>
-                    </div>
-                    <div class="p-4 sm:p-6 bg-slate-50 text-slate-600 text-xs sm:text-sm">
-                        Revise la información de su pedido que aparece a continuación y seleccione el método de envío que desea utilizar para recibir su pedido (s). Adicionalmente, deberá proporcionar su información de pago para continuar con el siguiente paso.
-                    </div>
-                </div>
-
-                <div class="border-b border-slate-100">
-                    <div class="bg-slate-600 text-white px-6 py-3 border-t-4 border-white">
+                    <div class="bg-slate-600 text-white px-6 py-3 border-t-0 border-white">
                         <h2 class="font-bold text-sm tracking-wide uppercase">Información de la Compra</h2>
                     </div>
                     <div class="p-6 sm:p-8 space-y-6 bg-white">
@@ -133,27 +126,108 @@
                                     <span class="font-bold text-slate-800">250</span>
                                 </div>
                                 <div class="flex justify-between items-center p-4 bg-blue-50/50 px-6">
-                                    <span class="font-black text-slate-800 text-sm uppercase tracking-wider">Subtotal (antes de impuesto)</span>
+                                    <span class="font-black text-slate-800 text-sm uppercase tracking-wider">Total con IVA</span>
                                     <span class="font-black text-blue-700 text-lg">$ 1,890,756.31</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16 pt-4">
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <div class="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center">
-                                    <div class="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
+                        <div class="pt-6 border-t border-slate-100">
+                            <h3 class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-4 text-center">Seleccione Método de Envío</h3>
+                            <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
+                                <label class="flex items-center gap-3 cursor-pointer group justify-center" onclick="toggleShipping('domicilio')">
+                                    <div id="radioHomeUI" class="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center transition">
+                                        <div id="radioHomeDot" class="w-2.5 h-2.5 bg-blue-600 rounded-full transition"></div>
+                                    </div>
+                                    <input type="radio" name="shipping" id="shippingHome" class="hidden" checked>
+                                    <span class="text-sm font-bold text-slate-700 group-hover:text-blue-700 transition">📦 Envío a Domicilio</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group justify-center" onclick="toggleShipping('oficina')">
+                                    <div id="radioOfficeUI" class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center group-hover:border-blue-400 transition">
+                                        <div id="radioOfficeDot" class="w-2.5 h-2.5 bg-blue-600 rounded-full hidden transition"></div>
+                                    </div>
+                                    <input type="radio" name="shipping" id="shippingOffice" class="hidden">
+                                    <span class="text-sm font-semibold text-slate-600 group-hover:text-blue-700 transition">🏢 Reclamar en Oficina</span>
+                                </label>
+                            </div>
+                            
+                            <div id="homeDeliveryContainer" class="mt-8 max-w-2xl mx-auto space-y-4">
+                                <p class="text-xs text-slate-500 text-center mb-4">¿A qué dirección deseas que enviemos tu pedido?</p>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <label class="cursor-pointer group" onclick="toggleAddressOption('registrada')">
+                                        <div id="cardRegisteredAddress" class="h-full border-2 border-blue-600 bg-blue-50 rounded-xl p-4 transition text-center hover:shadow-md relative overflow-hidden">
+                                            <div id="checkRegisteredAddress" class="absolute top-2 right-2 w-5 h-5 bg-blue-600 rounded-full text-white flex items-center justify-center shadow-sm">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                            </div>
+                                            <input type="radio" name="addressType" class="hidden" value="registrada" checked>
+                                            <p class="font-bold text-sm text-blue-800 mb-2">Enviar a mi dirección registrada</p>
+                                            <p class="text-xs text-slate-600 font-medium">CALLE 123 A # 45 B - 67</p>
+                                            <p class="text-[10px] text-slate-500">Bogotá D.C., Bogotá D.C.</p>
+                                        </div>
+                                    </label>
+
+                                    <label class="cursor-pointer group" onclick="toggleAddressOption('otra')">
+                                        <div id="cardNewAddress" class="h-full border-2 border-slate-200 bg-white rounded-xl p-4 transition text-center hover:shadow-md hover:border-blue-300 relative overflow-hidden">
+                                            <div id="checkNewAddress" class="absolute top-2 right-2 w-5 h-5 bg-slate-200 rounded-full text-white flex items-center justify-center hidden">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                            </div>
+                                            <input type="radio" name="addressType" class="hidden" value="otra">
+                                            <p class="font-bold text-sm text-slate-700 mt-2">Enviar a otra dirección</p>
+                                            <p class="text-xs text-slate-500 mt-1">Ingresar nuevos datos de envío</p>
+                                        </div>
+                                    </label>
                                 </div>
-                                <input type="radio" name="shipping" class="hidden" checked>
-                                <span class="text-sm font-bold text-slate-700 group-hover:text-blue-700 transition">📦 Envío a Domicilio</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <div class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center group-hover:border-blue-400 transition">
+
+                                <div id="newAddressForm" class="hidden bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-4 shadow-inner mt-4">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Nueva Dirección de Domicilio</label>
+                                    <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
+                                        <select class="input-field w-full md:w-40 font-semibold cursor-pointer">
+                                            <option value="" disabled selected>Tipo de Vía</option>
+                                            <option value="Calle">Calle</option>
+                                            <option value="Carrera">Carrera</option>
+                                            <option value="Avenida">Avenida</option>
+                                        </select>
+                                        <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 123 A">
+                                        <span class="text-slate-400 font-bold hidden md:block">#</span>
+                                        <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 45 B">
+                                        <span class="text-slate-400 font-bold hidden md:block">-</span>
+                                        <input type="text" class="input-field w-full md:w-24 text-center" placeholder="Ej: 67">
+                                    </div>
+                                    <div>
+                                        <input type="text" class="input-field w-full" placeholder="Complemento (Opcional): Ej. Apto 801">
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                                        <select class="input-field cursor-pointer">
+                                            <option value="" disabled selected>Seleccione Departamento</option>
+                                            <option value="Antioquia">Antioquia</option>
+                                            <option value="Bogotá D.C.">Bogotá D.C.</option>
+                                        </select>
+                                        <select class="input-field cursor-pointer">
+                                            <option value="" disabled selected>Seleccione Ciudad/Municipio</option>
+                                            <option value="Medellin">Medellín</option>
+                                            <option value="Bogota">Bogotá D.C.</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <input type="radio" name="shipping" class="hidden">
-                                <span class="text-sm font-semibold text-slate-600 group-hover:text-blue-700 transition">🏢 Reclamar en Oficina</span>
-                            </label>
+                            </div>
+
+                            <div id="officeSelectorContainer" class="hidden mt-6 max-w-sm mx-auto transition-all duration-300">
+                                <select class="input-field cursor-pointer text-center font-bold text-blue-700 border-blue-200 bg-blue-50 focus:ring-2 focus:ring-blue-200 outline-none">
+                                    <option value="" disabled selected>-- Elija una Sede Gano Excel --</option>
+                                    <option value="Bogotá - Cedritos">Bogotá - Cedritos</option>
+                                    <option value="Bogotá - Santa Isabel">Bogotá - Santa Isabel</option>
+                                    <option value="Medellín">Medellín</option>
+                                    <option value="Pereira">Pereira</option>
+                                    <option value="Barranquilla">Barranquilla</option>
+                                    <option value="Cúcuta">Cúcuta</option>
+                                    <option value="Bucaramanga">Bucaramanga</option>
+                                    <option value="Cali">Cali</option>
+                                    <option value="Villavicencio">Villavicencio</option>
+                                </select>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -167,63 +241,77 @@
                             A continuación deberá diligenciar y seleccionar la información asociada a la tarjeta de crédito que será utilizada para el pago de la presente orden y la cual fue reportada por el tarjetahabiente ante su entidad financiera.
                         </p>
 
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-slate-100 p-2 rounded-lg transition inline-flex">
-                            <input type="checkbox" id="useHomeAddress" class="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
-                            <span class="text-sm font-semibold text-slate-700">Usar mi dirección de domicilio</span>
-                        </label>
-
-                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 space-y-3 shadow-inner">
-                            <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
-                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
-                                <div class="bg-slate-300 text-slate-600 font-bold px-4 py-2 rounded-lg">#</div>
-                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
-                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
-                            </div>
-                            <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
-                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
-                                <select class="input-field w-full md:w-auto flex-1"><option>Por favor seleccione</option></select>
-                                <input type="text" class="input-field w-full md:w-auto flex-1 bg-white" placeholder="">
-                            </div>
-                            <div>
-                                <input type="text" class="input-field" placeholder="Dirección de Domicilio">
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                                <select class="input-field"><option>Departamento</option></select>
-                                <select class="input-field"><option>Ciudad/Municipio</option></select>
-                            </div>
-                            <div>
-                                <input type="text" class="input-field" placeholder="País">
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-blue-100 shadow-sm space-y-4 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-blue-50 text-blue-600 font-black px-4 py-1 rounded-bl-xl text-xs uppercase tracking-wider">
+                        <div class="bg-white p-6 rounded-xl border border-blue-200 shadow-sm space-y-4 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-blue-600 text-white font-black px-4 py-1 rounded-bl-xl text-xs uppercase tracking-wider">
                                 Datos de la Tarjeta
                             </div>
                             
-                            <div class="pt-4">
-                                <input type="text" class="input-field" placeholder="Nombre del tarjetahabiente">
+                            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="sm:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Nombre del tarjetahabiente</label>
+                                    <input type="text" class="input-field" placeholder="Tal como aparece en la tarjeta">
+                                </div>
                             </div>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                                <div class="md:col-span-6">
-                                    <input type="text" class="input-field font-mono" placeholder="Número de la tarjeta de crédito">
+                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+                                <div class="sm:col-span-7">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Número de Tarjeta</label>
+                                    <input type="text" class="input-field font-mono tracking-widest" placeholder="0000 0000 0000 0000">
                                 </div>
-                                <div class="md:col-span-2">
-                                    <input type="password" class="input-field text-center tracking-widest" placeholder="CVV" maxlength="4">
+                                <div class="sm:col-span-2">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">CVV</label>
+                                    <input type="password" class="input-field text-center tracking-widest" placeholder="***" maxlength="4">
                                 </div>
-                                <div class="md:col-span-4 flex items-center gap-3">
-                                    <label class="text-sm font-bold text-slate-700 whitespace-nowrap">Número de Cuotas:</label>
-                                    <select class="input-field flex-1"><option>1</option><option>2</option><option>3</option><option>6</option><option>12</option></select>
+                                <div class="sm:col-span-3">
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Cuotas</label>
+                                    <select class="input-field cursor-pointer"><option>1 Cuota</option><option>2 Cuotas</option><option>3 Cuotas</option><option>6 Cuotas</option><option>12 Cuotas</option></select>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <select class="input-field"><option>Seleccione Mes de Vencimiento</option><option>01 - Enero</option><option>02 - Febrero</option></select>
-                                <select class="input-field"><option>Seleccione año de vencimiento</option><option>2026</option><option>2027</option></select>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Mes de Vencimiento</label>
+                                    <select class="input-field cursor-pointer"><option>Mes</option><option>01 - Enero</option><option>02 - Febrero</option><option>03 - Marzo</option></select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Año de Vencimiento</label>
+                                    <select class="input-field cursor-pointer"><option>Año</option><option>2026</option><option>2027</option><option>2028</option></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200 space-y-4 shadow-inner mt-6 relative">
+                            <div class="absolute top-0 right-0 bg-slate-300 text-slate-600 font-bold px-4 py-1 rounded-bl-xl text-[10px] uppercase tracking-wider">
+                                Dirección de Facturación
+                            </div>
+                            
+                            <label class="flex items-center gap-3 cursor-pointer hover:bg-slate-100 p-2 rounded-lg transition inline-flex mt-2">
+                                <input type="checkbox" id="useHomeAddress" class="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500" onclick="toggleBillingAddress()">
+                                <span class="text-sm font-semibold text-slate-700">La dirección de facturación es igual a la de domicilio</span>
+                            </label>
+
+                            <div id="billingForm" class="space-y-4 transition-all duration-300">
+                                <div class="flex flex-wrap md:flex-nowrap gap-2 items-center">
+                                    <select class="input-field w-full md:w-auto flex-1 cursor-pointer"><option value="" disabled selected>Tipo de Vía</option><option>Calle</option><option>Carrera</option><option>Avenida</option></select>
+                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-white text-center" placeholder="Ej: 123 A">
+                                    <div class="text-slate-400 font-bold hidden md:block">#</div>
+                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-white text-center" placeholder="Ej: 45 B">
+                                    <div class="text-slate-400 font-bold hidden md:block">-</div>
+                                    <input type="text" class="input-field w-full md:w-auto flex-1 bg-white text-center" placeholder="Ej: 67">
+                                </div>
+                                
+                                <div>
+                                    <input type="text" class="input-field" placeholder="Complemento (Opcional): Ej. Apto 801, Torre 3">
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <select class="input-field cursor-pointer"><option value="" disabled selected>Departamento</option><option>Antioquia</option><option>Bogotá D.C.</option></select>
+                                    <select class="input-field cursor-pointer"><option value="" disabled selected>Ciudad / Municipio</option><option>Medellín</option><option>Bogotá D.C.</option></select>
+                                </div>
+                                
+                                <div>
+                                    <input type="text" class="input-field input-readonly" value="COLOMBIA" readonly>
+                                </div>
                             </div>
                         </div>
 
@@ -244,5 +332,90 @@
         </div>
     </main>
 
+    <script>
+        function toggleShipping(method) {
+            const homeUI = document.getElementById('radioHomeUI');
+            const homeDot = document.getElementById('radioHomeDot');
+            const officeUI = document.getElementById('radioOfficeUI');
+            const officeDot = document.getElementById('radioOfficeDot');
+            const oficinasDiv = document.getElementById('officeSelectorContainer');
+            const homeDeliveryContainer = document.getElementById('homeDeliveryContainer');
+
+            if(method === 'domicilio') {
+                homeUI.classList.replace('border-slate-300', 'border-blue-600');
+                homeDot.classList.remove('hidden');
+                officeUI.classList.replace('border-blue-600', 'border-slate-300');
+                officeDot.classList.add('hidden');
+                
+                oficinasDiv.classList.add('hidden');
+                homeDeliveryContainer.classList.remove('hidden');
+                document.getElementById('shippingHome').checked = true;
+            } else {
+                officeUI.classList.replace('border-slate-300', 'border-blue-600');
+                officeDot.classList.remove('hidden');
+                homeUI.classList.replace('border-blue-600', 'border-slate-300');
+                homeDot.classList.add('hidden');
+                
+                homeDeliveryContainer.classList.add('hidden');
+                oficinasDiv.classList.remove('hidden');
+                document.getElementById('shippingOffice').checked = true;
+            }
+        }
+
+        function toggleAddressOption(option) {
+            const cardRegistered = document.getElementById('cardRegisteredAddress');
+            const checkRegistered = document.getElementById('checkRegisteredAddress');
+            const cardNew = document.getElementById('cardNewAddress');
+            const checkNew = document.getElementById('checkNewAddress');
+            const formNewAddress = document.getElementById('newAddressForm');
+
+            if(option === 'registrada') {
+                cardRegistered.classList.replace('border-slate-200', 'border-blue-600');
+                cardRegistered.classList.replace('bg-white', 'bg-blue-50');
+                checkRegistered.classList.remove('hidden');
+                checkRegistered.classList.replace('bg-slate-200', 'bg-blue-600');
+                
+                cardNew.classList.replace('border-blue-600', 'border-slate-200');
+                cardNew.classList.replace('bg-blue-50', 'bg-white');
+                checkNew.classList.add('hidden');
+                checkNew.classList.replace('bg-blue-600', 'bg-slate-200');
+
+                formNewAddress.classList.add('hidden');
+            } else {
+                cardNew.classList.replace('border-slate-200', 'border-blue-600');
+                cardNew.classList.replace('bg-white', 'bg-blue-50');
+                checkNew.classList.remove('hidden');
+                checkNew.classList.replace('bg-slate-200', 'bg-blue-600');
+
+                cardRegistered.classList.replace('border-blue-600', 'border-slate-200');
+                cardRegistered.classList.replace('bg-blue-50', 'bg-white');
+                checkRegistered.classList.add('hidden');
+                checkRegistered.classList.replace('bg-blue-600', 'bg-slate-200');
+
+                formNewAddress.classList.remove('hidden');
+            }
+        }
+
+        // Nueva función para deshabilitar los campos de facturación si se marca el checkbox
+        function toggleBillingAddress() {
+            const checkBox = document.getElementById('useHomeAddress');
+            const formInputs = document.querySelectorAll('#billingForm input, #billingForm select');
+            
+            if(checkBox.checked) {
+                formInputs.forEach(input => {
+                    input.disabled = true;
+                    input.classList.add('opacity-50', 'cursor-not-allowed');
+                });
+            } else {
+                formInputs.forEach(input => {
+                    // No habilitar el input readonly de país
+                    if(!input.classList.contains('input-readonly')) {
+                        input.disabled = false;
+                        input.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
