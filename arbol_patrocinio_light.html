@@ -14,15 +14,25 @@
         .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
         .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
 
-        /* Líneas del diagrama del árbol más suaves */
-        .tree-line-v { width: 2px; height: 24px; background-color: #e2e8f0; margin: 0 auto; }
-        .tree-line-h { position: absolute; top: 0; height: 2px; background-color: #e2e8f0; }
+        /* Líneas del diagrama del árbol más suaves (ajustadas para fluidez) */
+        .tree-line-v { width: 1.5px; height: 16px; background-color: #e2e8f0; margin: 0 auto; }
+        .tree-line-h { position: absolute; top: 0; height: 1.5px; background-color: #e2e8f0; }
+
+        @media (min-width: 640px) {
+            .tree-line-v { width: 2px; height: 24px; }
+            .tree-line-h { height: 2px; }
+        }
         
-        /* Ajuste de nodos modernos */
+        /* Ajuste de nodos modernos y fluidos */
         .node-box {
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 16px; padding: 12px 8px; text-align: center;
+            border-radius: 8px; padding: 6px 4px; text-align: center;
             position: relative; z-index: 10; transition: all 0.2s ease-in-out;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .node-box { border-radius: 16px; padding: 12px 8px; }
         }
         
         /* Colores estilo White Mode */
@@ -112,109 +122,109 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow p-6 sm:p-10 overflow-x-auto relative">
+            <div class="bg-white rounded-3xl border border-slate-100 brand-card-shadow p-2 sm:p-6 lg:p-10 overflow-hidden relative">
                 
-                <div class="text-center mb-8">
+                <div class="text-center mb-4 sm:mb-8 hidden sm:block">
                     <p class="text-blue-600 text-xs font-semibold bg-blue-50 inline-block px-3 py-1 rounded-full border border-blue-100">
                         💡 Haz clic en los nodos vacíos para patrocinar un nuevo afiliado
                     </p>
                 </div>
 
-                <div class="w-full min-w-[768px] lg:min-w-full flex flex-col items-center select-none">
+                <div class="w-full flex flex-col items-center select-none">
                     
-                    <div class="flex justify-between w-full max-w-[900px] px-4 mb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
-                        <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
-                            Extrema Izquierda
+                    <div class="flex justify-between w-full max-w-[900px] px-2 sm:px-4 mb-2 text-[8px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        <div class="flex items-center gap-0.5 sm:gap-1 cursor-pointer hover:text-blue-600 transition">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                            <span class="hidden sm:inline">Extrema</span> Izquierda
                         </div>
-                        <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
-                            Extrema Derecha
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                        <div class="flex items-center gap-0.5 sm:gap-1 cursor-pointer hover:text-blue-600 transition">
+                            <span class="hidden sm:inline">Extrema</span> Derecha
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
 
                     <div class="flex flex-col items-center w-full">
-                        <div class="node-box bg-node-root w-1/2 max-w-[450px]">
-                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl mb-2 backdrop-blur-sm">👤</div>
-                            <p class="text-sm font-bold uppercase tracking-wide">ANGELA MARIA RICAURTE RAMIREZ</p>
-                            <p class="text-xs font-medium opacity-80 mt-1">ID: 7341463</p>
+                        <div class="node-box bg-node-root w-[80%] sm:w-1/2 max-w-[450px]">
+                            <div class="w-6 h-6 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center text-sm sm:text-xl mb-1 sm:mb-2 backdrop-blur-sm">👤</div>
+                            <p class="text-[8px] sm:text-sm font-bold uppercase tracking-wide leading-tight">ANGELA MARIA RICAURTE RAMIREZ</p>
+                            <p class="text-[6px] sm:text-xs font-medium opacity-80 mt-0.5 sm:mt-1">ID: 7341463</p>
                         </div>
-                        <div class="tree-line-v h-[30px]"></div>
+                        <div class="tree-line-v h-[15px] sm:h-[30px]"></div>
                     </div>
 
                     <div class="flex relative w-full max-w-[900px] justify-between">
                         <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                         
-                        <div class="flex flex-col items-center w-1/2 px-2">
-                            <div class="tree-line-v h-[15px]"></div>
-                            <div class="node-box bg-node-occupied w-full h-[70px]">
-                                <div class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1">👤</div>
-                                <p class="text-[11px] font-bold text-slate-700 uppercase truncate w-full">JARIANA MARIA GOMEZ SANCHEZ</p>
-                                <p class="text-[10px] text-slate-500 mt-0.5">7344442</p>
+                        <div class="flex flex-col items-center w-1/2 px-1 sm:px-2">
+                            <div class="tree-line-v h-[10px] sm:h-[15px]"></div>
+                            <div class="node-box bg-node-occupied h-[45px] sm:h-[70px]">
+                                <div class="w-4 h-4 sm:w-6 sm:h-6 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-0.5 sm:mb-1 text-[8px] sm:text-[12px]">👤</div>
+                                <p class="text-[6px] sm:text-[11px] font-bold text-slate-700 uppercase truncate w-full px-1">JARIANA MARIA GOMEZ</p>
+                                <p class="text-[5px] sm:text-[10px] text-slate-500 mt-0.5">7344442</p>
                             </div>
-                            <div class="flex justify-center mt-2">
-                                <span class="bg-slate-50 border border-slate-200 text-slate-500 text-[9px] px-2 py-1 rounded-full flex items-center gap-1 font-semibold">
-                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg> Bajar (1) nivel
+                            <div class="flex justify-center mt-1 sm:mt-2">
+                                <span class="bg-slate-50 border border-slate-200 text-slate-500 text-[5px] sm:text-[9px] px-1 sm:px-2 py-0.5 sm:py-1 rounded-full flex items-center gap-0.5 sm:gap-1 font-semibold">
+                                    <svg class="w-2 h-2 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg> <span class="hidden sm:inline">Bajar (1) nivel</span>
                                 </span>
                             </div>
-                            <div class="tree-line-v h-[15px]"></div>
+                            <div class="tree-line-v h-[10px] sm:h-[15px]"></div>
                         </div>
 
-                        <div class="flex flex-col items-center w-1/2 px-2">
-                            <div class="tree-line-v h-[15px]"></div>
-                            <button onclick="openSponsorModal()" class="node-box bg-node-sponsor w-full h-[70px]">
-                                <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mb-1 text-emerald-600">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                        <div class="flex flex-col items-center w-1/2 px-1 sm:px-2">
+                            <div class="tree-line-v h-[10px] sm:h-[15px]"></div>
+                            <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[45px] sm:h-[70px]">
+                                <div class="w-4 h-4 sm:w-8 sm:h-8 bg-emerald-100 rounded-full flex items-center justify-center mb-0.5 sm:mb-1 text-emerald-600">
+                                    <svg class="w-3 h-3 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
                                 </div>
-                                <p class="text-[11px] font-bold">Patrocinar Aquí</p>
+                                <p class="text-[6px] sm:text-[11px] font-bold">Patrocinar</p>
                             </button>
-                            <div class="tree-line-v h-[30px]"></div>
+                            <div class="tree-line-v h-[20px] sm:h-[30px]"></div>
                         </div>
                     </div>
 
                     <div class="flex relative w-full max-w-[900px] justify-between">
-                        <div class="flex w-1/2 relative justify-between px-2">
+                        <div class="flex w-1/2 relative justify-between px-1 sm:px-2">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             
-                            <div class="flex flex-col items-center w-1/2 px-1">
+                            <div class="flex flex-col items-center w-1/2 px-0.5 sm:px-1">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-occupied w-full h-[60px]">
-                                    <div class="w-5 h-5 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1 text-[10px]">👤</div>
-                                    <p class="text-[9px] font-bold text-slate-700 uppercase leading-tight truncate w-full">JOSE GABRIEL RICAURTE</p>
-                                    <p class="text-[9px] text-slate-500 mt-0.5">7353192</p>
+                                <div class="node-box bg-node-occupied h-[35px] sm:h-[60px]">
+                                    <div class="w-3 h-3 sm:w-5 sm:h-5 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-0.5 sm:mb-1 text-[6px] sm:text-[10px]">👤</div>
+                                    <p class="text-[4px] sm:text-[9px] font-bold text-slate-700 uppercase leading-tight truncate w-full px-0.5">JOSE G. RICAURTE</p>
+                                    <p class="text-[4px] sm:text-[9px] text-slate-500 mt-0.5">7353192</p>
                                 </div>
                                 <div class="tree-line-v"></div>
                             </div>
 
-                            <div class="flex flex-col items-center w-1/2 px-1">
+                            <div class="flex flex-col items-center w-1/2 px-0.5 sm:px-1">
                                 <div class="tree-line-v"></div>
-                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor w-full h-[60px]">
-                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mb-1 text-emerald-600">
-                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[35px] sm:h-[60px]">
+                                    <div class="w-3 h-3 sm:w-6 sm:h-6 bg-emerald-100 rounded-full flex items-center justify-center mb-0.5 sm:mb-1 text-emerald-600">
+                                        <svg class="w-2 h-2 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                                     </div>
-                                    <p class="text-[9px] font-bold">Patrocinar Aquí</p>
+                                    <p class="text-[4.5px] sm:text-[9px] font-bold">Patrocinar</p>
                                 </button>
                                 <div class="tree-line-v"></div>
                             </div>
                         </div>
 
-                        <div class="flex w-1/2 relative justify-between px-2">
+                        <div class="flex w-1/2 relative justify-between px-1 sm:px-2">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
                             
-                            <div class="flex flex-col items-center w-1/2 px-1">
+                            <div class="flex flex-col items-center w-1/2 px-0.5 sm:px-1">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-na w-full h-[60px]">
-                                    <svg class="w-5 h-5 text-red-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
-                                    <p class="text-[10px] font-bold">N/A</p>
+                                <div class="node-box bg-node-na h-[35px] sm:h-[60px]">
+                                    <svg class="w-3 h-3 sm:w-5 sm:h-5 text-red-300 mb-0.5 sm:mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    <p class="text-[4.5px] sm:text-[10px] font-bold">N/A</p>
                                 </div>
                                 <div class="tree-line-v"></div>
                             </div>
 
-                            <div class="flex flex-col items-center w-1/2 px-1">
+                            <div class="flex flex-col items-center w-1/2 px-0.5 sm:px-1">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-na w-full h-[60px]">
-                                    <svg class="w-5 h-5 text-red-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
-                                    <p class="text-[10px] font-bold">N/A</p>
+                                <div class="node-box bg-node-na h-[35px] sm:h-[60px]">
+                                    <svg class="w-3 h-3 sm:w-5 sm:h-5 text-red-300 mb-0.5 sm:mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    <p class="text-[4.5px] sm:text-[10px] font-bold">N/A</p>
                                 </div>
                                 <div class="tree-line-v"></div>
                             </div>
@@ -223,65 +233,65 @@
 
                     <div class="flex relative w-full max-w-[900px] justify-between">
                         
-                        <div class="flex w-1/4 relative justify-between px-1">
+                        <div class="flex w-1/4 relative justify-between px-0.5 sm:px-1">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-occupied h-[50px] w-full">
-                                    <div class="w-4 h-4 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-1 text-[8px]">👤</div>
-                                    <p class="text-[7px] font-bold text-slate-700 truncate w-full px-1">DIANA OSORIO</p>
-                                    <p class="text-[7px] text-slate-500">7366158</p>
+                                <div class="node-box bg-node-occupied h-[25px] sm:h-[50px]">
+                                    <div class="w-2.5 h-2.5 sm:w-4 sm:h-4 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-0.5 text-[4px] sm:text-[8px]">👤</div>
+                                    <p class="text-[3px] sm:text-[7px] font-bold text-slate-700 truncate w-full px-0.5 leading-none">DIANA O.</p>
+                                    <p class="text-[3px] sm:text-[7px] text-slate-500 leading-none mt-0.5">7366158</p>
                                 </div>
                             </div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
                                 <div class="tree-line-v"></div>
-                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[50px] w-full">
-                                    <svg class="w-4 h-4 text-emerald-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                                    <p class="text-[7px] font-bold">Patrocinar</p>
+                                <button onclick="openSponsorModal()" class="node-box bg-node-sponsor h-[25px] sm:h-[50px]">
+                                    <svg class="w-2.5 h-2.5 sm:w-4 sm:h-4 text-emerald-500 mb-0.5 sm:mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                    <p class="text-[3.5px] sm:text-[7px] font-bold leading-none hidden sm:block">Patrocinar</p>
+                                    <p class="text-[3.5px] font-bold leading-none sm:hidden">Nuevo</p>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="flex w-1/4 relative justify-between px-1">
+                        <div class="flex w-1/4 relative justify-between px-0.5 sm:px-1">
                             <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
                             </div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
                                 <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
+                            </div>
+                        </div>
+                        <div class="flex w-1/4 relative justify-between px-0.5 sm:px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
+                            </div>
+                        </div>
+                        <div class="flex w-1/4 relative justify-between px-0.5 sm:px-1">
+                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
+                            </div>
+                            <div class="flex flex-col items-center w-1/2 px-[1px] sm:px-0.5">
+                                <div class="tree-line-v"></div>
+                                <div class="node-box bg-node-empty h-[25px] sm:h-[50px]"><p class="text-[4px] sm:text-[8px] font-bold text-slate-400">N/A</p></div>
                             </div>
                         </div>
 
-                        <div class="flex w-1/4 relative justify-between px-1">
-                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                        </div>
-
-                        <div class="flex w-1/4 relative justify-between px-1">
-                            <div class="tree-line-h left-[25%] right-[25%] w-[50%]"></div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                            <div class="flex flex-col items-center w-1/2 px-0.5">
-                                <div class="tree-line-v"></div>
-                                <div class="node-box bg-node-empty h-[50px] w-full"><p class="text-[8px] font-bold">N/A</p></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-10 w-full">
-                    <button class="bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase px-6 py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition">
+                <div class="flex justify-center mt-6 sm:mt-10">
+                    <button class="bg-white border border-slate-200 text-slate-600 font-bold text-[10px] sm:text-xs uppercase px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition w-full sm:w-auto mx-4 sm:mx-0">
                         Mostrar Todos Los Niveles
                     </button>
                 </div>
@@ -293,28 +303,28 @@
     <div class="fixed bottom-0 left-0 md:left-64 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200 h-[60px] flex items-center justify-center gap-4 sm:gap-8 px-4 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
         <span class="text-xs font-bold text-slate-400 uppercase tracking-widest hidden md:block mr-4">Leyenda:</span>
         
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
-            <div class="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-sm">👤</div>
+        <div class="flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-slate-700">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-sm">👤</div>
             <span class="hidden sm:block">Nodo Actual</span>
         </div>
         
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
-            <div class="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 text-slate-400 flex items-center justify-center shadow-sm">👤</div>
+        <div class="flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-slate-700">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-100 border border-slate-200 text-slate-400 flex items-center justify-center shadow-sm">👤</div>
             <span class="hidden sm:block">Ocupado</span>
         </div>
         
-        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-700">
-            <div class="w-6 h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center shadow-sm">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        <div class="flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-emerald-700">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center shadow-sm">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </div>
-            <span class="hidden sm:block">Disponible (Patrocinar)</span>
+            <span class="hidden sm:block">Disponible</span>
         </div>
         
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
-            <div class="w-6 h-6 rounded-full bg-slate-50 border border-dashed border-slate-300 flex items-center justify-center">
-                <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+        <div class="flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-slate-400">
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-50 border border-dashed border-slate-300 flex items-center justify-center">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
             </div>
-            <span class="hidden sm:block">No Disponible (N/A)</span>
+            <span class="hidden sm:block">N/A</span>
         </div>
     </div>
 
@@ -412,7 +422,7 @@
             
             <div class="p-5 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row gap-3">
                 <button onclick="window.location.href='nuevas_afiliaciones_light.html'" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold shadow-md transition uppercase tracking-widest text-sm flex items-center justify-center gap-2">
-                    COMENZAR AFILIACIÓN <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    COMENZAR AFILIACIÓN <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
                 </button>
             </div>
         </div>
