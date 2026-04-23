@@ -106,11 +106,11 @@
                 </a>
 
                 <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-hide">
-                    <button class="px-4 py-1.5 bg-blue-700 text-white text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 shadow-md">Todos</button>
-                    <button class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Bebidas</button>
-                    <button class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Cuidado Personal</button>
-                    <button class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Cápsulas</button>
-                    <button class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Paquetes ESP</button>
+                    <button onclick="window.location.href='pedido_en_linea_light.html'" class="px-4 py-1.5 bg-blue-700 text-white text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 shadow-md">Todos</button>
+                    <button onclick="window.location.href='pedido_en_linea_bebidas_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Bebidas</button>
+                    <button onclick="window.location.href='pedido_en_linea_cuidado_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Cuidado Personal</button>
+                    <button onclick="window.location.href='pedido_en_linea_capsulas_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Cápsulas</button>
+                    <button onclick="window.location.href='pedido_en_linea_esp_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-bold uppercase tracking-wider rounded-full flex-shrink-0 transition">Paquetes ESP</button>
                 </div>
             </div>
 
@@ -317,7 +317,7 @@
             }
         }
 
-        // LÓGICA DEL POP-UP DE ORDEN DETECTADA AÑADIDA AQUÍ
+        // LÓGICA DEL POP-UP DE ORDEN DETECTADA
         function showResumeModal() {
             const modal = document.getElementById('resumeModal');
             const modalContent = document.getElementById('resumeModalContent');
