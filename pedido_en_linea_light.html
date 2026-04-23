@@ -135,6 +135,24 @@
         </div>
     </div>
 
+    <div id="resumeModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 hidden">
+        <div id="resumeModalContent" class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl text-center transform transition-transform duration-300 scale-95">
+            <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-inner">🛒</div>
+            <h2 class="text-2xl font-black text-slate-800 mb-3">Orden en curso detectada</h2>
+            <p class="text-slate-500 text-sm mb-8 leading-relaxed">
+                Hemos detectado que tienes productos en tu carrito de una sesión anterior. ¿Deseas retomar tu pedido o prefieres empezar una orden nueva desde cero?
+            </p>
+            <div class="flex flex-col gap-3">
+                <button onclick="resumeOrder()" class="w-full py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 uppercase tracking-widest text-sm">
+                    Retomar mi Orden
+                </button>
+                <button onclick="resetOrder()" class="w-full py-4 bg-white border border-slate-200 text-slate-500 hover:text-red-600 hover:border-red-100 hover:bg-red-50 font-bold rounded-2xl transition uppercase tracking-widest text-xs">
+                    Empezar de Cero
+                </button>
+            </div>
+        </div>
+    </div>
+
     <nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 z-40 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
         <div class="mobile-nav-scroll py-3 pb-safe">
             <a href="index_light.html" class="mobile-nav-item flex flex-col items-center text-slate-400 hover:text-blue-600">
@@ -259,12 +277,14 @@
                 
                 // Bloquear botón + si llega al límite
                 const btnPlus = document.getElementById(`btnPlus_${productId}`);
-                if (newVal === maxLimit) {
-                    btnPlus.disabled = true;
-                    btnPlus.classList.add('opacity-30', 'cursor-not-allowed');
-                } else {
-                    btnPlus.disabled = false;
-                    btnPlus.classList.remove('opacity-30', 'cursor-not-allowed');
+                if (btnPlus) {
+                    if (newVal === maxLimit) {
+                        btnPlus.disabled = true;
+                        btnPlus.classList.add('opacity-30', 'cursor-not-allowed');
+                    } else {
+                        btnPlus.disabled = false;
+                        btnPlus.classList.remove('opacity-30', 'cursor-not-allowed');
+                    }
                 }
                 
                 calculateTotal();
@@ -296,6 +316,56 @@
                 checkoutBar.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
             }
         }
+
+        // LÓGICA DEL POP-UP DE ORDEN DETECTADA AÑADIDA AQUÍ
+        function showResumeModal() {
+            const modal = document.getElementById('resumeModal');
+            const modalContent = document.getElementById('resumeModalContent');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeResumeModal() {
+            const modal = document.getElementById('resumeModal');
+            const modalContent = document.getElementById('resumeModalContent');
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function resumeOrder() {
+            // Ejemplo de orden retomada: Carga 1 GanoCafe 3 en 1 y 1 Classic
+            updateQty('prod501', 1, 50);
+            updateQty('prod505', 1, 50);
+            closeResumeModal();
+        }
+
+        function resetOrder() {
+            for (const id in productQuantities) {
+                if (productQuantities[id] > 0) {
+                    productQuantities[id] = 0;
+                    document.getElementById(`qty_${id}`).innerText = '0';
+                    const btnPlus = document.getElementById(`btnPlus_${id}`);
+                    if(btnPlus) {
+                        btnPlus.disabled = false;
+                        btnPlus.classList.remove('opacity-30', 'cursor-not-allowed');
+                    }
+                }
+            }
+            calculateTotal();
+            closeResumeModal();
+        }
+
+        // Disparar el modal al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            showResumeModal();
+        });
+
     </script>
 </body>
 </html>
