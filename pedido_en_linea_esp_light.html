@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Paquetes ESP - Pedido en Línea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .brand-card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .brand-card-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.03); }
+        .active-link { background-color: #eff6ff; border-left: 4px solid #1d4ed8; color: #1d4ed8 !important; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        .product-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border-color: #3b82f6; }
+        .qty-btn { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 99px; transition: all 0.2s; font-weight: bold;}
+    </style>
+</head>
+<body class="antialiased flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white flex-col hidden md:flex h-full shadow-lg z-10 border-r border-slate-100 flex-shrink-0">
+        <div class="py-6 px-4 border-b border-slate-100 flex items-center justify-center min-h-[100px]">
+            <a href="index_light.html" class="block cursor-pointer hover:opacity-80 transition">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel Logo" class="h-16 lg:h-20 w-auto mx-auto block object-contain">
+            </a>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="index_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🏠 Inicio</a>
+            <a href="equipo_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">👥 Línea Descendente</a>
+            <a href="tienda_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🛒 Tienda</a>
+            <a href="finanzas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">📊 Reportes</a>
+            <a href="compensaciones_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">💎 Compensaciones</a>
+            <a href="herramientas_light.html" class="block p-3 hover:bg-slate-50 text-slate-600 rounded-lg transition flex items-center gap-3">🚀 Herramientas</a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a href="#" class="block p-3 hover:bg-slate-50 text-slate-500 rounded-lg transition flex items-center gap-3">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full relative overflow-y-auto bg-slate-50/50">
+        <header class="bg-white/95 backdrop-blur-sm border-b border-slate-100 p-4 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+            <div class="flex items-center gap-4">
+                <a href="index_light.html" class="block cursor-pointer md:hidden hover:opacity-80 transition">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Gano Excel" class="h-10 sm:h-12 object-contain">
+                </a>
+                <h1 class="text-2xl font-bold hidden md:block text-slate-800">Paquetes ESP</h1>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <button class="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 rounded-full bg-blue-50 items-center justify-center text-blue-700 hover:bg-blue-100 transition border border-blue-200 shadow-sm flex">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/icon23432-1.png" alt="Perfil" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-300 object-cover">
+            </div>
+        </header>
+
+        <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 pb-80">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                <a href="tienda_light.html" class="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-blue-700 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Volver
+                </a>
+                <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 text-xs font-bold uppercase">
+                    <button onclick="window.location.href='pedido_en_linea_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full hover:bg-slate-200 transition">Todos</button>
+                    <button onclick="window.location.href='pedido_en_linea_bebidas_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full hover:bg-slate-200 transition">Bebidas</button>
+                    <button onclick="window.location.href='pedido_en_linea_cuidado_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full hover:bg-slate-200 transition">Cuidado Personal</button>
+                    <button onclick="window.location.href='pedido_en_linea_capsulas_light.html'" class="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full hover:bg-slate-200 transition">Cápsulas</button>
+                    <button class="px-4 py-1.5 bg-blue-700 text-white rounded-full shadow-md">Paquetes ESP</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left" id="productsGrid">
+                </div>
+        </div>
+    </main>
+
+    <div class="fixed bottom-10 left-4 md:left-[280px] right-4 z-40 transition-all duration-300 opacity-0 pointer-events-none translate-y-10" id="checkoutBar">
+        <div class="bg-slate-800 rounded-3xl shadow-2xl border border-slate-700 p-5 flex flex-col sm:flex-row justify-between items-center gap-4 max-w-6xl mx-auto">
+            <div class="text-center sm:text-left text-white">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Subtotal del Pedido</p>
+                <p class="text-xs text-slate-300 mt-1"><span id="summaryItems" class="font-bold text-white">0 Productos agregados</span></p>
+                <h3 class="text-xl sm:text-2xl font-black mt-1">Total: <span id="totalOrderPrice" class="text-emerald-400">$0 COP</span></h3>
+            </div>
+            <button onclick="window.location.href='checkout_light.html'" class="w-full sm:w-auto px-12 py-4 text-sm font-bold text-slate-800 bg-emerald-400 hover:bg-emerald-300 rounded-2xl transition shadow-lg uppercase tracking-widest transform hover:-translate-y-1">
+                Finalizar Compra
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const productsData = [
+            { id: 'p21', code: '897', name: 'PAQUETE ESP 1', price: 900000, pv: 100, cv: 100, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp1.jpg' },
+            { id: 'p22', code: '898', name: 'PAQUETE ESP 2', price: 2250000, pv: 250, cv: 250, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp3.jpg' },
+            { id: 'p23', code: '899', name: 'PAQUETE ESP 3', price: 4500000, pv: 500, cv: 500, img: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/03/esp33.jpg' }
+        ];
+
+        const productQuantities = {};
+        const grid = document.getElementById('productsGrid');
+        const checkoutBar = document.getElementById('checkoutBar');
+        const cartBadge = document.getElementById('cartBadge');
+
+        productsData.forEach(prod => {
+            productQuantities[prod.id] = 0;
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-3xl p-6 product-card flex flex-col justify-between border border-slate-200 brand-card-shadow";
+            card.innerHTML = `
+                <div class="mb-4">
+                    <div class="w-full h-48 bg-slate-50 rounded-2xl flex items-center justify-center p-4 mb-6 relative overflow-hidden group text-center">
+                        <img src="${prod.img}" class="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110 mx-auto">
+                        <span class="absolute top-3 right-3 text-[10px] font-bold text-slate-500 bg-white/90 backdrop-blur px-2 py-1 rounded shadow-sm border border-slate-200 uppercase">Cód: ${prod.code}</span>
+                    </div>
+                    <h4 class="font-black text-lg text-slate-800 leading-tight mb-2 uppercase">${prod.name}</h4>
+                    <div class="flex gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded-md">PV: ${prod.pv}</span>
+                        <span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded-md">CV: ${prod.cv}</span>
+                    </div>
+                    <p class="text-xl text-blue-700 font-black">$${prod.price.toLocaleString('es-CO')}</p>
+                </div>
+                <div class="flex items-center justify-between gap-4 pt-4 border-t border-slate-100 mt-auto">
+                    <button onclick="updateQty('${prod.id}', -1)" class="qty-btn bg-slate-100 text-slate-600 hover:bg-slate-200 w-10 h-10">-</button>
+                    <span id="qty_${prod.id}" class="font-black text-lg text-slate-800 w-8 text-center">0</span>
+                    <button onclick="updateQty('${prod.id}', 1)" class="qty-btn bg-emerald-100 text-emerald-700 hover:bg-emerald-200 w-10 h-10">+</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        window.updateQty = function(id, change) {
+            let newVal = (productQuantities[id] || 0) + change;
+            if (newVal >= 0 && newVal <= 10) { // Límite de 10 paquetes por orden
+                productQuantities[id] = newVal;
+                const el = document.getElementById(`qty_${id}`);
+                if(el) el.innerText = newVal;
+                calculateTotal();
+            }
+        };
+
+        function calculateTotal() {
+            let totalItems = 0, totalValue = 0;
+            productsData.forEach(prod => {
+                totalItems += productQuantities[prod.id];
+                totalValue += productQuantities[prod.id] * prod.price;
+            });
+            document.getElementById('summaryItems').innerText = `${totalItems} Paquetes seleccionados`;
+            document.getElementById('totalOrderPrice').innerText = '$' + totalValue.toLocaleString('es-CO') + ' COP';
+            cartBadge.innerText = totalItems;
+            if(totalItems > 0) {
+                checkoutBar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                checkoutBar.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                checkoutBar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                checkoutBar.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
+        }
+    </script>
+</body>
+</html>
