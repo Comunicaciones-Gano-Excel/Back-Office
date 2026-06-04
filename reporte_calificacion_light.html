@@ -317,7 +317,7 @@
             <div class="flex justify-between items-center p-5 border-b border-slate-200 bg-white shrink-0">
                 <div>
                     <h2 class="font-black text-slate-800 text-lg uppercase tracking-wide flex items-center gap-2">
-                        <span class="text-purple-600">📊</span> DETALLE DE CALIFICACIÓN
+                        <span class="text-blue-600">📊</span> DETALLE DE CALIFICACIÓN
                     </h2>
                     <p class="text-xs font-bold text-slate-500 mt-1">Período: 03/30/2026 - 04/05/2026 (Ciclo #904)</p>
                 </div>
@@ -401,52 +401,84 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                    <div class="bg-slate-100 text-slate-700 px-5 py-2.5 font-bold text-sm border-b border-slate-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                        <span>Volumen Comisional Grupal (GCV)</span>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs w-fit">163,095.57 (Izquierdo)</span>
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                    <div class="grid grid-cols-2 bg-slate-300 text-slate-700 font-bold text-xs uppercase tracking-wider shrink-0 divide-x divide-slate-400">
+                        <div class="py-2.5 text-center">Izquierda</div>
+                        <div class="py-2.5 text-center">Derecha</div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-                        <div>
-                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Izquierda</div>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left text-xs whitespace-nowrap">
-                                    <thead class="text-slate-400 font-bold border-b border-slate-100 sticky top-0 bg-white"><tr><th class="p-2 pl-4">Origen</th><th class="p-2 text-right pr-4">Total CV</th></tr></thead>
-                                    <tbody class="divide-y divide-slate-50">
-                                        <tr><td class="p-2 pl-4 font-semibold">Bolivia</td><td class="p-2 text-right font-bold text-slate-700 pr-4">103.20</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Brazil</td><td class="p-2 text-right font-bold text-slate-700 pr-4">1,516.20</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Canada</td><td class="p-2 text-right font-bold text-slate-700 pr-4">217.59</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Chile</td><td class="p-2 text-right font-bold text-slate-700 pr-4">169.59</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Colombia</td><td class="p-2 text-right font-black text-emerald-600 pr-4">46,389.29</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Ecuador</td><td class="p-2 text-right font-black text-emerald-600 pr-4">89,138.80</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">El Salvador</td><td class="p-2 text-right font-bold text-slate-700 pr-4">57.00</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Guatemala</td><td class="p-2 text-right font-bold text-slate-700 pr-4">390.60</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Mexico</td><td class="p-2 text-right font-black text-emerald-600 pr-4">7,156.59</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Panama</td><td class="p-2 text-right font-black text-emerald-600 pr-4">10,912.89</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Peru</td><td class="p-2 text-right font-bold text-slate-700 pr-4">157.18</td></tr>
+
+                    <div class="bg-white overflow-x-auto">
+                        <div class="grid grid-cols-2 divide-x divide-slate-200 min-w-[600px]">
+                            <div>
+                                <table class="w-full text-left text-xs text-slate-600 whitespace-nowrap">
+                                    <thead class="bg-slate-50 border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3 font-bold text-slate-800">Origen</th>
+                                            <th class="p-3 font-bold text-slate-800 text-right">Total CV</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Bolivia, Plurinational State of</td><td class="p-3 text-right">317.38</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Brazil</td><td class="p-3 text-right">911.38</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Canada</td><td class="p-3 text-right">1,231.20</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Chile</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Colombia</td><td class="p-3 text-right">46,752.58</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Costa Rica</td><td class="p-3 text-right">42.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Dominican Republic</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Ecuador</td><td class="p-3 text-right">65,403.79</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">El Salvador</td><td class="p-3 text-right">84.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Guatemala</td><td class="p-3 text-right">240.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Honduras</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Mexico</td><td class="p-3 text-right">10,370.88</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Panama</td><td class="p-3 text-right">12,332.20</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Peru</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Puerto Rico</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">United States</td><td class="p-3 text-right">5,977.10</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Bank</td><td class="p-3 text-right">673.81</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div>
+                                <table class="w-full text-left text-xs text-slate-600 whitespace-nowrap">
+                                    <thead class="bg-slate-50 border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3 font-bold text-slate-800">Origen</th>
+                                            <th class="p-3 font-bold text-slate-800 text-right">Total CV</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Bolivia, Plurinational State of</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Brazil</td><td class="p-3 text-right">65.09</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Canada</td><td class="p-3 text-right">1,007.20</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Chile</td><td class="p-3 text-right">2,816.09</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Colombia</td><td class="p-3 text-right">107,914.89</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Costa Rica</td><td class="p-3 text-right">493.50</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Dominican Republic</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Ecuador</td><td class="p-3 text-right">32,014.68</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">El Salvador</td><td class="p-3 text-right">141.59</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Guatemala</td><td class="p-3 text-right">56.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Honduras</td><td class="p-3 text-right">0.00</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Mexico</td><td class="p-3 text-right">13,993.09</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Panama</td><td class="p-3 text-right">1,770.50</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Peru</td><td class="p-3 text-right">581.60</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Puerto Rico</td><td class="p-3 text-right">119.59</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">United States</td><td class="p-3 text-right">7,425.23</td></tr>
+                                        <tr class="hover:bg-slate-50 transition"><td class="p-3">Bank</td><td class="p-3 text-right">47,538,902.86</td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div>
-                            <div class="bg-slate-50 text-center py-2 font-bold text-xs uppercase tracking-wider border-b border-slate-200">Derecha</div>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left text-xs whitespace-nowrap">
-                                    <thead class="text-slate-400 font-bold border-b border-slate-100 sticky top-0 bg-white"><tr><th class="p-2 pl-4">Origen</th><th class="p-2 text-right pr-4">Total CV</th></tr></thead>
-                                    <tbody class="divide-y divide-slate-50">
-                                        <tr><td class="p-2 pl-4 font-semibold">Brazil</td><td class="p-2 text-right font-bold text-slate-700 pr-4">46.50</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Canada</td><td class="p-2 text-right font-bold text-slate-700 pr-4">769.60</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Chile</td><td class="p-2 text-right font-bold text-slate-700 pr-4">1,591.78</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Colombia</td><td class="p-2 text-right font-black text-emerald-600 pr-4">120,348.10</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Costa Rica</td><td class="p-2 text-right font-bold text-slate-700 pr-4">187.09</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Ecuador</td><td class="p-2 text-right font-black text-emerald-600 pr-4">41,762.58</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Guatemala</td><td class="p-2 text-right font-bold text-slate-700 pr-4">212.00</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Mexico</td><td class="p-2 text-right font-black text-emerald-600 pr-4">8,875.98</td></tr>
-                                        <tr class="bg-emerald-50/50"><td class="p-2 pl-4 font-bold text-emerald-800">Panama</td><td class="p-2 text-right font-black text-emerald-600 pr-4">1,429.99</td></tr>
-                                        <tr><td class="p-2 pl-4 font-semibold">Peru</td><td class="p-2 text-right font-bold text-slate-700 pr-4">156.18</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 divide-x divide-slate-200 border-t border-slate-200 bg-white text-slate-800 shrink-0 min-w-[600px]">
+                        <div class="p-3 flex justify-between items-center text-xs">
+                            <span class="font-bold text-slate-800">Total</span>
+                            <span class="font-bold text-slate-800">144,336.32 GCV</span>
+                        </div>
+                        <div class="p-3 flex justify-between items-center text-xs">
+                            <span class="font-bold text-slate-800">Total</span>
+                            <span class="font-bold text-slate-800">47,707,301.91 GCV</span>
                         </div>
                     </div>
                 </div>
